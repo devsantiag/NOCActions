@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace NOCActions
@@ -15,6 +13,7 @@ namespace NOCActions
 		void MainFormLoad(object sender, EventArgs e)
 		{
 			this.TopMost = true;
+			
 		}
 				
 		void SemEnergiaClick(object sender, EventArgs e)
