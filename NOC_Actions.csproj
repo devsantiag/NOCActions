@@ -5,8 +5,8 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>NOCActions</RootNamespace>
-    <AssemblyName>NOCActions</AssemblyName>
+    <RootNamespace>NOC_Actions</RootNamespace>
+    <AssemblyName>NOC_Actions</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -33,6 +33,7 @@
     <DefineConstants>TRACE</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Win32.Primitives" />
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -49,7 +50,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MainForm.cs" />
+    <Compile Include="ConfiguracaoCliente.cs" />
+    <Compile Include="ConfiguracaoCliente.Designer.cs">
+      <DependentUpon>ConfiguracaoCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Config_ComunicacaoComCliente.cs" />
+    <Compile Include="Config_ComunicacaoComCliente.Designer.cs">
+      <DependentUpon>Config_ComunicacaoComCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmailsECorpoDeEmailSalvos.cs" />
+    <Compile Include="EmailsECorpoDeEmailSalvos.Designer.cs">
+      <DependentUpon>EmailsECorpoDeEmailSalvos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <DependentUpon>EmailsECorpoDeEmailSalvos.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
@@ -57,22 +72,42 @@
     <Compile Include="MassivaForm.Designer.cs">
       <DependentUpon>MassivaForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MenuDeAcesso.cs" />
+    <Compile Include="MenuDeAcesso.Designer.cs">
+      <DependentUpon>MenuDeAcesso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ComunicacaoComCliente.cs" />
+    <Compile Include="ComunicacaoComCliente.Designer.cs">
+      <DependentUpon>ComunicacaoComCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserConfig.cs" />
-    <Compile Include="UserConfig.Designer.cs">
-      <DependentUpon>UserConfig.cs</DependentUpon>
+    <Compile Include="MassivaMenuConfigurations.cs" />
+    <Compile Include="MassivaMenuConfigurations.Designer.cs">
+      <DependentUpon>MassivaMenuConfigurations.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Config_ComunicacaoComCliente.resx">
+      <DependentUpon>Config_ComunicacaoComCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmailsECorpoDeEmailSalvos.resx">
+      <DependentUpon>EmailsECorpoDeEmailSalvos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MassivaForm.resx">
       <DependentUpon>MassivaForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserConfig.resx">
-      <DependentUpon>UserConfig.cs</DependentUpon>
+    <EmbeddedResource Include="MenuDeAcesso.resx">
+      <DependentUpon>MenuDeAcesso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ComunicacaoComCliente.resx">
+      <DependentUpon>ComunicacaoComCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MassivaMenuConfigurations.resx">
+      <DependentUpon>MassivaMenuConfigurations.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

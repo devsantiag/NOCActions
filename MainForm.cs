@@ -71,14 +71,15 @@ namespace NOCActions
 			Clipboard.SetText("Encaminhado e-mail solicitando posicionamento frente ao reparo em aberto junto ao fornecedor.");
 		}
 
-		// Abre a janela de mensagens massivas ao clicar no botão correspondente
-		void ButtonMassivaRegiaoClick(object sender, EventArgs e)
-		{
-			MassivaForm massiva = new MassivaForm();
-			massiva.ShowDialog();
-		}
+		// Abre a janela de opções específicas de ações ao clicar no botão correspondente
 		
-		// Método para organizar a ordem de tabulação dos elementos do formulário 
+		void ButtonMaisAcoesClick(object sender, EventArgs e)
+		{
+			MenuDeAcesso menuAcoes = new MenuDeAcesso();
+			menuAcoes.Show();
+			
+		}
+		// Método para organizar a ordem de tabulação dos elementos do formulário
 		private void OrdenarTabIndex()
 		{
 			SemEnergia.TabIndex = 0;

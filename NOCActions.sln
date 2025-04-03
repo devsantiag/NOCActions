@@ -2,7 +2,7 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 # SharpDevelop 5.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NOCActions", "NOCActions.csproj", "{73C9573D-B41F-4E2B-ADEE-004C8B35D419}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NOC_Actions", "NOC_Actions.csproj", "{73C9573D-B41F-4E2B-ADEE-004C8B35D419}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

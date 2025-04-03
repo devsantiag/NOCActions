@@ -121,9 +121,7 @@ namespace NOCActions
 				string emailContatoCliente = comboEmailContatoCliente.Text;
 				
 				ACAO_ComunicacaoComCliente acaoForm = new ACAO_ComunicacaoComCliente(nomeCliente, enderecoCliente, unidadeCliente, razaoSocialCliente, emailContatoCliente);
-				acaoForm.Show();
-				
-				
+				this.Close();
 			}
 		}
 	}

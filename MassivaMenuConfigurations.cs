@@ -25,8 +25,7 @@ namespace NOCActions
 			InitializeComponent();
 			CarregarOperadoraSalvas(); // Carrega as operadoras salvas no ComboBox ao abrir o formulário
 			CarregarCidadeSalvas();
-			this.TopMost = true; // Mantém a janela no topo
-			ordenarTabIndex();
+			OrdenarTabIndex();
 		}
 		
 		// Eventos dos botões que chamam os métodos correspondentes
@@ -145,7 +144,7 @@ namespace NOCActions
 		}
 		
 		// Método para organizar a ordem de tabulação dos elementos do formulário
-		private void ordenarTabIndex()
+		private void OrdenarTabIndex()
 		{
 			textBoxAdicionarCidade.TabIndex = 0;
 			comboBoxCidadeAdicionada.TabIndex = 1;

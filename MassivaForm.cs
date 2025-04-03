@@ -20,7 +20,6 @@ namespace NOCActions
 		// Construtor do formulário
 		public MassivaForm()
 		{
-			this.TopMost = true; // Mantém a janela sempre no topo
 			InitializeComponent();
 			CarregarOperadorasSalvasNoForm(); // Carrega a lista de operadoras ao iniciar o formulário
 			CarregarCidadesSalvasNoForm(); // Carrega a lista de cidades ao iniciar o formulário

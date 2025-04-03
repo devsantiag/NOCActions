@@ -5,6 +5,7 @@
  * Hora: 06:37
  * 
  */
+ 
 using System;
 using System.Windows.Forms;
 
@@ -17,7 +18,7 @@ namespace NOCActions
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new MainForm());
+			Application.Run(new ACAO_ComunicacaoComCliente());
 		}
 	}
 }
