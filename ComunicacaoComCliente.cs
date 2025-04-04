@@ -30,30 +30,12 @@ namespace NOCActions
 			try
 			{
 				RegistryKey key = Registry.CurrentUser.CreateSubKey(RegistroChave);
-				
-				
 				string dadosSalvos = key.GetValue("DadosCliente", "").ToString();
-				
-				
 				SalvarDadoNoRegistro(key, "NomeClientes", nome);
 				SalvarDadoNoRegistro(key, "Enderecos", endereco);
 				SalvarDadoNoRegistro(key, "Unidades", unidade);
 				SalvarDadoNoRegistro(key, "RazoesSociais", razaoSocial);
 				SalvarDadoNoRegistro(key, "Emails", email);
-				
-				
-//				List<string> dadosCliente = dadosSalvos.Split('|').ToList();
-//
-//				if (!dadosCliente.Contains(nome)) dadosCliente.Add(nome);
-//				if (!dadosCliente.Contains(endereco)) dadosCliente.Add(endereco);
-//				if (!dadosCliente.Contains(unidade)) dadosCliente.Add(unidade);
-//				if (!dadosCliente.Contains(razaoSocial)) dadosCliente.Add(razaoSocial);
-//				if (!dadosCliente.Contains(email)) dadosCliente.Add(email);
-//
-//				dadosCliente.Sort();
-//
-//				key.SetValue("DadosCliente", string.Join("|", dadosCliente));
-				
 				
 				key.Close();
 			}
@@ -63,7 +45,6 @@ namespace NOCActions
 			}
 		}
 
-		
 		private void SalvarDadoNoRegistro(RegistryKey key, string chave, string valor)
 		{
 			string dadosSalvos = key.GetValue(chave, "").ToString();
@@ -115,53 +96,6 @@ namespace NOCActions
 			comboBox.Sorted = true;
 		}
 
-		
-//		private void CarregarDadosCliente()
-//		{
-//			try
-//			{
-//				RegistryKey key = Registry.CurrentUser.OpenSubKey(RegistroChave);
-//
-//				if (key != null)
-//				{
-//					string dadosSalvos = key.GetValue("DadosCliente", "").ToString();
-//					string[] dadosCliente = dadosSalvos.Split('|');
-//
-//					foreach (string dado in dadosCliente)
-//					{
-//						if (!string.IsNullOrWhiteSpace(dado))
-//						{
-//							if (!comboBox1De.Items.Contains(dado))
-//							{
-//								comboBox1De.Items.Add(dado);
-//							}
-//
-//							if (!comboBox2Para.Items.Contains(dado))
-//							{
-//								comboBox2Para.Items.Add(dado);
-//							}
-//
-//							if (!comboBox3Cc.Items.Contains(dado))
-//							{
-//								comboBox3Cc.Items.Add(dado);
-//							}
-//						}
-//					}
-//
-//					// Ordenar os itens nos ComboBox
-//					comboBox1De.Sorted = true;
-//					comboBox2Para.Sorted = true;
-//					comboBox3Cc.Sorted = true;
-//
-//					key.Close();
-//				}
-//			}
-//			catch (Exception ex)
-//			{
-//				MessageBox.Show("Erro ao carregar os dados: " + ex.Message);
-//			}
-//		}
-		
 		private void OrdenarTabIndex()
 		{
 			comboBox1De.TabIndex = 1;
