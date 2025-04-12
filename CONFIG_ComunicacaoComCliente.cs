@@ -164,6 +164,47 @@ namespace NOCActions
 		}
 
 		// Método para salvar as informações de um novo contrato
+//		void BtnSalvarClick(object sender, EventArgs e)
+//		{
+//			SalvarInformacoesDoFormulario(); // Salva os dados no registro
+//
+//			string nomeCliente = comboNomeCliente.Text;
+//			string enderecoCliente = comboEnderecoCliente.Text;
+//			string unidadeCliente = comboUnidadeDoCliente.Text;
+//			string razaoSocialCliente = comboRazaoSocialCliente.Text;
+//			string emailContatoCliente_01 = comboEmailContratoCliente_01.Text;
+//			string emailContatoCliente_02 = comboEmailContratoCliente_02.Text;
+//			string emailContatoCliente_03 = comboEmailContratoCliente_03.Text;
+//
+//			// Cria uma nova instância do formulário de ação
+//			ACAO_ComunicacaoComCliente acaoForm = new ACAO_ComunicacaoComCliente(nomeCliente, enderecoCliente, unidadeCliente, razaoSocialCliente, emailContatoCliente_01, emailContatoCliente_02, emailContatoCliente_03);
+//
+//			// Verifica se os campos obrigatórios estão preenchidos antes de adicionar ao ListBox
+//			if (!string.IsNullOrWhiteSpace(comboNomeCliente.Text) &&
+//			    !string.IsNullOrWhiteSpace(comboRazaoSocialCliente.Text) &&
+//			    !string.IsNullOrWhiteSpace(comboEnderecoCliente.Text) &&
+//			    !string.IsNullOrWhiteSpace(comboEmailContratoCliente_01.Text) &&
+//			    !string.IsNullOrWhiteSpace(comboEmailContratoCliente_02.Text) &&
+//			    !string.IsNullOrWhiteSpace(comboEmailContratoCliente_03.Text))
+//			{
+//				string textoCliente = ("Cliente: " + nomeCliente + " | Razão Social: " + razaoSocialCliente + "| Endereço: " + enderecoCliente + "| E-mail p/ Contato: " + emailContatoCliente_01 + " | " + emailContatoCliente_02 + " | " + emailContatoCliente_03).ToUpper();
+//
+//				// Adiciona o item ao ListBox, se não estiver presente
+//				if (!string.IsNullOrWhiteSpace(textoCliente) && !listBox_ClientesAdicionados.Items.Contains(textoCliente))
+//				{
+//					listBox_ClientesAdicionados.Items.Add(textoCliente);
+//					SalvarListaLocalmente(); // Salva a lista localmente
+//				}
+//			}
+//			else
+//			{
+//				MessageBox.Show("Por favor, preencha todos os campos obrigatórios antes de adicionar o cliente.",
+//				                "Erro de Validação", MessageBoxButtons.OK, MessageBoxIcon.Error);
+//			}
+//		}
+
+
+		// Método que salva as informações de um novo contrato
 		void BtnSalvarClick(object sender, EventArgs e)
 		{
 			SalvarInformacoesDoFormulario(); // Salva os dados no registro
@@ -187,7 +228,7 @@ namespace NOCActions
 			    !string.IsNullOrWhiteSpace(comboEmailContratoCliente_02.Text) &&
 			    !string.IsNullOrWhiteSpace(comboEmailContratoCliente_03.Text))
 			{
-				string textoCliente = ("Cliente: " + nomeCliente + " | Razão Social: " + razaoSocialCliente + "| Endereço: " + enderecoCliente + "| E-mail p/ Contato: " + emailContatoCliente_01 + " | " + emailContatoCliente_02 + " | " + emailContatoCliente_03).ToUpper();
+				string textoCliente = string.Format("Cliente: {0} | Razão Social: {1} | Endereço: {2} | E-mail p/ Contato: {3} | {4} | {5}", nomeCliente, razaoSocialCliente, enderecoCliente, emailContatoCliente_01, emailContatoCliente_02, emailContatoCliente_03).ToUpper();
 
 				// Adiciona o item ao ListBox, se não estiver presente
 				if (!string.IsNullOrWhiteSpace(textoCliente) && !listBox_ClientesAdicionados.Items.Contains(textoCliente))
@@ -202,6 +243,8 @@ namespace NOCActions
 				                "Erro de Validação", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
+
+
 
 		// Evento que mostra o ToolTip com as informações do item ao passar o mouse
 		private void ListBox_ClientesAdicionados_MouseMove(object sender, MouseEventArgs e)
