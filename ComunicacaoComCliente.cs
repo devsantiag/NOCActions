@@ -1,4 +1,10 @@
-﻿using System;
+﻿//using System;
+//using System.Collections.Generic;
+//using System.Linq;
+//using System.Windows.Forms;
+//using Microsoft.Win32;
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
@@ -163,7 +169,7 @@ namespace NOCActions
             comboBox3Cc.TabIndex = 3;
             textBox1EmailAssunto.TabIndex = 4;
             richTextBox1Descricao.TabIndex = 5;
-            btnInformarCliente.TabIndex = 6;
+            btnNovoContrato.TabIndex = 6;
             btnPreviaEmail.TabIndex = 7;
             btnEnviar.TabIndex = 8;
             btnDeletar.TabIndex = 9;
@@ -181,9 +187,10 @@ namespace NOCActions
             CarregarDadosCliente();
             // CarregarEmailsParaComboBoxPara(); // NÃO recarregar os e-mails para comboBox2Para aqui também
         }
+
         void BtnPreviaEmailClick(object sender, EventArgs e)
         {
-
+			
         }
     }
 }

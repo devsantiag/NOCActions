@@ -55,6 +55,10 @@
     <Compile Include="ConfiguracaoCliente.Designer.cs">
       <DependentUpon>ConfiguracaoCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="ConfiguracaoDeUsuario.cs" />
+    <Compile Include="ConfiguracaoDeUsuario.Designer.cs">
+      <DependentUpon>ConfiguracaoDeUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Config_ComunicacaoComCliente.cs" />
     <Compile Include="Config_ComunicacaoComCliente.Designer.cs">
       <DependentUpon>Config_ComunicacaoComCliente.cs</DependentUpon>
@@ -89,6 +93,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="ConfiguracaoDeUsuario.resx">
+      <DependentUpon>ConfiguracaoDeUsuario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Config_ComunicacaoComCliente.resx">
       <DependentUpon>Config_ComunicacaoComCliente.cs</DependentUpon>
     </EmbeddedResource>

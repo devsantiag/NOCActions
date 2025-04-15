@@ -11,6 +11,7 @@ using Microsoft.Win32;
 using System.Collections.Generic;
 using System.Linq;
 using System.IO;
+using NOC_Actions;
 
 namespace NOCActions
 {
@@ -414,6 +415,12 @@ namespace NOCActions
 					MessageBox.Show("Formato inválido do item selecionado.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				}
 			}
+		}
+		void BtnConfiguracoesDeUsuarioClick(object sender, EventArgs e)
+		{
+			ConfiguracaoDeUsuario configuracaoDeUsuarioPadrao = new ConfiguracaoDeUsuario();
+			configuracaoDeUsuarioPadrao.StartPosition = FormStartPosition.CenterParent;
+			configuracaoDeUsuarioPadrao.ShowDialog();
 		}
 	}
 }

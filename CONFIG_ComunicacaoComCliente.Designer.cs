@@ -17,7 +17,6 @@ namespace NOCActions
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label combo;
         private System.Windows.Forms.ComboBox comboNomeCliente;
         private System.Windows.Forms.ComboBox comboEnderecoCliente;
@@ -30,6 +29,8 @@ namespace NOCActions
         private System.Windows.Forms.ComboBox comboEmailContratoCliente_03;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button btnConfiguracoesDeUsuario;
 
 //        public CONFIG_ComunicacaoComCliente()
 //        {
@@ -58,7 +59,6 @@ namespace NOCActions
         	this.label4 = new System.Windows.Forms.Label();
         	this.labelID = new System.Windows.Forms.Label();
         	this.maskedTextBox1UserID = new System.Windows.Forms.MaskedTextBox();
-        	this.button1 = new System.Windows.Forms.Button();
         	this.combo = new System.Windows.Forms.Label();
         	this.comboNomeCliente = new System.Windows.Forms.ComboBox();
         	this.comboEnderecoCliente = new System.Windows.Forms.ComboBox();
@@ -71,6 +71,8 @@ namespace NOCActions
         	this.comboEmailContratoCliente_03 = new System.Windows.Forms.ComboBox();
         	this.label6 = new System.Windows.Forms.Label();
         	this.label7 = new System.Windows.Forms.Label();
+        	this.label8 = new System.Windows.Forms.Label();
+        	this.btnConfiguracoesDeUsuario = new System.Windows.Forms.Button();
         	((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
         	this.splitContainer1.SuspendLayout();
         	this.SuspendLayout();
@@ -86,7 +88,7 @@ namespace NOCActions
         	// 
         	this.labelEmail.AutoSize = true;
         	this.labelEmail.Font = new System.Drawing.Font("Segoe UI", 12F);
-        	this.labelEmail.Location = new System.Drawing.Point(30, 132);
+        	this.labelEmail.Location = new System.Drawing.Point(30, 162);
         	this.labelEmail.Name = "labelEmail";
         	this.labelEmail.Size = new System.Drawing.Size(97, 21);
         	this.labelEmail.TabIndex = 3;
@@ -96,7 +98,7 @@ namespace NOCActions
         	// 
         	this.labelUnidade.AutoSize = true;
         	this.labelUnidade.Font = new System.Drawing.Font("Segoe UI", 12F);
-        	this.labelUnidade.Location = new System.Drawing.Point(59, 97);
+        	this.labelUnidade.Location = new System.Drawing.Point(59, 127);
         	this.labelUnidade.Name = "labelUnidade";
         	this.labelUnidade.Size = new System.Drawing.Size(68, 21);
         	this.labelUnidade.TabIndex = 4;
@@ -106,7 +108,7 @@ namespace NOCActions
         	// 
         	this.labelEndereco.AutoSize = true;
         	this.labelEndereco.Font = new System.Drawing.Font("Segoe UI", 12F);
-        	this.labelEndereco.Location = new System.Drawing.Point(53, 62);
+        	this.labelEndereco.Location = new System.Drawing.Point(53, 92);
         	this.labelEndereco.Name = "labelEndereco";
         	this.labelEndereco.Size = new System.Drawing.Size(74, 21);
         	this.labelEndereco.TabIndex = 5;
@@ -117,7 +119,7 @@ namespace NOCActions
         	this.labelInfo.AutoSize = true;
         	this.labelInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
         	this.labelInfo.ForeColor = System.Drawing.Color.Red;
-        	this.labelInfo.Location = new System.Drawing.Point(34, 576);
+        	this.labelInfo.Location = new System.Drawing.Point(34, 606);
         	this.labelInfo.Name = "labelInfo";
         	this.labelInfo.Size = new System.Drawing.Size(594, 13);
         	this.labelInfo.TabIndex = 1;
@@ -127,7 +129,7 @@ namespace NOCActions
         	// 
         	this.labelCliente.AutoSize = true;
         	this.labelCliente.Font = new System.Drawing.Font("Segoe UI", 12F);
-        	this.labelCliente.Location = new System.Drawing.Point(257, 26);
+        	this.labelCliente.Location = new System.Drawing.Point(257, 56);
         	this.labelCliente.Name = "labelCliente";
         	this.labelCliente.Size = new System.Drawing.Size(58, 21);
         	this.labelCliente.TabIndex = 2;
@@ -137,7 +139,7 @@ namespace NOCActions
         	// 
         	this.label1.AutoSize = true;
         	this.label1.ForeColor = System.Drawing.SystemColors.ScrollBar;
-        	this.label1.Location = new System.Drawing.Point(112, 300);
+        	this.label1.Location = new System.Drawing.Point(112, 330);
         	this.label1.Name = "label1";
         	this.label1.Size = new System.Drawing.Size(541, 13);
         	this.label1.TabIndex = 14;
@@ -148,7 +150,7 @@ namespace NOCActions
         	// 
         	this.label2.AutoSize = true;
         	this.label2.Font = new System.Drawing.Font("Segoe UI", 12F);
-        	this.label2.Location = new System.Drawing.Point(53, 299);
+        	this.label2.Location = new System.Drawing.Point(53, 329);
         	this.label2.Name = "label2";
         	this.label2.Size = new System.Drawing.Size(65, 21);
         	this.label2.TabIndex = 15;
@@ -157,7 +159,7 @@ namespace NOCActions
         	// btnSair
         	// 
         	this.btnSair.Font = new System.Drawing.Font("Segoe UI", 12F);
-        	this.btnSair.Location = new System.Drawing.Point(551, 509);
+        	this.btnSair.Location = new System.Drawing.Point(551, 539);
         	this.btnSair.Name = "btnSair";
         	this.btnSair.Size = new System.Drawing.Size(102, 48);
         	this.btnSair.TabIndex = 16;
@@ -167,7 +169,7 @@ namespace NOCActions
         	// btnSalvar
         	// 
         	this.btnSalvar.Font = new System.Drawing.Font("Segoe UI", 12F);
-        	this.btnSalvar.Location = new System.Drawing.Point(269, 509);
+        	this.btnSalvar.Location = new System.Drawing.Point(269, 539);
         	this.btnSalvar.Name = "btnSalvar";
         	this.btnSalvar.Size = new System.Drawing.Size(124, 51);
         	this.btnSalvar.TabIndex = 17;
@@ -178,7 +180,7 @@ namespace NOCActions
         	// btnExcluir
         	// 
         	this.btnExcluir.Font = new System.Drawing.Font("Segoe UI", 12F);
-        	this.btnExcluir.Location = new System.Drawing.Point(399, 509);
+        	this.btnExcluir.Location = new System.Drawing.Point(399, 539);
         	this.btnExcluir.Name = "btnExcluir";
         	this.btnExcluir.Size = new System.Drawing.Size(124, 51);
         	this.btnExcluir.TabIndex = 18;
@@ -191,7 +193,7 @@ namespace NOCActions
         	this.label3.AutoSize = true;
         	this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
         	this.label3.ForeColor = System.Drawing.Color.Red;
-        	this.label3.Location = new System.Drawing.Point(87, 550);
+        	this.label3.Location = new System.Drawing.Point(87, 580);
         	this.label3.Name = "label3";
         	this.label3.Size = new System.Drawing.Size(21, 13);
         	this.label3.TabIndex = 10004;
@@ -202,7 +204,7 @@ namespace NOCActions
         	this.label4.AutoSize = true;
         	this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
         	this.label4.ForeColor = System.Drawing.Color.Red;
-        	this.label4.Location = new System.Drawing.Point(321, 563);
+        	this.label4.Location = new System.Drawing.Point(321, 593);
         	this.label4.Name = "label4";
         	this.label4.Size = new System.Drawing.Size(277, 13);
         	this.label4.TabIndex = 10005;
@@ -212,7 +214,7 @@ namespace NOCActions
         	// 
         	this.labelID.AutoSize = true;
         	this.labelID.Font = new System.Drawing.Font("Segoe UI", 12F);
-        	this.labelID.Location = new System.Drawing.Point(53, 24);
+        	this.labelID.Location = new System.Drawing.Point(53, 54);
         	this.labelID.Name = "labelID";
         	this.labelID.Size = new System.Drawing.Size(25, 21);
         	this.labelID.TabIndex = 10;
@@ -220,28 +222,17 @@ namespace NOCActions
         	// 
         	// maskedTextBox1UserID
         	// 
-        	this.maskedTextBox1UserID.Location = new System.Drawing.Point(141, 26);
+        	this.maskedTextBox1UserID.Location = new System.Drawing.Point(141, 56);
         	this.maskedTextBox1UserID.Name = "maskedTextBox1UserID";
         	this.maskedTextBox1UserID.ReadOnly = true;
         	this.maskedTextBox1UserID.Size = new System.Drawing.Size(56, 20);
         	this.maskedTextBox1UserID.TabIndex = 9999;
         	// 
-        	// button1
-        	// 
-        	this.button1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-        	this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
-        	this.button1.Location = new System.Drawing.Point(139, 509);
-        	this.button1.Name = "button1";
-        	this.button1.Size = new System.Drawing.Size(124, 51);
-        	this.button1.TabIndex = 10008;
-        	this.button1.Text = "Modelo E-mail";
-        	this.button1.UseVisualStyleBackColor = true;
-        	// 
         	// combo
         	// 
         	this.combo.AutoSize = true;
         	this.combo.Font = new System.Drawing.Font("Segoe UI", 12F);
-        	this.combo.Location = new System.Drawing.Point(73, 205);
+        	this.combo.Location = new System.Drawing.Point(73, 235);
         	this.combo.Name = "combo";
         	this.combo.Size = new System.Drawing.Size(67, 21);
         	this.combo.TabIndex = 10009;
@@ -251,7 +242,7 @@ namespace NOCActions
         	// 
         	this.comboNomeCliente.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
         	this.comboNomeCliente.FormattingEnabled = true;
-        	this.comboNomeCliente.Location = new System.Drawing.Point(321, 29);
+        	this.comboNomeCliente.Location = new System.Drawing.Point(321, 59);
         	this.comboNomeCliente.Name = "comboNomeCliente";
         	this.comboNomeCliente.Size = new System.Drawing.Size(332, 25);
         	this.comboNomeCliente.TabIndex = 10012;
@@ -260,7 +251,7 @@ namespace NOCActions
         	// 
         	this.comboEnderecoCliente.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
         	this.comboEnderecoCliente.FormattingEnabled = true;
-        	this.comboEnderecoCliente.Location = new System.Drawing.Point(141, 65);
+        	this.comboEnderecoCliente.Location = new System.Drawing.Point(141, 95);
         	this.comboEnderecoCliente.Name = "comboEnderecoCliente";
         	this.comboEnderecoCliente.Size = new System.Drawing.Size(512, 25);
         	this.comboEnderecoCliente.TabIndex = 10013;
@@ -269,7 +260,7 @@ namespace NOCActions
         	// 
         	this.comboUnidadeDoCliente.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
         	this.comboUnidadeDoCliente.FormattingEnabled = true;
-        	this.comboUnidadeDoCliente.Location = new System.Drawing.Point(141, 97);
+        	this.comboUnidadeDoCliente.Location = new System.Drawing.Point(141, 127);
         	this.comboUnidadeDoCliente.Name = "comboUnidadeDoCliente";
         	this.comboUnidadeDoCliente.Size = new System.Drawing.Size(512, 25);
         	this.comboUnidadeDoCliente.TabIndex = 10014;
@@ -278,7 +269,7 @@ namespace NOCActions
         	// 
         	this.comboRazaoSocialCliente.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
         	this.comboRazaoSocialCliente.FormattingEnabled = true;
-        	this.comboRazaoSocialCliente.Location = new System.Drawing.Point(141, 132);
+        	this.comboRazaoSocialCliente.Location = new System.Drawing.Point(141, 162);
         	this.comboRazaoSocialCliente.Name = "comboRazaoSocialCliente";
         	this.comboRazaoSocialCliente.Size = new System.Drawing.Size(512, 25);
         	this.comboRazaoSocialCliente.TabIndex = 10015;
@@ -287,7 +278,7 @@ namespace NOCActions
         	// 
         	this.comboEmailContratoCliente_01.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
         	this.comboEmailContratoCliente_01.FormattingEnabled = true;
-        	this.comboEmailContratoCliente_01.Location = new System.Drawing.Point(141, 205);
+        	this.comboEmailContratoCliente_01.Location = new System.Drawing.Point(141, 235);
         	this.comboEmailContratoCliente_01.Name = "comboEmailContratoCliente_01";
         	this.comboEmailContratoCliente_01.Size = new System.Drawing.Size(512, 25);
         	this.comboEmailContratoCliente_01.TabIndex = 10016;
@@ -297,7 +288,7 @@ namespace NOCActions
         	this.listBox_ClientesAdicionados.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
         	this.listBox_ClientesAdicionados.FormattingEnabled = true;
         	this.listBox_ClientesAdicionados.ItemHeight = 17;
-        	this.listBox_ClientesAdicionados.Location = new System.Drawing.Point(59, 325);
+        	this.listBox_ClientesAdicionados.Location = new System.Drawing.Point(59, 355);
         	this.listBox_ClientesAdicionados.Name = "listBox_ClientesAdicionados";
         	this.listBox_ClientesAdicionados.Size = new System.Drawing.Size(594, 174);
         	this.listBox_ClientesAdicionados.TabIndex = 10017;
@@ -306,7 +297,7 @@ namespace NOCActions
         	// 
         	this.comboEmailContratoCliente_02.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
         	this.comboEmailContratoCliente_02.FormattingEnabled = true;
-        	this.comboEmailContratoCliente_02.Location = new System.Drawing.Point(141, 236);
+        	this.comboEmailContratoCliente_02.Location = new System.Drawing.Point(141, 266);
         	this.comboEmailContratoCliente_02.Name = "comboEmailContratoCliente_02";
         	this.comboEmailContratoCliente_02.Size = new System.Drawing.Size(512, 25);
         	this.comboEmailContratoCliente_02.TabIndex = 10019;
@@ -315,7 +306,7 @@ namespace NOCActions
         	// 
         	this.label5.AutoSize = true;
         	this.label5.Font = new System.Drawing.Font("Segoe UI", 12F);
-        	this.label5.Location = new System.Drawing.Point(73, 236);
+        	this.label5.Location = new System.Drawing.Point(73, 266);
         	this.label5.Name = "label5";
         	this.label5.Size = new System.Drawing.Size(67, 21);
         	this.label5.TabIndex = 10018;
@@ -325,7 +316,7 @@ namespace NOCActions
         	// 
         	this.comboEmailContratoCliente_03.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
         	this.comboEmailContratoCliente_03.FormattingEnabled = true;
-        	this.comboEmailContratoCliente_03.Location = new System.Drawing.Point(141, 267);
+        	this.comboEmailContratoCliente_03.Location = new System.Drawing.Point(141, 297);
         	this.comboEmailContratoCliente_03.Name = "comboEmailContratoCliente_03";
         	this.comboEmailContratoCliente_03.Size = new System.Drawing.Size(512, 25);
         	this.comboEmailContratoCliente_03.TabIndex = 10021;
@@ -334,7 +325,7 @@ namespace NOCActions
         	// 
         	this.label6.AutoSize = true;
         	this.label6.Font = new System.Drawing.Font("Segoe UI", 12F);
-        	this.label6.Location = new System.Drawing.Point(73, 267);
+        	this.label6.Location = new System.Drawing.Point(73, 297);
         	this.label6.Name = "label6";
         	this.label6.Size = new System.Drawing.Size(67, 21);
         	this.label6.TabIndex = 10020;
@@ -344,15 +335,39 @@ namespace NOCActions
         	// 
         	this.label7.AutoSize = true;
         	this.label7.Font = new System.Drawing.Font("Segoe UI", 12F);
-        	this.label7.Location = new System.Drawing.Point(30, 171);
+        	this.label7.Location = new System.Drawing.Point(30, 201);
         	this.label7.Name = "label7";
         	this.label7.Size = new System.Drawing.Size(214, 21);
         	this.label7.TabIndex = 10022;
         	this.label7.Text = "Informe os E-mails do Cliente";
         	// 
+        	// label8
+        	// 
+        	this.label8.AutoSize = true;
+        	this.label8.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+        	this.label8.Location = new System.Drawing.Point(12, 9);
+        	this.label8.Name = "label8";
+        	this.label8.Size = new System.Drawing.Size(258, 32);
+        	this.label8.TabIndex = 10023;
+        	this.label8.Text = "Adicionar novo Cliente";
+        	// 
+        	// btnConfiguracoesDeUsuario
+        	// 
+        	this.btnConfiguracoesDeUsuario.AutoSize = true;
+        	this.btnConfiguracoesDeUsuario.Font = new System.Drawing.Font("Segoe UI", 12F);
+        	this.btnConfiguracoesDeUsuario.Location = new System.Drawing.Point(554, 9);
+        	this.btnConfiguracoesDeUsuario.Name = "btnConfiguracoesDeUsuario";
+        	this.btnConfiguracoesDeUsuario.Size = new System.Drawing.Size(127, 32);
+        	this.btnConfiguracoesDeUsuario.TabIndex = 10024;
+        	this.btnConfiguracoesDeUsuario.Text = "Config. Usuário";
+        	this.btnConfiguracoesDeUsuario.UseVisualStyleBackColor = true;
+        	this.btnConfiguracoesDeUsuario.Click += new System.EventHandler(this.BtnConfiguracoesDeUsuarioClick);
+        	// 
         	// CONFIG_ComunicacaoComCliente
         	// 
-        	this.ClientSize = new System.Drawing.Size(690, 611);
+        	this.ClientSize = new System.Drawing.Size(693, 727);
+        	this.Controls.Add(this.btnConfiguracoesDeUsuario);
+        	this.Controls.Add(this.label8);
         	this.Controls.Add(this.label7);
         	this.Controls.Add(this.comboEmailContratoCliente_03);
         	this.Controls.Add(this.label6);
@@ -365,7 +380,6 @@ namespace NOCActions
         	this.Controls.Add(this.comboEnderecoCliente);
         	this.Controls.Add(this.comboNomeCliente);
         	this.Controls.Add(this.combo);
-        	this.Controls.Add(this.button1);
         	this.Controls.Add(this.label4);
         	this.Controls.Add(this.label3);
         	this.Controls.Add(this.maskedTextBox1UserID);
@@ -380,10 +394,9 @@ namespace NOCActions
         	this.Controls.Add(this.labelEmail);
         	this.Controls.Add(this.labelUnidade);
         	this.Controls.Add(this.labelEndereco);
-        	this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+        	this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
         	this.MaximizeBox = false;
         	this.Name = "CONFIG_ComunicacaoComCliente";
-        	this.Text = "Adicionar Novo Cliente";
         	((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
         	this.splitContainer1.ResumeLayout(false);
         	this.ResumeLayout(false);

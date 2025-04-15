@@ -24,3 +24,4 @@ C:\Users\fjstavares\Tel&Com_desenvolvimento_noc\NOC_Actions\obj\Debug\NOCActions
 C:\Users\fjstavares\Tel&Com_desenvolvimento_noc\NOC_Actions\obj\Debug\NOC_Actions.csproj.GenerateResource.Cache
 C:\Users\fjstavares\Tel&Com_desenvolvimento_noc\NOC_Actions\obj\Debug\NOC_Actions.exe
 C:\Users\fjstavares\Tel&Com_desenvolvimento_noc\NOC_Actions\obj\Debug\NOC_Actions.pdb
+C:\Users\fjstavares\Tel&Com_desenvolvimento_noc\NOC_Actions\obj\Debug\NOC_Actions.ConfiguracaoDeUsuario.resources
