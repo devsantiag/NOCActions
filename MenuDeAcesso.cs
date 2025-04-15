@@ -15,6 +15,7 @@ namespace NOCActions
 		public MenuDeAcesso()
 		{
 			InitializeComponent();
+			StartPosition = FormStartPosition.CenterScreen;
 		}
 		
 //		button responsável para opções de abertura de Massiva Contratual
