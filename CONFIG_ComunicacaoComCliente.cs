@@ -44,21 +44,22 @@ namespace NOCActions
 			btnExcluir.Click += BtnExcluirClick;
 		}
 
-
 		// Evento de clique do botão de salvar
 		void BtnSalvarClick(object sender, EventArgs e)
 		{
 			AdicionarClienteNaListBox();
-			string emailDestinatario1 = comboEmailContratoCliente_01.Text;
-			string concatenarEmails = string.Join(";", new[] { emailDestinatario1}
+			string emailDestinatario_Cliente = comboEmailContratoCliente_01.Text;
+			string concatenarEmails = string.Join(";", new[] { emailDestinatario_Cliente}
 			                                      .Where(email => !string.IsNullOrWhiteSpace(email)));
 
 			if (!string.IsNullOrWhiteSpace(concatenarEmails))
 			{
 				form_comunicacaoComCliente.AdicionarEmailsConcatenados(concatenarEmails);
 			}
-			SalvarEmailsNoArquivo(concatenarEmails);
+			SalvarEmailsNoArquivo(concatenarEmails);  // Salva o e-mail
+			CarregarEmailsSalvosNosComboBox();  // Recarrega os e-mails no ComboBox
 			InformacoesDoContratoDoCliente();
+			CarregarEmailsSalvosNosComboBox(); // Garante que os e-mails estejam atualizados
 		}
 
 		/// <summary>
@@ -191,8 +192,6 @@ namespace NOCActions
 				{
 					Directory.CreateDirectory(diretorio);
 				}
-
-				// Adiciona as informações ao arquivo
 				File.AppendAllText(caminhoArquivo, conteudo + Environment.NewLine);
 			}
 		}
@@ -213,6 +212,7 @@ namespace NOCActions
 			CarregarInformacaoEmComboBox(arquivoEnderecoCliente, comboEnderecoCliente);
 			CarregarInformacaoEmComboBox(arquivoUnidadeCliente, comboUnidadeDoCliente);
 			CarregarInformacaoEmComboBox(arquivoRazaoSocialCliente, comboRazaoSocialCliente);
+			CarregarInformacaoEmComboBox(arquivoEmailCliente, comboEmailContratoCliente_01);
 		}
 
 		// Carrega informações de um arquivo para o ComboBox
@@ -222,7 +222,7 @@ namespace NOCActions
 			{
 				var linhas = File.ReadAllLines(caminhoArquivo)
 					.Where(l => !string.IsNullOrWhiteSpace(l))
-					.Distinct()  // Evita informações duplicadas
+					.Distinct()
 					.ToList();
 
 				foreach (var linha in linhas)
@@ -249,8 +249,13 @@ namespace NOCActions
 				{
 					Directory.CreateDirectory(diretorio);
 				}
-
+				
 				File.AppendAllText(arquivoEmailCliente, email + Environment.NewLine);
+				MessageBox.Show("Salvo" + email);
+				
+				CarregarEmailsSalvosNosComboBox();
+				
+				
 			}
 			catch (Exception ex)
 			{
@@ -258,19 +263,21 @@ namespace NOCActions
 			}
 		}
 
-		// Carrega os e-mails salvos nos ComboBoxes
 		private void CarregarEmailsSalvosNosComboBox()
 		{
 			if (File.Exists(arquivoEmailCliente))
 			{
 				var emails = File.ReadAllLines(arquivoEmailCliente)
 					.Where(l => !string.IsNullOrWhiteSpace(l))
+					.Distinct()  
 					.ToList();
 
 				foreach (var email in emails)
 				{
 					if (!comboEmailContratoCliente_01.Items.Contains(email))
-						comboEmailContratoCliente_01.Items.Add(email);
+					{
+						comboEmailContratoCliente_01.Items.Add(email); 
+					}
 				}
 			}
 		}
@@ -308,7 +315,6 @@ namespace NOCActions
 					Directory.CreateDirectory(diretorio);
 				}
 
-				// Adiciona o cliente ao arquivo
 				File.AppendAllText(arquivoClientesAdicionados, clienteInfo + Environment.NewLine);
 			}
 			catch (Exception ex)
@@ -341,36 +347,43 @@ namespace NOCActions
 				? listBox_ClientesAdicionados.SelectedItem.ToString()
 				: string.Empty;
 
-			listBox_ClientesAdicionados.Items.Remove(clienteSelecionado);
-			RemoverLinhaDoArquivo(arquivoClientesAdicionados, clienteSelecionado);
-
-			string[] partes = clienteSelecionado.Split('|');
-			if (partes.Length >= 3)
+			if (!string.IsNullOrWhiteSpace(clienteSelecionado))
 			{
-				string nome = partes[0].Replace("Cliente:", "").Trim();
-				string unidade = partes[1].Replace("Unidade:", "").Trim();
-				string[] emails = partes[2].Replace("E-mail:", "").Split(new[] { '|', ';' }, StringSplitOptions.RemoveEmptyEntries)
-					.Select(t => t.Trim()).ToArray();
-				string endereco = partes.Length >= 4 ? partes[3].Replace("Endereço:", "").Trim() : string.Empty;
-				string razaoSocial = partes.Length >= 5 ? partes[4].Replace("Razão Social:", "").Trim() : string.Empty;
+				listBox_ClientesAdicionados.Items.Remove(clienteSelecionado);
+				RemoverLinhaDoArquivo(arquivoClientesAdicionados, clienteSelecionado);
 
-				RemoverLinhaDoArquivo(arquivoNomeCliente, nome);
-				RemoverLinhaDoArquivo(arquivoUnidadeCliente, unidade);
-				RemoverLinhaDoArquivo(arquivoEnderecoCliente, endereco);
-				RemoverLinhaDoArquivo(arquivoRazaoSocialCliente, razaoSocial);
-
-				comboNomeCliente.Items.Remove(nome);
-				comboUnidadeDoCliente.Items.Remove(unidade);
-				comboEnderecoCliente.Items.Remove(endereco);
-				comboRazaoSocialCliente.Items.Remove(razaoSocial);
-
-				foreach (string email in emails)
+				string[] partes = clienteSelecionado.Split('|');
+				if (partes.Length >= 3)
 				{
-					RemoverLinhaDoArquivo(arquivoEmailCliente, email);
-					comboEmailContratoCliente_01.Items.Remove(email);
+					string nome = partes[0].Replace("Cliente:", "").Trim();
+					string unidade = partes[1].Replace("Unidade:", "").Trim();
+					string[] emails = partes[2].Replace("E-mail:", "").Split(new[] { '|', ';' }, StringSplitOptions.RemoveEmptyEntries)
+						.Select(t => t.Trim()).ToArray();
+					string endereco = partes.Length >= 4 ? partes[3].Replace("Endereço:", "").Trim() : string.Empty;
+					string razaoSocial = partes.Length >= 5 ? partes[4].Replace("Razão Social:", "").Trim() : string.Empty;
+
+					RemoverLinhaDoArquivo(arquivoNomeCliente, nome);
+					RemoverLinhaDoArquivo(arquivoUnidadeCliente, unidade);
+					RemoverLinhaDoArquivo(arquivoEnderecoCliente, endereco);
+					RemoverLinhaDoArquivo(arquivoRazaoSocialCliente, razaoSocial);
+
+					comboNomeCliente.Items.Remove(nome);
+					comboUnidadeDoCliente.Items.Remove(unidade);
+					comboEnderecoCliente.Items.Remove(endereco);
+					comboRazaoSocialCliente.Items.Remove(razaoSocial);
+
+					foreach (string email in emails)
+					{
+						RemoverLinhaDoArquivo(arquivoEmailCliente, email);
+						comboEmailContratoCliente_01.Items.Remove(email);
+					}
+
+					// Recarregar os dados da ListBox
+					CarregarClientesAdicionados();
 				}
 			}
 		}
+
 
 		private void RemoverLinhaDoArquivo(string caminhoArquivo, string linhaParaRemover)
 		{
@@ -407,3 +420,8 @@ namespace NOCActions
 		}
 	}
 }
+
+
+// ONDE PARAMOS: Precisamos corrigir o email pois ele não está sendo listado e mostrado
+
+
