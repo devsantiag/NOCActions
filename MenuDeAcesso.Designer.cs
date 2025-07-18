@@ -9,7 +9,6 @@ namespace NOCActions
 	partial class MenuDeAcesso
 	{
 		private System.ComponentModel.IContainer components = null;
-//		private System.Windows.Forms.Button buttonAvaliacaoComCliente;
 		private System.Windows.Forms.Button button1AcaoAberturaDeMassiva;
 		private System.Windows.Forms.Button btnEmailAberturaDeReparoParaCliente;
 		

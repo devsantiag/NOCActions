@@ -1,11 +1,4 @@
-﻿/*
- * Criado com SharpDevelop.
- * Usuário: fjstavares
- * Data: 06/12/2024
- * Hora: 09:37
- */
-
-using System;
+﻿using System;
 using System.IO;
 using System.Windows.Forms;
 

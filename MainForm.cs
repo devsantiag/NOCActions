@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using NOC_Actions;
 
 namespace NOCActions
 {
@@ -90,9 +91,17 @@ namespace NOCActions
 			ButtonAberturaDeOs.TabIndex = 5;
 			ButtonPosicionamentoTecnico.TabIndex = 6;
 		}
-		void MainFormLoad(object sender, EventArgs e)
+		
+		void BtnAberturaDeMassivaClick(object sender, EventArgs e)
 		{
-	
+			MassivaForm aberturaMassiva = new MassivaForm();
+			aberturaMassiva.ShowDialog();
+		}
+		
+		void BtnInformesClientesClick(object sender, EventArgs e)
+		{
+			InterfaceClienteInformes openInterface_ClienteInformes = new InterfaceClienteInformes();
+			openInterface_ClienteInformes.Show();
 		}
 	}
 }

@@ -50,6 +50,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClienteInformes.cs" />
+    <Compile Include="ClienteInformes.Designer.cs">
+      <DependentUpon>ClienteInformes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Config_ComunicacaoComCliente.cs" />
     <Compile Include="Config_ComunicacaoComCliente.Designer.cs">
       <DependentUpon>Config_ComunicacaoComCliente.cs</DependentUpon>
@@ -57,6 +61,30 @@
     <Compile Include="EmailsECorpoDeEmailSalvos.cs" />
     <Compile Include="EmailsECorpoDeEmailSalvos.Designer.cs">
       <DependentUpon>EmailsECorpoDeEmailSalvos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InformesClientes.cs" />
+    <Compile Include="InformesClientes.Designer.cs">
+      <DependentUpon>InformesClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceClienteInformes.cs" />
+    <Compile Include="InterfaceClienteInformes.Designer.cs">
+      <DependentUpon>InterfaceClienteInformes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UcAberturaReparo.cs" />
+    <Compile Include="UcAberturaReparo.Designer.cs">
+      <DependentUpon>UcAberturaReparo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UcAlarmeDeLinkIndisponivel.cs" />
+    <Compile Include="UcAlarmeDeLinkIndisponivel.Designer.cs">
+      <DependentUpon>UcAlarmeDeLinkIndisponivel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UcLiberacaoDeAcessoSemPrevisao.cs" />
+    <Compile Include="UcLiberacaoDeAcessoSemPrevisao.Designer.cs">
+      <DependentUpon>UcLiberacaoDeAcessoSemPrevisao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UcLiberacaoAcessoComPrevisao.cs" />
+    <Compile Include="UcLiberacaoAcessoComPrevisao.Designer.cs">
+      <DependentUpon>UcLiberacaoAcessoComPrevisao.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <DependentUpon>EmailsECorpoDeEmailSalvos.cs</DependentUpon>
@@ -82,13 +110,26 @@
     <Compile Include="MassivaMenuConfigurations.Designer.cs">
       <DependentUpon>MassivaMenuConfigurations.cs</DependentUpon>
     </Compile>
+    <Compile Include="UcPossivelQuedaDeEnergia.cs" />
+    <Compile Include="UcPossivelQuedaDeEnergia.Designer.cs">
+      <DependentUpon>UcPossivelQuedaDeEnergia.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="ClienteInformes.resx">
+      <DependentUpon>ClienteInformes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Config_ComunicacaoComCliente.resx">
       <DependentUpon>Config_ComunicacaoComCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EmailsECorpoDeEmailSalvos.resx">
       <DependentUpon>EmailsECorpoDeEmailSalvos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceClienteInformes.resx">
+      <DependentUpon>InterfaceClienteInformes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UcLiberacaoDeAcessoComPrevisao.resx">
+      <DependentUpon>UcLiberacaoAcessoComPrevisao.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -104,6 +145,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MassivaMenuConfigurations.resx">
       <DependentUpon>MassivaMenuConfigurations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UcAberturaReparo.resx">
+      <DependentUpon>UcAberturaReparo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UcAlarmeDeLinkIndisponivel.resx">
+      <DependentUpon>UcAlarmeDeLinkIndisponivel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UcLiberacaoDeAcessoSemPrevisao.resx">
+      <DependentUpon>UcLiberacaoDeAcessoSemPrevisao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UcPossivelQuedaDeEnergia.resx">
+      <DependentUpon>UcPossivelQuedaDeEnergia.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

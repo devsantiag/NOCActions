@@ -58,7 +58,7 @@ namespace NOCActions
 		}
 		void BtnEmailAberturaDeReparoParaClienteClick(object sender, EventArgs e)
 		{
-			var getSoftwareExterno = @"C:\Users\fjstavares\Tel&Com_desenvolvimento_noc\NOC_Actions\bin\Debug\NOC_Email.exe";
+			var getSoftwareExterno = "NOC_Email.exe";
 			
 			if (System.IO.File.Exists(getSoftwareExterno))
 			{
