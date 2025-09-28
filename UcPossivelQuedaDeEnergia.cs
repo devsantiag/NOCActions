@@ -26,5 +26,9 @@ namespace NOC_Actions
 		{
 			textBox1_UnidadeQueda.Text = "";
 		}
+		void BtnFecharJanelaClick(object sender, EventArgs e)
+		{
+			this.Hide();
+		}
 	}
 }

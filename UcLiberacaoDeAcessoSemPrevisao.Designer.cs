@@ -22,6 +22,7 @@ namespace NOC_Actions
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.RichTextBox richTextBox1_DadosTecnicos;
 		private System.Windows.Forms.Label label3;
+		private System.Windows.Forms.Button button1;
 		
 		/// <summary>
 		/// Disposes resources used by the control.
@@ -52,6 +53,7 @@ namespace NOC_Actions
 			this.label1 = new System.Windows.Forms.Label();
 			this.richTextBox1_DadosTecnicos = new System.Windows.Forms.RichTextBox();
 			this.label3 = new System.Windows.Forms.Label();
+			this.button1 = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// label5
@@ -127,11 +129,21 @@ namespace NOC_Actions
 			this.label3.Text = "No campo acima, adicione as informações pessoais da equipe técnica (NOME, RG, CPF" +
 	" e outros documentos).";
 			// 
+			// button1
+			// 
+			this.button1.Location = new System.Drawing.Point(44, 317);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(114, 33);
+			this.button1.TabIndex = 20;
+			this.button1.Text = "Apagar";
+			this.button1.UseVisualStyleBackColor = true;
+			// 
 			// UcLiberacaoDeAcessoSemPrevisao
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.Control;
+			this.Controls.Add(this.button1);
 			this.Controls.Add(this.label3);
 			this.Controls.Add(this.richTextBox1_DadosTecnicos);
 			this.Controls.Add(this.label5);

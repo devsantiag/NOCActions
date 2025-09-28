@@ -1,8 +1,0 @@
-C:\Users\fjstavares\Tel&Com_desenvolvimento_noc\NOC_Actions\NOC_AberturaDeReparo\bin\Debug\NOC_AberturaDeReparo.exe.config
-C:\Users\fjstavares\Tel&Com_desenvolvimento_noc\NOC_Actions\NOC_AberturaDeReparo\bin\Debug\NOC_AberturaDeReparo.exe
-C:\Users\fjstavares\Tel&Com_desenvolvimento_noc\NOC_Actions\NOC_AberturaDeReparo\bin\Debug\NOC_AberturaDeReparo.pdb
-C:\Users\fjstavares\Tel&Com_desenvolvimento_noc\NOC_Actions\NOC_AberturaDeReparo\obj\Debug\NOC_AberturaDeReparo.csprojResolveAssemblyReference.cache
-C:\Users\fjstavares\Tel&Com_desenvolvimento_noc\NOC_Actions\NOC_AberturaDeReparo\obj\Debug\NOC_AberturaDeReparo.MainForm.resources
-C:\Users\fjstavares\Tel&Com_desenvolvimento_noc\NOC_Actions\NOC_AberturaDeReparo\obj\Debug\NOC_AberturaDeReparo.csproj.GenerateResource.Cache
-C:\Users\fjstavares\Tel&Com_desenvolvimento_noc\NOC_Actions\NOC_AberturaDeReparo\obj\Debug\NOC_AberturaDeReparo.exe
-C:\Users\fjstavares\Tel&Com_desenvolvimento_noc\NOC_Actions\NOC_AberturaDeReparo\obj\Debug\NOC_AberturaDeReparo.pdb

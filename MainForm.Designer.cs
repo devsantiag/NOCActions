@@ -1,4 +1,57 @@
-﻿/*
+﻿///*
+// * Criado por SharpDevelop.
+// * Usuário: fjstavares
+// * Data: 28/09/2025
+// * Hora: 11:37
+// * 
+// * Para alterar este modelo use Ferramentas | Opções | Codificação | Editar Cabeçalhos Padrão.
+// */
+//namespace NOC_Actions
+//{
+//	partial class MainForm
+//	{
+//		/// <summary>
+//		/// Designer variable used to keep track of non-visual components.
+//		/// </summary>
+//		private System.ComponentModel.IContainer components = null;
+//		
+//		/// <summary>
+//		/// Disposes resources used by the form.
+//		/// </summary>
+//		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+//		protected override void Dispose(bool disposing)
+//		{
+//			if (disposing) {
+//				if (components != null) {
+//					components.Dispose();
+//				}
+//			}
+//			base.Dispose(disposing);
+//		}
+//		
+//		/// <summary>
+//		/// This method is required for Windows Forms designer support.
+//		/// Do not change the method contents inside the source code editor. The Forms designer might
+//		/// not be able to load this method if it was changed manually.
+//		/// </summary>
+//		private void InitializeComponent()
+//		{
+//			this.SuspendLayout();
+//			// 
+//			// MainForm
+//			// 
+//			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+//			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+//			this.ClientSize = new System.Drawing.Size(839, 284);
+//			this.Name = "MainForm";
+//			this.Text = "MainForm";
+//			this.ResumeLayout(false);
+//
+//		}
+//	}
+//}
+
+/*
  * Criado por SharpDevelop.
  * Usuário: fjstavares
  * Data: 08/07/2024
@@ -6,7 +59,9 @@
  * 
  * Para alterar este modelo use Ferramentas | Opções | Codificação | Editar Cabeçalhos Padrão.
  */
-namespace NOCActions
+ 
+ 
+namespace NOC_Actions
 {
 	partial class MainForm
 	{
@@ -50,7 +105,7 @@ namespace NOCActions
 			// ButtonSemContatoLocal
 			// 
 			this.ButtonSemContatoLocal.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.ButtonSemContatoLocal.Location = new System.Drawing.Point(300, -1);
+			this.ButtonSemContatoLocal.Location = new System.Drawing.Point(300, 0);
 			this.ButtonSemContatoLocal.Name = "ButtonSemContatoLocal";
 			this.ButtonSemContatoLocal.Size = new System.Drawing.Size(97, 59);
 			this.ButtonSemContatoLocal.TabIndex = 2;
@@ -61,7 +116,7 @@ namespace NOCActions
 			// ButtonSemExpediente
 			// 
 			this.ButtonSemExpediente.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.ButtonSemExpediente.Location = new System.Drawing.Point(400, -1);
+			this.ButtonSemExpediente.Location = new System.Drawing.Point(400, 0);
 			this.ButtonSemExpediente.Name = "ButtonSemExpediente";
 			this.ButtonSemExpediente.Size = new System.Drawing.Size(97, 59);
 			this.ButtonSemExpediente.TabIndex = 3;
@@ -72,7 +127,7 @@ namespace NOCActions
 			// ButtonInfraOkCliente
 			// 
 			this.ButtonInfraOkCliente.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.ButtonInfraOkCliente.Location = new System.Drawing.Point(500, -1);
+			this.ButtonInfraOkCliente.Location = new System.Drawing.Point(500, 0);
 			this.ButtonInfraOkCliente.Name = "ButtonInfraOkCliente";
 			this.ButtonInfraOkCliente.Size = new System.Drawing.Size(97, 59);
 			this.ButtonInfraOkCliente.TabIndex = 4;
@@ -83,7 +138,7 @@ namespace NOCActions
 			// ButtonSemContatoOperadora
 			// 
 			this.ButtonSemContatoOperadora.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.ButtonSemContatoOperadora.Location = new System.Drawing.Point(600, -1);
+			this.ButtonSemContatoOperadora.Location = new System.Drawing.Point(600, 0);
 			this.ButtonSemContatoOperadora.Name = "ButtonSemContatoOperadora";
 			this.ButtonSemContatoOperadora.Size = new System.Drawing.Size(97, 59);
 			this.ButtonSemContatoOperadora.TabIndex = 5;
@@ -94,7 +149,7 @@ namespace NOCActions
 			// ButtonAberturaDeOs
 			// 
 			this.ButtonAberturaDeOs.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.ButtonAberturaDeOs.Location = new System.Drawing.Point(700, -1);
+			this.ButtonAberturaDeOs.Location = new System.Drawing.Point(700, 0);
 			this.ButtonAberturaDeOs.Name = "ButtonAberturaDeOs";
 			this.ButtonAberturaDeOs.Size = new System.Drawing.Size(97, 59);
 			this.ButtonAberturaDeOs.TabIndex = 6;
@@ -105,7 +160,7 @@ namespace NOCActions
 			// ButtonPosicionamentoTecnico
 			// 
 			this.ButtonPosicionamentoTecnico.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.ButtonPosicionamentoTecnico.Location = new System.Drawing.Point(800, -1);
+			this.ButtonPosicionamentoTecnico.Location = new System.Drawing.Point(800, 0);
 			this.ButtonPosicionamentoTecnico.Name = "ButtonPosicionamentoTecnico";
 			this.ButtonPosicionamentoTecnico.Size = new System.Drawing.Size(97, 59);
 			this.ButtonPosicionamentoTecnico.TabIndex = 7;
@@ -116,7 +171,7 @@ namespace NOCActions
 			// SemEnergia
 			// 
 			this.SemEnergia.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.SemEnergia.Location = new System.Drawing.Point(200, -1);
+			this.SemEnergia.Location = new System.Drawing.Point(200, 0);
 			this.SemEnergia.Name = "SemEnergia";
 			this.SemEnergia.Size = new System.Drawing.Size(97, 59);
 			this.SemEnergia.TabIndex = 8;
@@ -127,7 +182,7 @@ namespace NOCActions
 			// btnAberturaDeMassiva
 			// 
 			this.btnAberturaDeMassiva.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnAberturaDeMassiva.Location = new System.Drawing.Point(100, -1);
+			this.btnAberturaDeMassiva.Location = new System.Drawing.Point(100, 0);
 			this.btnAberturaDeMassiva.Name = "btnAberturaDeMassiva";
 			this.btnAberturaDeMassiva.Size = new System.Drawing.Size(97, 59);
 			this.btnAberturaDeMassiva.TabIndex = 11;
@@ -138,13 +193,12 @@ namespace NOCActions
 			// btnInformesClientes
 			// 
 			this.btnInformesClientes.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnInformesClientes.Location = new System.Drawing.Point(0, -1);
+			this.btnInformesClientes.Location = new System.Drawing.Point(0, 0);
 			this.btnInformesClientes.Name = "btnInformesClientes";
 			this.btnInformesClientes.Size = new System.Drawing.Size(97, 59);
 			this.btnInformesClientes.TabIndex = 12;
 			this.btnInformesClientes.Text = "Informes";
 			this.btnInformesClientes.UseVisualStyleBackColor = true;
-			this.btnInformesClientes.Click += new System.EventHandler(this.BtnInformesClientesClick);
 			// 
 			// MainForm
 			// 
@@ -182,3 +236,4 @@ namespace NOCActions
 		
 	}
 }
+

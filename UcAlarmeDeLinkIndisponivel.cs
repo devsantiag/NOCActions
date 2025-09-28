@@ -3,9 +3,6 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 
-//			Prezados, bom dia! Identificamos alarme do link da __ (operadora) indisponível as ___ (hh:mm). Iremos seguir com acionamento junto ao fornecedor.
-
-
 namespace NOC_Actions
 {
 	public partial class UcAlarmeDeLinkIndisponivel : UserControl

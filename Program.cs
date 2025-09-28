@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace NOCActions
+namespace NOC_Actions        
 {
-	internal sealed class Program
-	{
-		[STAThread]
-		private static void Main(string[] args)
-		   {
-			Application.EnableVisualStyles();
-			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new MainForm());
-		}
-	}
+    internal sealed class Program
+    {
+        [STAThread]
+        private static void Main(string[] args)
+        {
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new MainForm());
+        }
+    }
 }

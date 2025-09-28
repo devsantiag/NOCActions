@@ -207,7 +207,7 @@ namespace NOCActions
 			this.Controls.Add(this.btnAdicionarOperadora);
 			this.Controls.Add(this.textBoxAdicionarOperadora);
 			this.Controls.Add(this.label1);
-			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
 			this.MaximizeBox = false;
 			this.Name = "UserConfig";
 			this.Text = "Configurações";

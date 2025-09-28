@@ -9,10 +9,10 @@
 		private System.Windows.Forms.Button btnLibAcessoComPrevisao;
 		private System.Windows.Forms.Button btnAnaliseEnergia;
 		private System.Windows.Forms.Button btnAlarmeComChamado;
-		private System.Windows.Forms.Button btnQuedaEnergia;
 
 		private System.Windows.Forms.SplitContainer splitContainer1;
 		private System.Windows.Forms.Panel painelInterface;
+		private System.Windows.Forms.Button button1;
 
 		protected override void Dispose(bool disposing)
 		{
@@ -32,8 +32,8 @@
 			this.btnLibAcessoComPrevisao = new System.Windows.Forms.Button();
 			this.btnAnaliseEnergia = new System.Windows.Forms.Button();
 			this.btnAlarmeComChamado = new System.Windows.Forms.Button();
-			this.btnQuedaEnergia = new System.Windows.Forms.Button();
 			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+			this.button1 = new System.Windows.Forms.Button();
 			this.painelInterface = new System.Windows.Forms.Panel();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
 			this.splitContainer1.Panel1.SuspendLayout();
@@ -101,16 +101,6 @@
 			this.btnAlarmeComChamado.Text = "Alarme + Chamado Registrado";
 			this.btnAlarmeComChamado.Click += new System.EventHandler(this.BtnAlarmeComChamadoClick);
 			// 
-			// btnQuedaEnergia
-			// 
-			this.btnQuedaEnergia.Dock = System.Windows.Forms.DockStyle.Top;
-			this.btnQuedaEnergia.Location = new System.Drawing.Point(0, 138);
-			this.btnQuedaEnergia.Name = "btnQuedaEnergia";
-			this.btnQuedaEnergia.Size = new System.Drawing.Size(230, 23);
-			this.btnQuedaEnergia.TabIndex = 0;
-			this.btnQuedaEnergia.Text = "Possível Queda de Energia";
-			this.btnQuedaEnergia.Click += new System.EventHandler(this.BtnQuedaEnergiaClick);
-			// 
 			// splitContainer1
 			// 
 			this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -120,7 +110,7 @@
 			// splitContainer1.Panel1
 			// 
 			this.splitContainer1.Panel1.BackColor = System.Drawing.Color.Gainsboro;
-			this.splitContainer1.Panel1.Controls.Add(this.btnQuedaEnergia);
+			this.splitContainer1.Panel1.Controls.Add(this.button1);
 			this.splitContainer1.Panel1.Controls.Add(this.btnAlarmeComChamado);
 			this.splitContainer1.Panel1.Controls.Add(this.btnAnaliseEnergia);
 			this.splitContainer1.Panel1.Controls.Add(this.btnLibAcessoComPrevisao);
@@ -135,6 +125,16 @@
 			this.splitContainer1.Size = new System.Drawing.Size(704, 380);
 			this.splitContainer1.SplitterDistance = 230;
 			this.splitContainer1.TabIndex = 0;
+			// 
+			// button1
+			// 
+			this.button1.Dock = System.Windows.Forms.DockStyle.Top;
+			this.button1.Location = new System.Drawing.Point(0, 138);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(230, 23);
+			this.button1.TabIndex = 7;
+			this.button1.Text = "Pendência Financeira";
+			this.button1.Click += new System.EventHandler(this.Button1Click);
 			// 
 			// painelInterface
 			// 

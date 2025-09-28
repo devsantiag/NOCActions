@@ -5,9 +5,6 @@ using System.Windows.Forms;
 
 namespace NOC_Actions
 {
-	/// <summary>
-	/// Description of UcAberturaDeReparo.
-	/// </summary>
 	public partial class UcAberturaDeReparo : UserControl
 	{
 		public UcAberturaDeReparo()

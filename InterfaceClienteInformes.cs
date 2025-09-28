@@ -13,9 +13,9 @@ namespace NOC_Actions
 		
 		private void MostrarUserControl(UserControl uc)
 		{
-			painelInterface.Controls.Clear(); // Remove o conteúdo anterior
+			painelInterface.Controls.Clear();
 			uc.Dock = DockStyle.Fill;
-			painelInterface.Controls.Add(uc); // Adiciona o novo conteúdo
+			painelInterface.Controls.Add(uc);
 		}
 		
 		private void BtnAlarmeLinkIndisponivel_Click(object sender, EventArgs e)
@@ -47,6 +47,7 @@ namespace NOC_Actions
 //			Prezados, poderiam confirmar possível queda de energia na loja CE___? Constatamos que ambos os links estão indisponíveis neste momento.
 			MostrarUserControl(new UcPossivelQuedaDeEnergia());
 		}
+		
 		void BtnAlarmeComChamadoClick(object sender, EventArgs e)
 		{
 //			Prezados, identificamos alarme do link da __ (operadora) indisponível as __ (hh:mm).chamado ___ registrado as ____ (hh:mm) junto ao fornecedor.
@@ -56,6 +57,11 @@ namespace NOC_Actions
 		{
 //			Prezados, poderiam confirmar possível queda de energia na loja CE___? Constatamos que ambos os links estão indisponíveis neste momento.
 			MostrarUserControl(new UcPossivelQuedaDeEnergia());
+		}
+		void Button1Click(object sender, EventArgs e)
+		{
+//			Prezados, constatamos a existência de um bloqueio administrativo-financeiro no contrato da unidade...
+			MostrarUserControl (new UcPendenciaFinanceiraInformes());
 		}
 	}
 }

@@ -3,7 +3,7 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using NOC_Actions;
 
-namespace NOCActions
+namespace NOC_Actions
 {
 	public partial class MainForm : Form
 	{
@@ -74,12 +74,12 @@ namespace NOCActions
 
 		// Abre a janela de opções específicas de ações ao clicar no botão correspondente
 		
-		void ButtonMaisAcoesClick(object sender, EventArgs e)
-		{
-			MenuDeAcesso menuAcoes = new MenuDeAcesso();
-			menuAcoes.Show();
-			
-		}
+//		void ButtonMaisAcoesClick(object sender, EventArgs e)
+//		{
+//			MenuDeAcesso menuAcoes = new MenuDeAcesso();
+//			menuAcoes.Show();
+//			
+//		}
 		// Método para organizar a ordem de tabulação dos elementos do formulário
 		private void OrdenarTabIndex()
 		{
@@ -91,17 +91,11 @@ namespace NOCActions
 			ButtonAberturaDeOs.TabIndex = 5;
 			ButtonPosicionamentoTecnico.TabIndex = 6;
 		}
-		
 		void BtnAberturaDeMassivaClick(object sender, EventArgs e)
 		{
-			MassivaForm aberturaMassiva = new MassivaForm();
-			aberturaMassiva.ShowDialog();
-		}
-		
-		void BtnInformesClientesClick(object sender, EventArgs e)
-		{
-			InterfaceClienteInformes openInterface_ClienteInformes = new InterfaceClienteInformes();
-			openInterface_ClienteInformes.Show();
+			
 		}
 	}
 }
+
+

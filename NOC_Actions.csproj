@@ -50,25 +50,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClienteInformes.cs" />
-    <Compile Include="ClienteInformes.Designer.cs">
-      <DependentUpon>ClienteInformes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Config_ComunicacaoComCliente.cs" />
-    <Compile Include="Config_ComunicacaoComCliente.Designer.cs">
-      <DependentUpon>Config_ComunicacaoComCliente.cs</DependentUpon>
-    </Compile>
-    <Compile Include="EmailsECorpoDeEmailSalvos.cs" />
-    <Compile Include="EmailsECorpoDeEmailSalvos.Designer.cs">
-      <DependentUpon>EmailsECorpoDeEmailSalvos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="InformesClientes.cs" />
-    <Compile Include="InformesClientes.Designer.cs">
-      <DependentUpon>InformesClientes.cs</DependentUpon>
-    </Compile>
     <Compile Include="InterfaceClienteInformes.cs" />
     <Compile Include="InterfaceClienteInformes.Designer.cs">
       <DependentUpon>InterfaceClienteInformes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs" />
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UcPendenciaFinanceiraInformes.cs" />
+    <Compile Include="UcPendenciaFinanceiraInformes.Designer.cs">
+      <DependentUpon>UcPendenciaFinanceiraInformes.cs</DependentUpon>
     </Compile>
     <Compile Include="UcAberturaReparo.cs" />
     <Compile Include="UcAberturaReparo.Designer.cs">
@@ -86,12 +78,6 @@
     <Compile Include="UcLiberacaoAcessoComPrevisao.Designer.cs">
       <DependentUpon>UcLiberacaoAcessoComPrevisao.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainForm.cs">
-      <DependentUpon>EmailsECorpoDeEmailSalvos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MainForm.Designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="MassivaForm.cs" />
     <Compile Include="MassivaForm.Designer.cs">
       <DependentUpon>MassivaForm.cs</DependentUpon>
@@ -99,10 +85,6 @@
     <Compile Include="MenuDeAcesso.cs" />
     <Compile Include="MenuDeAcesso.Designer.cs">
       <DependentUpon>MenuDeAcesso.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ComunicacaoComCliente.cs" />
-    <Compile Include="ComunicacaoComCliente.Designer.cs">
-      <DependentUpon>ComunicacaoComCliente.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -116,32 +98,27 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="ClienteInformes.resx">
-      <DependentUpon>ClienteInformes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Config_ComunicacaoComCliente.resx">
-      <DependentUpon>Config_ComunicacaoComCliente.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="EmailsECorpoDeEmailSalvos.resx">
-      <DependentUpon>EmailsECorpoDeEmailSalvos.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="InterfaceClienteInformes.resx">
       <DependentUpon>InterfaceClienteInformes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UcLiberacaoDeAcessoComPrevisao.resx">
-      <DependentUpon>UcLiberacaoAcessoComPrevisao.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UcLiberacaoAcessoComPrevisao.resx">
+      <DependentUpon>UcLiberacaoAcessoComPrevisao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UcPendenciaFinanceiraInformes.resx">
+      <DependentUpon>UcPendenciaFinanceiraInformes.cs</DependentUpon>
+    </EmbeddedResource>
+    <!-- código repetido -->
+    <!--     <EmbeddedResource Include="UcLiberacaoDeAcessoComPrevisao.resx">
+      <DependentUpon>UcLiberacaoDeAcessoComPrevisao.cs</DependentUpon>
+    </EmbeddedResource> -->
     <EmbeddedResource Include="MassivaForm.resx">
       <DependentUpon>MassivaForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MenuDeAcesso.resx">
       <DependentUpon>MenuDeAcesso.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ComunicacaoComCliente.resx">
-      <DependentUpon>ComunicacaoComCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MassivaMenuConfigurations.resx">
       <DependentUpon>MassivaMenuConfigurations.cs</DependentUpon>

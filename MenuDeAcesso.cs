@@ -51,11 +51,11 @@ namespace NOCActions
 			acaoAberturaDeMassivaForm.ShowDialog();
 		}
 
-		void ButtonComunicacaoComClienteClick(object sender, EventArgs e)
-		{
-			ACAO_ComunicacaoComCliente comunicacaoComClienteShowProject = new ACAO_ComunicacaoComCliente();
-			comunicacaoComClienteShowProject.ShowDialog();
-		}
+//		void ButtonComunicacaoComClienteClick(object sender, EventArgs e)
+//		{
+//			ACAO_ComunicacaoComCliente comunicacaoComClienteShowProject = new ACAO_ComunicacaoComCliente();
+//			comunicacaoComClienteShowProject.ShowDialog();
+//		}
 		void BtnEmailAberturaDeReparoParaClienteClick(object sender, EventArgs e)
 		{
 			var getSoftwareExterno = "NOC_Email.exe";
