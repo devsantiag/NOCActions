@@ -67,7 +67,7 @@ namespace NOC_Actions
 			// 
 			// btnGravarECopiar
 			// 
-			this.btnGravarECopiar.Location = new System.Drawing.Point(339, 315);
+			this.btnGravarECopiar.Location = new System.Drawing.Point(339, 316);
 			this.btnGravarECopiar.Name = "btnGravarECopiar";
 			this.btnGravarECopiar.Size = new System.Drawing.Size(114, 33);
 			this.btnGravarECopiar.TabIndex = 16;
@@ -78,14 +78,16 @@ namespace NOC_Actions
 			// label4
 			// 
 			this.label4.AutoSize = true;
+			this.label4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label4.Location = new System.Drawing.Point(3, 1);
 			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(121, 13);
+			this.label4.Size = new System.Drawing.Size(130, 13);
 			this.label4.TabIndex = 15;
 			this.label4.Text = "Mensagem a ser exibida";
 			// 
 			// label2
 			// 
+			this.label2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label2.Location = new System.Drawing.Point(44, 83);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(134, 23);
@@ -94,7 +96,7 @@ namespace NOC_Actions
 			// 
 			// btnApagarCampos
 			// 
-			this.btnApagarCampos.Location = new System.Drawing.Point(219, 315);
+			this.btnApagarCampos.Location = new System.Drawing.Point(219, 316);
 			this.btnApagarCampos.Name = "btnApagarCampos";
 			this.btnApagarCampos.Size = new System.Drawing.Size(114, 33);
 			this.btnApagarCampos.TabIndex = 10;
@@ -104,6 +106,7 @@ namespace NOC_Actions
 			// 
 			// label1
 			// 
+			this.label1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label1.Location = new System.Drawing.Point(3, 22);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(464, 35);
@@ -122,6 +125,7 @@ namespace NOC_Actions
 			// 
 			// label3
 			// 
+			this.label3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label3.Location = new System.Drawing.Point(44, 225);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(391, 35);

@@ -62,7 +62,8 @@ namespace NOC_Actions
 			// 
 			// btnGravarECopiar
 			// 
-			this.btnGravarECopiar.Location = new System.Drawing.Point(339, 315);
+			this.btnGravarECopiar.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+			this.btnGravarECopiar.Location = new System.Drawing.Point(339, 316);
 			this.btnGravarECopiar.Name = "btnGravarECopiar";
 			this.btnGravarECopiar.Size = new System.Drawing.Size(114, 33);
 			this.btnGravarECopiar.TabIndex = 16;
@@ -73,15 +74,16 @@ namespace NOC_Actions
 			// label4
 			// 
 			this.label4.AutoSize = true;
+			this.label4.Font = new System.Drawing.Font("Segoe UI", 8.25F);
 			this.label4.Location = new System.Drawing.Point(3, 1);
 			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(121, 13);
+			this.label4.Size = new System.Drawing.Size(130, 13);
 			this.label4.TabIndex = 15;
 			this.label4.Text = "Mensagem a ser exibida";
 			// 
 			// btnApagarCampos
 			// 
-			this.btnApagarCampos.Location = new System.Drawing.Point(219, 315);
+			this.btnApagarCampos.Location = new System.Drawing.Point(219, 316);
 			this.btnApagarCampos.Name = "btnApagarCampos";
 			this.btnApagarCampos.Size = new System.Drawing.Size(114, 33);
 			this.btnApagarCampos.TabIndex = 10;
@@ -91,6 +93,7 @@ namespace NOC_Actions
 			// 
 			// label1
 			// 
+			this.label1.Font = new System.Drawing.Font("Segoe UI", 8.25F);
 			this.label1.Location = new System.Drawing.Point(3, 22);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(464, 35);
@@ -100,6 +103,7 @@ namespace NOC_Actions
 			// 
 			// label3
 			// 
+			this.label3.Font = new System.Drawing.Font("Segoe UI", 8.25F);
 			this.label3.Location = new System.Drawing.Point(39, 251);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(391, 35);
@@ -142,9 +146,10 @@ namespace NOC_Actions
 			// label6
 			// 
 			this.label6.AutoSize = true;
+			this.label6.Font = new System.Drawing.Font("Segoe UI", 8.25F);
 			this.label6.Location = new System.Drawing.Point(57, 214);
 			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(109, 13);
+			this.label6.Size = new System.Drawing.Size(114, 13);
 			this.label6.TabIndex = 25;
 			this.label6.Text = "Previsão de Chagada";
 			// 

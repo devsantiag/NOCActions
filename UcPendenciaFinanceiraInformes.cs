@@ -28,5 +28,13 @@ namespace NOC_Actions
 		{
 			this.FindForm().Close();
 		}
+		void BtnDetalharFaturaClick(object sender, EventArgs e)
+		{
+			this.Hide();
+			var open_userControl_window = new Uc_PendenciaFinanceira_UcDetalhamentoDeFatura();
+			this.Parent.Controls.Add(open_userControl_window);
+			open_userControl_window.Dock = DockStyle.Fill;
+			open_userControl_window.BringToFront();
+		}
 	}
 }

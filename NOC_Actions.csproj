@@ -92,6 +92,10 @@
     <Compile Include="UcPossivelQuedaDeEnergia.Designer.cs">
       <DependentUpon>UcPossivelQuedaDeEnergia.cs</DependentUpon>
     </Compile>
+    <Compile Include="Uc_PendenciaFinanceira_UcDetalhamentoDeFatura.cs" />
+    <Compile Include="Uc_PendenciaFinanceira_UcDetalhamentoDeFatura.Designer.cs">
+      <DependentUpon>Uc_PendenciaFinanceira_UcDetalhamentoDeFatura.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="InterfaceClienteInformes.resx">
@@ -127,6 +131,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UcPossivelQuedaDeEnergia.resx">
       <DependentUpon>UcPossivelQuedaDeEnergia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Uc_PendenciaFinanceira_UcDetalhamentoDeFatura.resx">
+      <DependentUpon>Uc_PendenciaFinanceira_UcDetalhamentoDeFatura.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

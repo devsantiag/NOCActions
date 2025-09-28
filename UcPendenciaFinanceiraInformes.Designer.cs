@@ -23,6 +23,7 @@ namespace NOC_Actions
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Button btnFecharJanela;
+		private System.Windows.Forms.Button btnDetalharFatura;
 		
 		/// <summary>
 		/// Disposes resources used by the control.
@@ -54,14 +55,16 @@ namespace NOC_Actions
 			this.label1 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			this.btnFecharJanela = new System.Windows.Forms.Button();
+			this.btnDetalharFatura = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// label6
 			// 
 			this.label6.AutoSize = true;
+			this.label6.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label6.Location = new System.Drawing.Point(50, 129);
 			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(47, 13);
+			this.label6.Size = new System.Drawing.Size(51, 13);
 			this.label6.TabIndex = 35;
 			this.label6.Text = "Unidade";
 			// 
@@ -83,9 +86,9 @@ namespace NOC_Actions
 			// 
 			// btnGravarECopiar
 			// 
-			this.btnGravarECopiar.Location = new System.Drawing.Point(339, 315);
+			this.btnGravarECopiar.Location = new System.Drawing.Point(357, 315);
 			this.btnGravarECopiar.Name = "btnGravarECopiar";
-			this.btnGravarECopiar.Size = new System.Drawing.Size(114, 33);
+			this.btnGravarECopiar.Size = new System.Drawing.Size(96, 44);
 			this.btnGravarECopiar.TabIndex = 29;
 			this.btnGravarECopiar.Text = "Gravar e Copiar";
 			this.btnGravarECopiar.UseVisualStyleBackColor = true;
@@ -93,17 +96,18 @@ namespace NOC_Actions
 			// label4
 			// 
 			this.label4.AutoSize = true;
+			this.label4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label4.Location = new System.Drawing.Point(3, 1);
 			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(121, 13);
+			this.label4.Size = new System.Drawing.Size(130, 13);
 			this.label4.TabIndex = 28;
 			this.label4.Text = "Mensagem a ser exibida";
 			// 
 			// btnApagarCampos
 			// 
-			this.btnApagarCampos.Location = new System.Drawing.Point(219, 315);
+			this.btnApagarCampos.Location = new System.Drawing.Point(255, 315);
 			this.btnApagarCampos.Name = "btnApagarCampos";
-			this.btnApagarCampos.Size = new System.Drawing.Size(114, 33);
+			this.btnApagarCampos.Size = new System.Drawing.Size(96, 44);
 			this.btnApagarCampos.TabIndex = 27;
 			this.btnApagarCampos.Text = "Apagar";
 			this.btnApagarCampos.UseVisualStyleBackColor = true;
@@ -111,6 +115,7 @@ namespace NOC_Actions
 			// 
 			// label1
 			// 
+			this.label1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label1.Location = new System.Drawing.Point(3, 21);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(464, 35);
@@ -120,27 +125,40 @@ namespace NOC_Actions
 			// 
 			// label2
 			// 
+			this.label2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label2.Location = new System.Drawing.Point(34, 186);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(391, 42);
 			this.label2.TabIndex = 38;
-			this.label2.Text = "Você pode escolher \"detalhar fatura\" para aprimorar e adicionar informações refer" +
-	"ente ao Bloqueio Financeiro no respectivo contrato.";
+			this.label2.Text = "Você pode escolher \"detalhar\" para aprimorar e adicionar informações referente ao" +
+	" Bloqueio Financeiro no respectivo contrato.";
 			// 
 			// btnFecharJanela
 			// 
-			this.btnFecharJanela.Location = new System.Drawing.Point(44, 317);
+			this.btnFecharJanela.Location = new System.Drawing.Point(34, 315);
 			this.btnFecharJanela.Name = "btnFecharJanela";
-			this.btnFecharJanela.Size = new System.Drawing.Size(114, 33);
+			this.btnFecharJanela.Size = new System.Drawing.Size(96, 44);
 			this.btnFecharJanela.TabIndex = 39;
 			this.btnFecharJanela.Text = "Fechar";
 			this.btnFecharJanela.UseVisualStyleBackColor = true;
 			this.btnFecharJanela.Click += new System.EventHandler(this.BtnFecharJanelaClick);
 			// 
+			// btnDetalharFatura
+			// 
+			this.btnDetalharFatura.Enabled = false;
+			this.btnDetalharFatura.Location = new System.Drawing.Point(153, 315);
+			this.btnDetalharFatura.Name = "btnDetalharFatura";
+			this.btnDetalharFatura.Size = new System.Drawing.Size(96, 44);
+			this.btnDetalharFatura.TabIndex = 40;
+			this.btnDetalharFatura.Text = "Detalhar ...";
+			this.btnDetalharFatura.UseVisualStyleBackColor = true;
+			this.btnDetalharFatura.Click += new System.EventHandler(this.BtnDetalharFaturaClick);
+			// 
 			// UcPendenciaFinanceiraInformes
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.Controls.Add(this.btnDetalharFatura);
 			this.Controls.Add(this.btnFecharJanela);
 			this.Controls.Add(this.label6);
 			this.Controls.Add(this.textBox1_UnidadeComBloqueioFinanceiro);
