@@ -8,7 +8,6 @@
 		private System.Windows.Forms.Button btnLibAcessoSemPrevisao;
 		private System.Windows.Forms.Button btnLibAcessoComPrevisao;
 		private System.Windows.Forms.Button btnAnaliseEnergia;
-		private System.Windows.Forms.Button btnAlarmeComChamado;
 
 		private System.Windows.Forms.SplitContainer splitContainer1;
 		private System.Windows.Forms.Panel painelInterface;
@@ -31,7 +30,6 @@
 			this.btnLibAcessoSemPrevisao = new System.Windows.Forms.Button();
 			this.btnLibAcessoComPrevisao = new System.Windows.Forms.Button();
 			this.btnAnaliseEnergia = new System.Windows.Forms.Button();
-			this.btnAlarmeComChamado = new System.Windows.Forms.Button();
 			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
 			this.button1 = new System.Windows.Forms.Button();
 			this.painelInterface = new System.Windows.Forms.Panel();
@@ -91,16 +89,6 @@
 			this.btnAnaliseEnergia.Text = "Análise de Energia";
 			this.btnAnaliseEnergia.Click += new System.EventHandler(this.BtnAnaliseEnergia_Click);
 			// 
-			// btnAlarmeComChamado
-			// 
-			this.btnAlarmeComChamado.Dock = System.Windows.Forms.DockStyle.Top;
-			this.btnAlarmeComChamado.Location = new System.Drawing.Point(0, 115);
-			this.btnAlarmeComChamado.Name = "btnAlarmeComChamado";
-			this.btnAlarmeComChamado.Size = new System.Drawing.Size(230, 23);
-			this.btnAlarmeComChamado.TabIndex = 1;
-			this.btnAlarmeComChamado.Text = "Alarme + Chamado Registrado";
-			this.btnAlarmeComChamado.Click += new System.EventHandler(this.BtnAlarmeComChamadoClick);
-			// 
 			// splitContainer1
 			// 
 			this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -111,7 +99,6 @@
 			// 
 			this.splitContainer1.Panel1.BackColor = System.Drawing.Color.Gainsboro;
 			this.splitContainer1.Panel1.Controls.Add(this.button1);
-			this.splitContainer1.Panel1.Controls.Add(this.btnAlarmeComChamado);
 			this.splitContainer1.Panel1.Controls.Add(this.btnAnaliseEnergia);
 			this.splitContainer1.Panel1.Controls.Add(this.btnLibAcessoComPrevisao);
 			this.splitContainer1.Panel1.Controls.Add(this.btnLibAcessoSemPrevisao);
@@ -129,7 +116,7 @@
 			// button1
 			// 
 			this.button1.Dock = System.Windows.Forms.DockStyle.Top;
-			this.button1.Location = new System.Drawing.Point(0, 138);
+			this.button1.Location = new System.Drawing.Point(0, 115);
 			this.button1.Name = "button1";
 			this.button1.Size = new System.Drawing.Size(230, 23);
 			this.button1.TabIndex = 7;

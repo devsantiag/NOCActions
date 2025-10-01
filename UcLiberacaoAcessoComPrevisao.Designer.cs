@@ -25,6 +25,7 @@ namespace NOC_Actions
 		private System.Windows.Forms.TextBox textBox1_PrevisaoChegada;
 		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.Button btnFecharJanela;
+		private System.Windows.Forms.Button btnPreviaDaMensagem;
 		
 		/// <summary>
 		/// Disposes resources used by the control.
@@ -58,6 +59,7 @@ namespace NOC_Actions
 			this.textBox1_PrevisaoChegada = new System.Windows.Forms.TextBox();
 			this.label6 = new System.Windows.Forms.Label();
 			this.btnFecharJanela = new System.Windows.Forms.Button();
+			this.btnPreviaDaMensagem = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// btnGravarECopiar
@@ -109,7 +111,7 @@ namespace NOC_Actions
 			this.label3.Size = new System.Drawing.Size(391, 35);
 			this.label3.TabIndex = 23;
 			this.label3.Text = "No campo acima, adicione as informações pessoais da equipe técnica (NOME, RG, CPF" +
-	" e outros documentos).";
+	" e outros documentos necessários para acesso).";
 			// 
 			// richTextBox1_DadosTecnicos
 			// 
@@ -155,19 +157,30 @@ namespace NOC_Actions
 			// 
 			// btnFecharJanela
 			// 
-			this.btnFecharJanela.Location = new System.Drawing.Point(44, 317);
+			this.btnFecharJanela.Location = new System.Drawing.Point(39, 316);
 			this.btnFecharJanela.Name = "btnFecharJanela";
-			this.btnFecharJanela.Size = new System.Drawing.Size(114, 33);
+			this.btnFecharJanela.Size = new System.Drawing.Size(60, 33);
 			this.btnFecharJanela.TabIndex = 26;
 			this.btnFecharJanela.Text = "Fechar";
 			this.btnFecharJanela.UseVisualStyleBackColor = true;
 			this.btnFecharJanela.Click += new System.EventHandler(this.BtnFecharJanelaClick);
+			// 
+			// btnPreviaDaMensagem
+			// 
+			this.btnPreviaDaMensagem.Location = new System.Drawing.Point(122, 316);
+			this.btnPreviaDaMensagem.Name = "btnPreviaDaMensagem";
+			this.btnPreviaDaMensagem.Size = new System.Drawing.Size(91, 33);
+			this.btnPreviaDaMensagem.TabIndex = 27;
+			this.btnPreviaDaMensagem.Text = "Prévia";
+			this.btnPreviaDaMensagem.UseVisualStyleBackColor = true;
+			this.btnPreviaDaMensagem.Click += new System.EventHandler(this.BtnPreviaDaMensagemClick);
 			// 
 			// UcLiberacaoDeAcessoComPrevisao
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.Control;
+			this.Controls.Add(this.btnPreviaDaMensagem);
 			this.Controls.Add(this.btnFecharJanela);
 			this.Controls.Add(this.label6);
 			this.Controls.Add(this.textBox1_PrevisaoChegada);
