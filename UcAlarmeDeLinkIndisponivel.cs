@@ -14,27 +14,28 @@ namespace NOC_Actions
 		
 		private string GetCustomerNotificationMessage()
 		{
-			string getValueTextBox_NomeOperadora = textBox1_nomeOperadora.Text;
-			string getValueHorario_Queda = textBox2_horarioQueda.Text;
+			string getValueTextBox_NomeOperadora = textBoxCarrierName.Text;
+			string getValueHorario_Queda = textBoxDowntime.Text;
 			return "Prezados, bom dia! Identificamos alarme do link da " + getValueTextBox_NomeOperadora + " indisponível às " + getValueHorario_Queda + ". Iremos seguir com acionamento junto ao fornecedor.";
 		}
 		
-		void BtnGravarECopiarClick(object sender, EventArgs e)
+		void BtnCloseWindowClick(object sender, EventArgs e)
+		{
+			this.FindForm().Close();
+		}
+		
+		void BtnClearFieldsClick(object sender, EventArgs e)
+		{
+			textBoxCarrierName.Text = "";
+			textBoxDowntime.Text = "";
+		}
+		
+		void BtnSaveAndCopyClick(object sender, EventArgs e)
 		{
 			string msn = GetCustomerNotificationMessage();
 			Clipboard.SetText(msn);
-			textBox1_nomeOperadora.Text = "";
-			textBox2_horarioQueda.Text = "";
-			
-		}
-		void BtnApagarCamposClick(object sender, EventArgs e)
-		{
-			textBox1_nomeOperadora.Text = "";
-			textBox2_horarioQueda.Text = "";
-		}
-		void BtnFecharJanelaClick(object sender, EventArgs e)
-		{
-			this.FindForm().Close();
+			textBoxCarrierName.Text = "";
+			textBoxDowntime.Text = "";
 		}
 	}
 }

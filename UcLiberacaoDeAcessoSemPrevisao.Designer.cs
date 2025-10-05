@@ -20,7 +20,7 @@ namespace NOC_Actions
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Button btnClearFields;
 		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.RichTextBox richTextBox1_DadosTecnicos;
+		private System.Windows.Forms.RichTextBox richTextBoxTechDetails;
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Button btnCloseWindow;
 		private System.Windows.Forms.Button btnMessagePreview;
@@ -52,7 +52,7 @@ namespace NOC_Actions
 			this.label2 = new System.Windows.Forms.Label();
 			this.btnClearFields = new System.Windows.Forms.Button();
 			this.label1 = new System.Windows.Forms.Label();
-			this.richTextBox1_DadosTecnicos = new System.Windows.Forms.RichTextBox();
+			this.richTextBoxTechDetails = new System.Windows.Forms.RichTextBox();
 			this.label3 = new System.Windows.Forms.Label();
 			this.btnCloseWindow = new System.Windows.Forms.Button();
 			this.btnMessagePreview = new System.Windows.Forms.Button();
@@ -75,7 +75,7 @@ namespace NOC_Actions
 			this.btnSaveAndCopy.TabIndex = 16;
 			this.btnSaveAndCopy.Text = "Gravar e Copiar";
 			this.btnSaveAndCopy.UseVisualStyleBackColor = true;
-			this.btnSaveAndCopy.Click += new System.EventHandler(this.BtnGravarECopiarClick);
+			this.btnSaveAndCopy.Click += new System.EventHandler(this.BtnSaveAndCopyClick);
 			// 
 			// label4
 			// 
@@ -104,7 +104,7 @@ namespace NOC_Actions
 			this.btnClearFields.TabIndex = 10;
 			this.btnClearFields.Text = "Apagar";
 			this.btnClearFields.UseVisualStyleBackColor = true;
-			this.btnClearFields.Click += new System.EventHandler(this.BtnApagarCamposClick);
+			this.btnClearFields.Click += new System.EventHandler(this.BtnClearFieldsClick);
 			// 
 			// label1
 			// 
@@ -117,13 +117,13 @@ namespace NOC_Actions
 	"ico(s) abaixo. Ainda não foi repassado previsão de chegada, assim que obtivermos" +
 	" iremos atualizar a thread.";
 			// 
-			// richTextBox1_DadosTecnicos
+			// richTextBoxTechDetails
 			// 
-			this.richTextBox1_DadosTecnicos.Location = new System.Drawing.Point(62, 107);
-			this.richTextBox1_DadosTecnicos.Name = "richTextBox1_DadosTecnicos";
-			this.richTextBox1_DadosTecnicos.Size = new System.Drawing.Size(359, 96);
-			this.richTextBox1_DadosTecnicos.TabIndex = 18;
-			this.richTextBox1_DadosTecnicos.Text = "";
+			this.richTextBoxTechDetails.Location = new System.Drawing.Point(62, 107);
+			this.richTextBoxTechDetails.Name = "richTextBoxTechDetails";
+			this.richTextBoxTechDetails.Size = new System.Drawing.Size(359, 96);
+			this.richTextBoxTechDetails.TabIndex = 18;
+			this.richTextBoxTechDetails.Text = "";
 			// 
 			// label3
 			// 
@@ -143,7 +143,7 @@ namespace NOC_Actions
 			this.btnCloseWindow.TabIndex = 20;
 			this.btnCloseWindow.Text = "Fechar";
 			this.btnCloseWindow.UseVisualStyleBackColor = true;
-			this.btnCloseWindow.Click += new System.EventHandler(this.BtnFecharJanelaClick);
+			this.btnCloseWindow.Click += new System.EventHandler(this.BtnCloseWindowClick);
 			// 
 			// btnMessagePreview
 			// 
@@ -153,7 +153,7 @@ namespace NOC_Actions
 			this.btnMessagePreview.TabIndex = 21;
 			this.btnMessagePreview.Text = "Prévia";
 			this.btnMessagePreview.UseVisualStyleBackColor = true;
-			this.btnMessagePreview.Click += new System.EventHandler(this.BtnPreviaDaMensagemClick);
+			this.btnMessagePreview.Click += new System.EventHandler(this.BtnMessagePreviewClick);
 			// 
 			// UcLiberacaoDeAcessoSemPrevisao
 			// 
@@ -163,7 +163,7 @@ namespace NOC_Actions
 			this.Controls.Add(this.btnMessagePreview);
 			this.Controls.Add(this.btnCloseWindow);
 			this.Controls.Add(this.label3);
-			this.Controls.Add(this.richTextBox1_DadosTecnicos);
+			this.Controls.Add(this.richTextBoxTechDetails);
 			this.Controls.Add(this.label5);
 			this.Controls.Add(this.btnSaveAndCopy);
 			this.Controls.Add(this.label4);

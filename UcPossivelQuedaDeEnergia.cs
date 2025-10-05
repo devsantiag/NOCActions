@@ -12,23 +12,26 @@ namespace NOC_Actions
 		
 		private string GetCustomerNotificationMessage()
 		{
-			string getValueUnidadeComQueda = textBox1_UnidadeQueda.Text.Trim();
+			string getValueUnidadeComQueda = txtUnitName.Text.Trim();
 			return "Prezados, poderiam confirmar possível queda de energia na loja "
 				+ getValueUnidadeComQueda + "? Constatamos que ambos os links estão indisponíveis neste momento.";
 		}
-		void BtnGravarECopiarClick(object sender, EventArgs e)
+		
+		void BtnCloseWindowClick(object sender, EventArgs e)
+		{
+			this.FindForm().Close();
+		}
+		
+		void BtnClearFieldsClick(object sender, EventArgs e)
+		{
+			txtUnitName.Text = "";
+		}
+		
+		void BtnSaveAndCopyClick(object sender, EventArgs e)
 		{
 			string msn = GetCustomerNotificationMessage();
 			Clipboard.SetText(msn);
-			textBox1_UnidadeQueda.Text = "";
-		}
-		void BtnApagarCamposClick(object sender, EventArgs e)
-		{
-			textBox1_UnidadeQueda.Text = "";
-		}
-		void BtnFecharJanelaClick(object sender, EventArgs e)
-		{
-			this.FindForm().Close();
+			txtUnitName.Text = "";
 		}
 	}
 }

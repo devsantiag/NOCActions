@@ -15,7 +15,7 @@ namespace NOC_Actions
 		/// </summary>
 		private System.ComponentModel.IContainer components = null;
 		private System.Windows.Forms.Label label6;
-		private System.Windows.Forms.TextBox textBox1_UnidadeComBloqueioFinanceiro;
+		private System.Windows.Forms.TextBox txtFinBlockUnitName;
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.Button btnSaveAndCopy;
 		private System.Windows.Forms.Label label4;
@@ -47,7 +47,7 @@ namespace NOC_Actions
 		private void InitializeComponent()
 		{
 			this.label6 = new System.Windows.Forms.Label();
-			this.textBox1_UnidadeComBloqueioFinanceiro = new System.Windows.Forms.TextBox();
+			this.txtFinBlockUnitName = new System.Windows.Forms.TextBox();
 			this.label5 = new System.Windows.Forms.Label();
 			this.btnSaveAndCopy = new System.Windows.Forms.Button();
 			this.label4 = new System.Windows.Forms.Label();
@@ -68,12 +68,12 @@ namespace NOC_Actions
 			this.label6.TabIndex = 35;
 			this.label6.Text = "Unidade";
 			// 
-			// textBox1_UnidadeComBloqueioFinanceiro
+			// txtFinBlockUnitName
 			// 
-			this.textBox1_UnidadeComBloqueioFinanceiro.Location = new System.Drawing.Point(165, 126);
-			this.textBox1_UnidadeComBloqueioFinanceiro.Name = "textBox1_UnidadeComBloqueioFinanceiro";
-			this.textBox1_UnidadeComBloqueioFinanceiro.Size = new System.Drawing.Size(237, 20);
-			this.textBox1_UnidadeComBloqueioFinanceiro.TabIndex = 34;
+			this.txtFinBlockUnitName.Location = new System.Drawing.Point(165, 126);
+			this.txtFinBlockUnitName.Name = "txtFinBlockUnitName";
+			this.txtFinBlockUnitName.Size = new System.Drawing.Size(237, 20);
+			this.txtFinBlockUnitName.TabIndex = 34;
 			// 
 			// label5
 			// 
@@ -92,7 +92,7 @@ namespace NOC_Actions
 			this.btnSaveAndCopy.TabIndex = 29;
 			this.btnSaveAndCopy.Text = "Gravar e Copiar";
 			this.btnSaveAndCopy.UseVisualStyleBackColor = true;
-			this.btnSaveAndCopy.Click += new System.EventHandler(this.BtnGravarECopiarClick);
+			this.btnSaveAndCopy.Click += new System.EventHandler(this.BtnSaveAndCopyClick);
 			// 
 			// label4
 			// 
@@ -112,7 +112,7 @@ namespace NOC_Actions
 			this.btnClearFields.TabIndex = 27;
 			this.btnClearFields.Text = "Apagar";
 			this.btnClearFields.UseVisualStyleBackColor = true;
-			this.btnClearFields.Click += new System.EventHandler(this.BtnApagarCamposClick);
+			this.btnClearFields.Click += new System.EventHandler(this.BtnClearFieldsClick);
 			// 
 			// label1
 			// 
@@ -142,7 +142,7 @@ namespace NOC_Actions
 			this.btnCloseWindow.TabIndex = 39;
 			this.btnCloseWindow.Text = "Fechar";
 			this.btnCloseWindow.UseVisualStyleBackColor = true;
-			this.btnCloseWindow.Click += new System.EventHandler(this.BtnFecharJanelaClick);
+			this.btnCloseWindow.Click += new System.EventHandler(this.BtnCloseWindowClick);
 			// 
 			// btnViewInvoiceDetails
 			// 
@@ -153,7 +153,7 @@ namespace NOC_Actions
 			this.btnViewInvoiceDetails.TabIndex = 40;
 			this.btnViewInvoiceDetails.Text = "Detalhar ...";
 			this.btnViewInvoiceDetails.UseVisualStyleBackColor = true;
-			this.btnViewInvoiceDetails.Click += new System.EventHandler(this.BtnDetalharFaturaClick);
+			this.btnViewInvoiceDetails.Click += new System.EventHandler(this.BtnViewInvoiceDetailsClick);
 			// 
 			// UcPendenciaFinanceiraInformes
 			// 
@@ -162,7 +162,7 @@ namespace NOC_Actions
 			this.Controls.Add(this.btnViewInvoiceDetails);
 			this.Controls.Add(this.btnCloseWindow);
 			this.Controls.Add(this.label6);
-			this.Controls.Add(this.textBox1_UnidadeComBloqueioFinanceiro);
+			this.Controls.Add(this.txtFinBlockUnitName);
 			this.Controls.Add(this.btnSaveAndCopy);
 			this.Controls.Add(this.label4);
 			this.Controls.Add(this.btnClearFields);

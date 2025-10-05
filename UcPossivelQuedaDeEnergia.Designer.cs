@@ -18,7 +18,7 @@ namespace NOC_Actions
 		private System.Windows.Forms.Button btnSaveAndCopy;
 		private System.Windows.Forms.Label label4;
 		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.TextBox textBox1_UnidadeQueda;
+		private System.Windows.Forms.TextBox txtUnitName;
 		private System.Windows.Forms.Button btnClearFields;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Button btnCloseWindow;
@@ -48,7 +48,7 @@ namespace NOC_Actions
 			this.btnSaveAndCopy = new System.Windows.Forms.Button();
 			this.label4 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
-			this.textBox1_UnidadeQueda = new System.Windows.Forms.TextBox();
+			this.txtUnitName = new System.Windows.Forms.TextBox();
 			this.btnClearFields = new System.Windows.Forms.Button();
 			this.label1 = new System.Windows.Forms.Label();
 			this.btnCloseWindow = new System.Windows.Forms.Button();
@@ -71,7 +71,7 @@ namespace NOC_Actions
 			this.btnSaveAndCopy.TabIndex = 16;
 			this.btnSaveAndCopy.Text = "Gravar e Copiar";
 			this.btnSaveAndCopy.UseVisualStyleBackColor = true;
-			this.btnSaveAndCopy.Click += new System.EventHandler(this.BtnGravarECopiarClick);
+			this.btnSaveAndCopy.Click += new System.EventHandler(this.BtnSaveAndCopyClick);
 			// 
 			// label4
 			// 
@@ -92,12 +92,12 @@ namespace NOC_Actions
 			this.label2.TabIndex = 13;
 			this.label2.Text = "Unidade";
 			// 
-			// textBox1_UnidadeQueda
+			// txtUnitName
 			// 
-			this.textBox1_UnidadeQueda.Location = new System.Drawing.Point(193, 148);
-			this.textBox1_UnidadeQueda.Name = "textBox1_UnidadeQueda";
-			this.textBox1_UnidadeQueda.Size = new System.Drawing.Size(196, 20);
-			this.textBox1_UnidadeQueda.TabIndex = 11;
+			this.txtUnitName.Location = new System.Drawing.Point(193, 148);
+			this.txtUnitName.Name = "txtUnitName";
+			this.txtUnitName.Size = new System.Drawing.Size(196, 20);
+			this.txtUnitName.TabIndex = 11;
 			// 
 			// btnClearFields
 			// 
@@ -107,7 +107,7 @@ namespace NOC_Actions
 			this.btnClearFields.TabIndex = 10;
 			this.btnClearFields.Text = "Apagar";
 			this.btnClearFields.UseVisualStyleBackColor = true;
-			this.btnClearFields.Click += new System.EventHandler(this.BtnApagarCamposClick);
+			this.btnClearFields.Click += new System.EventHandler(this.BtnClearFieldsClick);
 			// 
 			// label1
 			// 
@@ -127,7 +127,7 @@ namespace NOC_Actions
 			this.btnCloseWindow.TabIndex = 18;
 			this.btnCloseWindow.Text = "Fechar";
 			this.btnCloseWindow.UseVisualStyleBackColor = true;
-			this.btnCloseWindow.Click += new System.EventHandler(this.BtnFecharJanelaClick);
+			this.btnCloseWindow.Click += new System.EventHandler(this.BtnCloseWindowClick);
 			// 
 			// UcPossivelQuedaDeEnergia
 			// 
@@ -138,7 +138,7 @@ namespace NOC_Actions
 			this.Controls.Add(this.btnSaveAndCopy);
 			this.Controls.Add(this.label4);
 			this.Controls.Add(this.label2);
-			this.Controls.Add(this.textBox1_UnidadeQueda);
+			this.Controls.Add(this.txtUnitName);
 			this.Controls.Add(this.btnClearFields);
 			this.Controls.Add(this.label1);
 			this.Name = "UcPossivelQuedaDeEnergia";

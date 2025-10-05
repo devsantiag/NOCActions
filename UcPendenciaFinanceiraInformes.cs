@@ -13,33 +13,33 @@ namespace NOC_Actions
 		
 		private string GetCustomerNotificationMessage()
 		{
-			return "Prezados, informamos que foi identificado um bloqueio de natureza administrativo-financeira no contrato da unidade: " + Environment.NewLine + Environment.NewLine + textBox1_UnidadeComBloqueioFinanceiro.Text.Trim();
+			return "Prezados, informamos que foi identificado um bloqueio de natureza administrativo-financeira no contrato da unidade: " + Environment.NewLine + Environment.NewLine + txtFinBlockUnitName.Text.Trim();
 		}
-		
-		void BtnGravarECopiarClick(object sender, EventArgs e)
-		{
-			string msn = GetCustomerNotificationMessage();
-			Clipboard.SetText(msn);
-			textBox1_UnidadeComBloqueioFinanceiro.Text="";
-		}
-		
-		void BtnApagarCamposClick(object sender, EventArgs e)
-		{
-			textBox1_UnidadeComBloqueioFinanceiro.Text = "";
-		}
-		void BtnFecharJanelaClick(object sender, EventArgs e)
+		void BtnCloseWindowClick(object sender, EventArgs e)
 		{
 			this.FindForm().Close();
 		}
 		
-//		desativado
-		void BtnDetalharFaturaClick(object sender, EventArgs e)
+//		unable
+		void BtnViewInvoiceDetailsClick(object sender, EventArgs e)
 		{
 			this.Hide();
 			var open_userControl_window = new Uc_PendenciaFinanceira_UcDetalhamentoDeFatura();
 			this.Parent.Controls.Add(open_userControl_window);
 			open_userControl_window.Dock = DockStyle.Fill;
 			open_userControl_window.BringToFront();
+		}
+		
+		void BtnClearFieldsClick(object sender, EventArgs e)
+		{
+			txtFinBlockUnitName.Text = "";
+		}
+		
+		void BtnSaveAndCopyClick(object sender, EventArgs e)
+		{
+			string msn = GetCustomerNotificationMessage();
+			Clipboard.SetText(msn);
+			txtFinBlockUnitName.Text="";
 		}
 	}
 }

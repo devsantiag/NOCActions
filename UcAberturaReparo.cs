@@ -14,28 +14,28 @@ namespace NOC_Actions
 		
 		private string GetCustomerNotificationMessage()
 		{
-			string getNumeroChamado = textBox1_ChamadoOperadora.Text.Trim();
-			string getHorarioDeRegistro = textBox2_horarioDoRegistroChamado.Text.Trim();
+			string getNumeroChamado = txtOperatorCallID.Text.Trim();
+			string getHorarioDeRegistro = textBoxCallRegistrationTime.Text.Trim();
 			return "Prezados, chamado " + getNumeroChamado + " registrado às " + getHorarioDeRegistro + " junto ao fornecedor.";
 		}
 		
-		void BtnGravarECopiarClick(object sender, EventArgs e)
-		{
-			string msn = GetCustomerNotificationMessage();
-			Clipboard.SetText(msn); 
-			
-			textBox1_ChamadoOperadora.Text = "";
-			textBox2_horarioDoRegistroChamado.Text = "";
-
-		}
-		void BtnApagarCamposClick(object sender, EventArgs e)
-		{
-			textBox1_ChamadoOperadora.Text = "";
-			textBox2_horarioDoRegistroChamado.Text = "";
-		}
-		void BtnFecharJanelaClick(object sender, EventArgs e)
+		void BtnCloseWindowClick(object sender, EventArgs e)
 		{
 			this.FindForm().Close();
+		}
+		
+		void BtnClearFieldsClick(object sender, EventArgs e)
+		{
+			txtOperatorCallID.Text = "";
+			textBoxCallRegistrationTime.Text = "";
+		}
+		
+		void BtnSaveAndCopyClick(object sender, EventArgs e)
+		{
+			string msn = GetCustomerNotificationMessage();
+			Clipboard.SetText(msn);
+			txtOperatorCallID.Text = "";
+			textBoxCallRegistrationTime.Text = "";
 		}
 	}
 }

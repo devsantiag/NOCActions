@@ -21,8 +21,8 @@ namespace NOC_Actions
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Button btnClearFields;
 		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.RichTextBox richTextBox1_DadosTecnicos;
-		private System.Windows.Forms.TextBox textBox1_PrevisaoChegada;
+		private System.Windows.Forms.RichTextBox richTextBoxTechnicalData;
+		private System.Windows.Forms.TextBox textBoxEstimatedArrival;
 		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.Button btnCloseWindow;
 		private System.Windows.Forms.Button btnPreviewMessage;
@@ -53,10 +53,10 @@ namespace NOC_Actions
 			this.btnClearFields = new System.Windows.Forms.Button();
 			this.label1 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
-			this.richTextBox1_DadosTecnicos = new System.Windows.Forms.RichTextBox();
+			this.richTextBoxTechnicalData = new System.Windows.Forms.RichTextBox();
 			this.label5 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
-			this.textBox1_PrevisaoChegada = new System.Windows.Forms.TextBox();
+			this.textBoxEstimatedArrival = new System.Windows.Forms.TextBox();
 			this.label6 = new System.Windows.Forms.Label();
 			this.btnCloseWindow = new System.Windows.Forms.Button();
 			this.btnPreviewMessage = new System.Windows.Forms.Button();
@@ -71,7 +71,7 @@ namespace NOC_Actions
 			this.btnSaveAndCopy.TabIndex = 16;
 			this.btnSaveAndCopy.Text = "Gravar e Copiar";
 			this.btnSaveAndCopy.UseVisualStyleBackColor = true;
-			this.btnSaveAndCopy.Click += new System.EventHandler(this.BtnGravarECopiarClick);
+			this.btnSaveAndCopy.Click += new System.EventHandler(this.BtnSaveAndCopyClick);
 			// 
 			// label4
 			// 
@@ -91,7 +91,7 @@ namespace NOC_Actions
 			this.btnClearFields.TabIndex = 10;
 			this.btnClearFields.Text = "Apagar";
 			this.btnClearFields.UseVisualStyleBackColor = true;
-			this.btnClearFields.Click += new System.EventHandler(this.BtnApagarCamposClick);
+			this.btnClearFields.Click += new System.EventHandler(this.BtnClearFieldsClick);
 			// 
 			// label1
 			// 
@@ -113,13 +113,13 @@ namespace NOC_Actions
 			this.label3.Text = "No campo acima, adicione as informações pessoais da equipe técnica (NOME, RG, CPF" +
 	" e outros documentos necessários para acesso).";
 			// 
-			// richTextBox1_DadosTecnicos
+			// richTextBoxTechnicalData
 			// 
-			this.richTextBox1_DadosTecnicos.Location = new System.Drawing.Point(57, 94);
-			this.richTextBox1_DadosTecnicos.Name = "richTextBox1_DadosTecnicos";
-			this.richTextBox1_DadosTecnicos.Size = new System.Drawing.Size(359, 96);
-			this.richTextBox1_DadosTecnicos.TabIndex = 22;
-			this.richTextBox1_DadosTecnicos.Text = "";
+			this.richTextBoxTechnicalData.Location = new System.Drawing.Point(57, 94);
+			this.richTextBoxTechnicalData.Name = "richTextBoxTechnicalData";
+			this.richTextBoxTechnicalData.Size = new System.Drawing.Size(359, 96);
+			this.richTextBoxTechnicalData.TabIndex = 22;
+			this.richTextBoxTechnicalData.Text = "";
 			// 
 			// label5
 			// 
@@ -138,12 +138,12 @@ namespace NOC_Actions
 			this.label2.TabIndex = 20;
 			this.label2.Text = "Equipe Técnica (Dados)";
 			// 
-			// textBox1_PrevisaoChegada
+			// textBoxEstimatedArrival
 			// 
-			this.textBox1_PrevisaoChegada.Location = new System.Drawing.Point(172, 211);
-			this.textBox1_PrevisaoChegada.Name = "textBox1_PrevisaoChegada";
-			this.textBox1_PrevisaoChegada.Size = new System.Drawing.Size(237, 20);
-			this.textBox1_PrevisaoChegada.TabIndex = 24;
+			this.textBoxEstimatedArrival.Location = new System.Drawing.Point(172, 211);
+			this.textBoxEstimatedArrival.Name = "textBoxEstimatedArrival";
+			this.textBoxEstimatedArrival.Size = new System.Drawing.Size(237, 20);
+			this.textBoxEstimatedArrival.TabIndex = 24;
 			// 
 			// label6
 			// 
@@ -163,7 +163,7 @@ namespace NOC_Actions
 			this.btnCloseWindow.TabIndex = 26;
 			this.btnCloseWindow.Text = "Fechar";
 			this.btnCloseWindow.UseVisualStyleBackColor = true;
-			this.btnCloseWindow.Click += new System.EventHandler(this.BtnFecharJanelaClick);
+			this.btnCloseWindow.Click += new System.EventHandler(this.BtnCloseWindowClick);
 			// 
 			// btnPreviewMessage
 			// 
@@ -173,7 +173,7 @@ namespace NOC_Actions
 			this.btnPreviewMessage.TabIndex = 27;
 			this.btnPreviewMessage.Text = "Prévia";
 			this.btnPreviewMessage.UseVisualStyleBackColor = true;
-			this.btnPreviewMessage.Click += new System.EventHandler(this.BtnPreviaDaMensagemClick);
+			this.btnPreviewMessage.Click += new System.EventHandler(this.BtnPreviewMessageClick);
 			// 
 			// UcLiberacaoDeAcessoComPrevisao
 			// 
@@ -183,9 +183,9 @@ namespace NOC_Actions
 			this.Controls.Add(this.btnPreviewMessage);
 			this.Controls.Add(this.btnCloseWindow);
 			this.Controls.Add(this.label6);
-			this.Controls.Add(this.textBox1_PrevisaoChegada);
+			this.Controls.Add(this.textBoxEstimatedArrival);
 			this.Controls.Add(this.label3);
-			this.Controls.Add(this.richTextBox1_DadosTecnicos);
+			this.Controls.Add(this.richTextBoxTechnicalData);
 			this.Controls.Add(this.label5);
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.btnSaveAndCopy);
