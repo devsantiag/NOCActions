@@ -14,9 +14,9 @@ namespace NOC_Actions
 		
 		private string GetCustomerNotificationMessage()
 		{
-			string getValueTextBox_NomeOperadora = textBoxCarrierName.Text;
+			string getValueCarrierName = textBoxCarrierName.Text;
 			string getValueHorario_Queda = textBoxDowntime.Text;
-			return "Prezados, bom dia! Identificamos alarme do link da " + getValueTextBox_NomeOperadora + " indisponível às " + getValueHorario_Queda + ". Iremos seguir com acionamento junto ao fornecedor.";
+			return "Prezados, bom dia! Identificamos alarme do link da " + getValueCarrierName + " indisponível às " + getValueHorario_Queda + ". Iremos seguir com acionamento junto ao fornecedor.";
 		}
 		
 		void BtnCloseWindowClick(object sender, EventArgs e)
