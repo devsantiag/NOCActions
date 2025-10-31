@@ -65,10 +65,11 @@ namespace NOC_Actions
 			// 
 			// btnSaveAndCopy
 			// 
+			this.btnSaveAndCopy.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnSaveAndCopy.Location = new System.Drawing.Point(339, 316);
 			this.btnSaveAndCopy.Name = "btnSaveAndCopy";
 			this.btnSaveAndCopy.Size = new System.Drawing.Size(114, 33);
-			this.btnSaveAndCopy.TabIndex = 16;
+			this.btnSaveAndCopy.TabIndex = 1;
 			this.btnSaveAndCopy.Text = "Gravar e Copiar";
 			this.btnSaveAndCopy.UseVisualStyleBackColor = true;
 			this.btnSaveAndCopy.Click += new System.EventHandler(this.BtnSaveAndCopyClick);
@@ -85,26 +86,29 @@ namespace NOC_Actions
 			// 
 			// label2
 			// 
+			this.label2.AutoSize = true;
 			this.label2.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-			this.label2.Location = new System.Drawing.Point(87, 148);
+			this.label2.Location = new System.Drawing.Point(87, 151);
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(100, 23);
+			this.label2.Size = new System.Drawing.Size(51, 13);
 			this.label2.TabIndex = 13;
 			this.label2.Text = "Unidade";
 			// 
 			// txtUnitName
 			// 
-			this.txtUnitName.Location = new System.Drawing.Point(193, 148);
+			this.txtUnitName.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+			this.txtUnitName.Location = new System.Drawing.Point(148, 145);
 			this.txtUnitName.Name = "txtUnitName";
-			this.txtUnitName.Size = new System.Drawing.Size(196, 20);
-			this.txtUnitName.TabIndex = 11;
+			this.txtUnitName.Size = new System.Drawing.Size(241, 25);
+			this.txtUnitName.TabIndex = 0;
 			// 
 			// btnClearFields
 			// 
+			this.btnClearFields.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnClearFields.Location = new System.Drawing.Point(219, 316);
 			this.btnClearFields.Name = "btnClearFields";
 			this.btnClearFields.Size = new System.Drawing.Size(114, 33);
-			this.btnClearFields.TabIndex = 10;
+			this.btnClearFields.TabIndex = 2;
 			this.btnClearFields.Text = "Apagar";
 			this.btnClearFields.UseVisualStyleBackColor = true;
 			this.btnClearFields.Click += new System.EventHandler(this.BtnClearFieldsClick);
@@ -121,10 +125,11 @@ namespace NOC_Actions
 			// 
 			// btnCloseWindow
 			// 
+			this.btnCloseWindow.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnCloseWindow.Location = new System.Drawing.Point(44, 317);
 			this.btnCloseWindow.Name = "btnCloseWindow";
 			this.btnCloseWindow.Size = new System.Drawing.Size(114, 33);
-			this.btnCloseWindow.TabIndex = 18;
+			this.btnCloseWindow.TabIndex = 3;
 			this.btnCloseWindow.Text = "Fechar";
 			this.btnCloseWindow.UseVisualStyleBackColor = true;
 			this.btnCloseWindow.Click += new System.EventHandler(this.BtnCloseWindowClick);

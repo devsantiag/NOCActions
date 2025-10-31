@@ -69,10 +69,11 @@ namespace NOC_Actions
 			// 
 			// btnSaveAndCopy
 			// 
+			this.btnSaveAndCopy.Font = new System.Drawing.Font("Segoe UI", 9.75F);
 			this.btnSaveAndCopy.Location = new System.Drawing.Point(339, 316);
 			this.btnSaveAndCopy.Name = "btnSaveAndCopy";
 			this.btnSaveAndCopy.Size = new System.Drawing.Size(114, 33);
-			this.btnSaveAndCopy.TabIndex = 16;
+			this.btnSaveAndCopy.TabIndex = 1;
 			this.btnSaveAndCopy.Text = "Gravar e Copiar";
 			this.btnSaveAndCopy.UseVisualStyleBackColor = true;
 			this.btnSaveAndCopy.Click += new System.EventHandler(this.BtnSaveAndCopyClick);
@@ -98,10 +99,11 @@ namespace NOC_Actions
 			// 
 			// btnClearFields
 			// 
+			this.btnClearFields.Font = new System.Drawing.Font("Segoe UI", 9.75F);
 			this.btnClearFields.Location = new System.Drawing.Point(219, 316);
 			this.btnClearFields.Name = "btnClearFields";
 			this.btnClearFields.Size = new System.Drawing.Size(114, 33);
-			this.btnClearFields.TabIndex = 10;
+			this.btnClearFields.TabIndex = 2;
 			this.btnClearFields.Text = "Apagar";
 			this.btnClearFields.UseVisualStyleBackColor = true;
 			this.btnClearFields.Click += new System.EventHandler(this.BtnClearFieldsClick);
@@ -119,10 +121,11 @@ namespace NOC_Actions
 			// 
 			// richTextBoxTechDetails
 			// 
+			this.richTextBoxTechDetails.Font = new System.Drawing.Font("Segoe UI", 9.75F);
 			this.richTextBoxTechDetails.Location = new System.Drawing.Point(62, 107);
 			this.richTextBoxTechDetails.Name = "richTextBoxTechDetails";
 			this.richTextBoxTechDetails.Size = new System.Drawing.Size(359, 96);
-			this.richTextBoxTechDetails.TabIndex = 18;
+			this.richTextBoxTechDetails.TabIndex = 0;
 			this.richTextBoxTechDetails.Text = "";
 			// 
 			// label3
@@ -137,20 +140,22 @@ namespace NOC_Actions
 			// 
 			// btnCloseWindow
 			// 
+			this.btnCloseWindow.Font = new System.Drawing.Font("Segoe UI", 9.75F);
 			this.btnCloseWindow.Location = new System.Drawing.Point(39, 316);
 			this.btnCloseWindow.Name = "btnCloseWindow";
 			this.btnCloseWindow.Size = new System.Drawing.Size(60, 33);
-			this.btnCloseWindow.TabIndex = 20;
+			this.btnCloseWindow.TabIndex = 4;
 			this.btnCloseWindow.Text = "Fechar";
 			this.btnCloseWindow.UseVisualStyleBackColor = true;
 			this.btnCloseWindow.Click += new System.EventHandler(this.BtnCloseWindowClick);
 			// 
 			// btnMessagePreview
 			// 
+			this.btnMessagePreview.Font = new System.Drawing.Font("Segoe UI", 9.75F);
 			this.btnMessagePreview.Location = new System.Drawing.Point(122, 316);
 			this.btnMessagePreview.Name = "btnMessagePreview";
 			this.btnMessagePreview.Size = new System.Drawing.Size(91, 33);
-			this.btnMessagePreview.TabIndex = 21;
+			this.btnMessagePreview.TabIndex = 3;
 			this.btnMessagePreview.Text = "Prévia";
 			this.btnMessagePreview.UseVisualStyleBackColor = true;
 			this.btnMessagePreview.Click += new System.EventHandler(this.BtnMessagePreviewClick);

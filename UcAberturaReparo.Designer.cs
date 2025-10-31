@@ -69,10 +69,11 @@ namespace NOC_Actions
 			// 
 			// btnSaveAndCopy
 			// 
+			this.btnSaveAndCopy.Font = new System.Drawing.Font("Segoe UI", 9.75F);
 			this.btnSaveAndCopy.Location = new System.Drawing.Point(339, 316);
 			this.btnSaveAndCopy.Name = "btnSaveAndCopy";
 			this.btnSaveAndCopy.Size = new System.Drawing.Size(114, 33);
-			this.btnSaveAndCopy.TabIndex = 16;
+			this.btnSaveAndCopy.TabIndex = 2;
 			this.btnSaveAndCopy.Text = "Gravar e Copiar";
 			this.btnSaveAndCopy.UseVisualStyleBackColor = true;
 			this.btnSaveAndCopy.Click += new System.EventHandler(this.BtnSaveAndCopyClick);
@@ -89,7 +90,7 @@ namespace NOC_Actions
 			// 
 			// label3
 			// 
-			this.label3.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+			this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F);
 			this.label3.Location = new System.Drawing.Point(68, 161);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(110, 23);
@@ -98,7 +99,7 @@ namespace NOC_Actions
 			// 
 			// label2
 			// 
-			this.label2.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+			this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F);
 			this.label2.Location = new System.Drawing.Point(68, 129);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(100, 23);
@@ -107,24 +108,27 @@ namespace NOC_Actions
 			// 
 			// textBoxCallRegistrationTime
 			// 
+			this.textBoxCallRegistrationTime.Font = new System.Drawing.Font("Segoe UI", 9.75F);
 			this.textBoxCallRegistrationTime.Location = new System.Drawing.Point(178, 158);
 			this.textBoxCallRegistrationTime.Name = "textBoxCallRegistrationTime";
-			this.textBoxCallRegistrationTime.Size = new System.Drawing.Size(196, 20);
-			this.textBoxCallRegistrationTime.TabIndex = 12;
+			this.textBoxCallRegistrationTime.Size = new System.Drawing.Size(196, 25);
+			this.textBoxCallRegistrationTime.TabIndex = 1;
 			// 
 			// txtOperatorCallID
 			// 
+			this.txtOperatorCallID.Font = new System.Drawing.Font("Segoe UI", 9.75F);
 			this.txtOperatorCallID.Location = new System.Drawing.Point(178, 126);
 			this.txtOperatorCallID.Name = "txtOperatorCallID";
-			this.txtOperatorCallID.Size = new System.Drawing.Size(196, 20);
-			this.txtOperatorCallID.TabIndex = 11;
+			this.txtOperatorCallID.Size = new System.Drawing.Size(196, 25);
+			this.txtOperatorCallID.TabIndex = 0;
 			// 
 			// btnClearFields
 			// 
+			this.btnClearFields.Font = new System.Drawing.Font("Segoe UI", 9.75F);
 			this.btnClearFields.Location = new System.Drawing.Point(219, 316);
 			this.btnClearFields.Name = "btnClearFields";
 			this.btnClearFields.Size = new System.Drawing.Size(114, 33);
-			this.btnClearFields.TabIndex = 10;
+			this.btnClearFields.TabIndex = 3;
 			this.btnClearFields.Text = "Apagar";
 			this.btnClearFields.UseVisualStyleBackColor = true;
 			this.btnClearFields.Click += new System.EventHandler(this.BtnClearFieldsClick);
@@ -140,10 +144,11 @@ namespace NOC_Actions
 			// 
 			// btnCloseWindow
 			// 
+			this.btnCloseWindow.Font = new System.Drawing.Font("Segoe UI", 9.75F);
 			this.btnCloseWindow.Location = new System.Drawing.Point(44, 317);
 			this.btnCloseWindow.Name = "btnCloseWindow";
 			this.btnCloseWindow.Size = new System.Drawing.Size(114, 33);
-			this.btnCloseWindow.TabIndex = 18;
+			this.btnCloseWindow.TabIndex = 4;
 			this.btnCloseWindow.Text = "Fechar";
 			this.btnCloseWindow.UseVisualStyleBackColor = true;
 			this.btnCloseWindow.Click += new System.EventHandler(this.BtnCloseWindowClick);
