@@ -77,20 +77,20 @@ namespace NOC_Actions
 			// label4
 			// 
 			this.label4.AutoSize = true;
-			this.label4.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+			this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F);
 			this.label4.Location = new System.Drawing.Point(3, 1);
 			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(130, 13);
+			this.label4.Size = new System.Drawing.Size(152, 17);
 			this.label4.TabIndex = 15;
 			this.label4.Text = "Mensagem a ser exibida";
 			// 
 			// label2
 			// 
 			this.label2.AutoSize = true;
-			this.label2.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-			this.label2.Location = new System.Drawing.Point(87, 151);
+			this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+			this.label2.Location = new System.Drawing.Point(87, 149);
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(51, 13);
+			this.label2.Size = new System.Drawing.Size(57, 17);
 			this.label2.TabIndex = 13;
 			this.label2.Text = "Unidade";
 			// 
@@ -115,7 +115,7 @@ namespace NOC_Actions
 			// 
 			// label1
 			// 
-			this.label1.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+			this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F);
 			this.label1.Location = new System.Drawing.Point(3, 22);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(464, 35);

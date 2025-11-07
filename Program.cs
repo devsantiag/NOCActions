@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace NOC_Actions        
+namespace NOC_Actions
 {
     internal sealed class Program
     {
@@ -10,7 +10,7 @@ namespace NOC_Actions
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoginUser());
+            Application.Run(new MainForm());
         }
     }
 }

@@ -90,17 +90,18 @@ namespace NOC_Actions
 			// 
 			// label3
 			// 
+			this.label3.AutoSize = true;
 			this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-			this.label3.Location = new System.Drawing.Point(68, 161);
+			this.label3.Location = new System.Drawing.Point(46, 162);
 			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(110, 23);
+			this.label3.Size = new System.Drawing.Size(126, 17);
 			this.label3.TabIndex = 14;
 			this.label3.Text = "Horário do Registro";
 			// 
 			// label2
 			// 
 			this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-			this.label2.Location = new System.Drawing.Point(68, 129);
+			this.label2.Location = new System.Drawing.Point(46, 126);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(100, 23);
 			this.label2.TabIndex = 13;

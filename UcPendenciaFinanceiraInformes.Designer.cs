@@ -61,10 +61,10 @@ namespace NOC_Actions
 			// label6
 			// 
 			this.label6.AutoSize = true;
-			this.label6.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label6.Location = new System.Drawing.Point(79, 132);
+			this.label6.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+			this.label6.Location = new System.Drawing.Point(79, 130);
 			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(51, 13);
+			this.label6.Size = new System.Drawing.Size(57, 17);
 			this.label6.TabIndex = 35;
 			this.label6.Text = "Unidade";
 			// 
@@ -99,10 +99,10 @@ namespace NOC_Actions
 			// label4
 			// 
 			this.label4.AutoSize = true;
-			this.label4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F);
 			this.label4.Location = new System.Drawing.Point(3, 1);
 			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(130, 13);
+			this.label4.Size = new System.Drawing.Size(152, 17);
 			this.label4.TabIndex = 28;
 			this.label4.Text = "Mensagem a ser exibida";
 			// 
@@ -119,7 +119,7 @@ namespace NOC_Actions
 			// 
 			// label1
 			// 
-			this.label1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F);
 			this.label1.Location = new System.Drawing.Point(3, 21);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(464, 35);
@@ -129,13 +129,14 @@ namespace NOC_Actions
 			// 
 			// label2
 			// 
-			this.label2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label2.AutoSize = true;
+			this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F);
 			this.label2.Location = new System.Drawing.Point(34, 186);
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(391, 42);
+			this.label2.Size = new System.Drawing.Size(429, 34);
 			this.label2.TabIndex = 38;
-			this.label2.Text = "Você pode escolher \"detalhar\" para aprimorar e adicionar informações referente ao" +
-	" Bloqueio Financeiro no respectivo contrato.";
+			this.label2.Text = "Você pode escolher \"detalhar\" para aprimorar e adicionar informações \r\nreferente " +
+	"ao Bloqueio Financeiro no respectivo contrato.";
 			// 
 			// btnCloseWindow
 			// 

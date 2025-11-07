@@ -1,10 +1,3 @@
-/*
- * Criado com SharpDevelop.
- * Usuário: fjstavares
- * Data: 01/02/2025
- * Hora: 02:42
- */
-
 using System;
 using System.IO;
 using System.Linq;
@@ -23,7 +16,7 @@ namespace NOC_Actions
 		public UserConfig()
 		{
 			InitializeComponent();
-			CarregarOperadoraSalvas(); // Carrega as operadoras salvas no ComboBox ao abrir o formulário
+			CarregarOperadoraSalvas(); 
 			CarregarCidadeSalvas();
 		}
 		

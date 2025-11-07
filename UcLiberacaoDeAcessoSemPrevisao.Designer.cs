@@ -81,19 +81,20 @@ namespace NOC_Actions
 			// label4
 			// 
 			this.label4.AutoSize = true;
-			this.label4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F);
 			this.label4.Location = new System.Drawing.Point(3, 1);
 			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(130, 13);
+			this.label4.Size = new System.Drawing.Size(152, 17);
 			this.label4.TabIndex = 15;
 			this.label4.Text = "Mensagem a ser exibida";
 			// 
 			// label2
 			// 
-			this.label2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label2.AutoSize = true;
+			this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F);
 			this.label2.Location = new System.Drawing.Point(44, 83);
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(134, 23);
+			this.label2.Size = new System.Drawing.Size(144, 17);
 			this.label2.TabIndex = 13;
 			this.label2.Text = "Equipe Técnica (Dados)";
 			// 
@@ -110,14 +111,15 @@ namespace NOC_Actions
 			// 
 			// label1
 			// 
-			this.label1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label1.AutoSize = true;
+			this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F);
 			this.label1.Location = new System.Drawing.Point(3, 22);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(464, 35);
+			this.label1.Size = new System.Drawing.Size(465, 51);
 			this.label1.TabIndex = 9;
-			this.label1.Text = "\t\tPrezados, necessário acionamento com a loja para liberação de acesso do(s) técn" +
-	"ico(s) abaixo. Ainda não foi repassado previsão de chegada, assim que obtivermos" +
-	" iremos atualizar a thread.";
+			this.label1.Text = "Prezados, necessário acionamento com a loja para liberação de acesso do(s) \r\ntécn" +
+	"ico(s) abaixo. Ainda não foi repassado previsão de chegada, assim que \r\nobtiverm" +
+	"os iremos atualizar a thread.";
 			// 
 			// richTextBoxTechDetails
 			// 
@@ -130,7 +132,7 @@ namespace NOC_Actions
 			// 
 			// label3
 			// 
-			this.label3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F);
 			this.label3.Location = new System.Drawing.Point(44, 225);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(391, 35);
