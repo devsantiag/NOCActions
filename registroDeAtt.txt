@@ -1,6 +1,8 @@
-﻿nomeados os campos da UcDetalharFaturaDoCliente.cs
-adicionado btnAnexar no UcDetalharFaturaDoCliente.cs
-Ajustado o desing da tela de login, sendo ela a LoginUser.cs
-Adicionado o evento BtnDuvidaClick para retornar a aplicação anterior do user control UcPendenciaFinanceiraInformes.cs
-criado private string DetalhamentoDeFatura() no UcDetalharFaturaDoCliente.cs para análise dos preenchimentos e aplicar o informe necessário quando registrado nos campos; adicionado também 		private bool AnaliseDeCamposVazios() para checar se os campos estão preenchidos corretamente elém de personalizar os estilos dos campos do form; adicionado btnDuvida para tirar dúvidas de como usar a ferramenta Corrigido a frase do UcDetalharFaturaDoCliente.cs, haja vista que a posição das palavras do informes estavam sem semantica do portugues e haviam a nacessiade de correção de espaço
-Adicionado this.checkBoxDetalharFatura.CheckedChanged += new System.EventHandler(this.checkBoxDetalharFatura_CheckedChanged); no UcPendenciaFinanceiraInformes.Design.cs com o objetivo de habilitar e desabilitar o uso do button de detalhamento da fatura que dá acesso ao UcControl: UcDetalharFaturaDoCliente.cs
+﻿adicionado engrenagem para configuracao interna no form UcDetalharFaturaDoCliente.cs;  
+adicionado textBox para Operadora
+Corrigido a semantica da variavel detalheFatura do UcDetalheFaturaDoCliente.cs
+criado BtnConfigFormClick para abrir o usercontrol Config_UcDetalharFaturaDoCliente; objetivo este para editar os campos e outras informações necessárias
+Retirado alguns comentários automáticos do Config_UcDetalhar
+Ativado o BtnConfigFormClick para que o usuário possa editar as configurações
+BtnConfigFormClick responsável por abrir o Config_UcDetalhar
+adicionado button Mensagem Eletrônica (BtnMensagemEletrônicaClick()) (projeto não definido ainda)

@@ -17,7 +17,6 @@
 		private System.Windows.Forms.Button btnGravarECopiarInformacoesDetalhadas;
 		private System.Windows.Forms.Button btnApagarOsCampos;
 		private System.Windows.Forms.Button btnAnexar;
-		private System.Windows.Forms.Button btnDuvida;
 		private System.Windows.Forms.MaskedTextBox maskedTextBox_VencimentoFatura;
 		private System.Windows.Forms.Label label7;
 		private System.Windows.Forms.TextBox textBox_OperadoraDaUnidade;
@@ -25,7 +24,9 @@
 		private System.Windows.Forms.Label label8;
 		private System.Windows.Forms.MaskedTextBox maskedTextBox_ValorDaFatura;
 		private System.Windows.Forms.Label label9;
-		private System.Windows.Forms.TextBox textBox_StatusDaFatura;
+		private System.Windows.Forms.ComboBox textBox_StatusDaFatura;
+		private System.Windows.Forms.Label btnConfigForm;
+		private System.Windows.Forms.ComboBox textBox_TipoDeOperadoraComPendencia;
 		
 		protected override void Dispose(bool disposing)
 		{
@@ -53,7 +54,6 @@
 			this.btnGravarECopiarInformacoesDetalhadas = new System.Windows.Forms.Button();
 			this.btnApagarOsCampos = new System.Windows.Forms.Button();
 			this.btnAnexar = new System.Windows.Forms.Button();
-			this.btnDuvida = new System.Windows.Forms.Button();
 			this.maskedTextBox_VencimentoFatura = new System.Windows.Forms.MaskedTextBox();
 			this.label7 = new System.Windows.Forms.Label();
 			this.textBox_OperadoraDaUnidade = new System.Windows.Forms.TextBox();
@@ -61,7 +61,9 @@
 			this.label8 = new System.Windows.Forms.Label();
 			this.maskedTextBox_ValorDaFatura = new System.Windows.Forms.MaskedTextBox();
 			this.label9 = new System.Windows.Forms.Label();
-			this.textBox_StatusDaFatura = new System.Windows.Forms.TextBox();
+			this.textBox_StatusDaFatura = new System.Windows.Forms.ComboBox();
+			this.btnConfigForm = new System.Windows.Forms.Label();
+			this.textBox_TipoDeOperadoraComPendencia = new System.Windows.Forms.ComboBox();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -106,7 +108,7 @@
 			// textBox_CodigoDeBarrasDaFatura
 			// 
 			this.textBox_CodigoDeBarrasDaFatura.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-			this.textBox_CodigoDeBarrasDaFatura.Location = new System.Drawing.Point(3, 233);
+			this.textBox_CodigoDeBarrasDaFatura.Location = new System.Drawing.Point(3, 231);
 			this.textBox_CodigoDeBarrasDaFatura.MaxLength = 327670000;
 			this.textBox_CodigoDeBarrasDaFatura.Name = "textBox_CodigoDeBarrasDaFatura";
 			this.textBox_CodigoDeBarrasDaFatura.Size = new System.Drawing.Size(464, 25);
@@ -116,7 +118,7 @@
 			// 
 			this.label4.AutoSize = true;
 			this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-			this.label4.Location = new System.Drawing.Point(3, 213);
+			this.label4.Location = new System.Drawing.Point(3, 211);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(111, 17);
 			this.label4.TabIndex = 6;
@@ -136,7 +138,7 @@
 			// 
 			this.label6.AutoSize = true;
 			this.label6.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-			this.label6.Location = new System.Drawing.Point(3, 274);
+			this.label6.Location = new System.Drawing.Point(3, 265);
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(112, 17);
 			this.label6.TabIndex = 9;
@@ -146,7 +148,7 @@
 			// 
 			this.religuePorConfianca_Sim.AutoSize = true;
 			this.religuePorConfianca_Sim.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-			this.religuePorConfianca_Sim.Location = new System.Drawing.Point(8, 295);
+			this.religuePorConfianca_Sim.Location = new System.Drawing.Point(8, 286);
 			this.religuePorConfianca_Sim.Name = "religuePorConfianca_Sim";
 			this.religuePorConfianca_Sim.Size = new System.Drawing.Size(48, 21);
 			this.religuePorConfianca_Sim.TabIndex = 10;
@@ -157,7 +159,7 @@
 			// 
 			this.religuePorConfianca_Nao.AutoSize = true;
 			this.religuePorConfianca_Nao.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-			this.religuePorConfianca_Nao.Location = new System.Drawing.Point(60, 295);
+			this.religuePorConfianca_Nao.Location = new System.Drawing.Point(60, 286);
 			this.religuePorConfianca_Nao.Name = "religuePorConfianca_Nao";
 			this.religuePorConfianca_Nao.Size = new System.Drawing.Size(52, 21);
 			this.religuePorConfianca_Nao.TabIndex = 11;
@@ -205,18 +207,6 @@
 			this.btnAnexar.TabIndex = 16;
 			this.btnAnexar.Text = "Anexar";
 			this.btnAnexar.UseVisualStyleBackColor = true;
-			// 
-			// btnDuvida
-			// 
-			this.btnDuvida.AutoSize = true;
-			this.btnDuvida.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-			this.btnDuvida.Location = new System.Drawing.Point(443, 3);
-			this.btnDuvida.Name = "btnDuvida";
-			this.btnDuvida.Size = new System.Drawing.Size(24, 27);
-			this.btnDuvida.TabIndex = 17;
-			this.btnDuvida.Text = "?";
-			this.btnDuvida.UseVisualStyleBackColor = true;
-			this.btnDuvida.Click += new System.EventHandler(this.BtnDuvidaClick);
 			// 
 			// maskedTextBox_VencimentoFatura
 			// 
@@ -280,24 +270,47 @@
 			this.label9.Font = new System.Drawing.Font("Segoe UI", 9.75F);
 			this.label9.Location = new System.Drawing.Point(237, 159);
 			this.label9.Name = "label9";
-			this.label9.Size = new System.Drawing.Size(88, 17);
+			this.label9.Size = new System.Drawing.Size(118, 17);
 			this.label9.TabIndex = 24;
-			this.label9.Text = "Relatar Status";
+			this.label9.Text = "Status do Contrato";
 			// 
 			// textBox_StatusDaFatura
 			// 
 			this.textBox_StatusDaFatura.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+			this.textBox_StatusDaFatura.FormattingEnabled = true;
 			this.textBox_StatusDaFatura.Location = new System.Drawing.Point(239, 179);
-			this.textBox_StatusDaFatura.MaxLength = 327670000;
 			this.textBox_StatusDaFatura.Name = "textBox_StatusDaFatura";
 			this.textBox_StatusDaFatura.Size = new System.Drawing.Size(228, 25);
 			this.textBox_StatusDaFatura.TabIndex = 25;
+			// 
+			// btnConfigForm
+			// 
+			this.btnConfigForm.AutoSize = true;
+			this.btnConfigForm.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btnConfigForm.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+			this.btnConfigForm.Location = new System.Drawing.Point(450, 0);
+			this.btnConfigForm.Name = "btnConfigForm";
+			this.btnConfigForm.Size = new System.Drawing.Size(26, 17);
+			this.btnConfigForm.TabIndex = 27;
+			this.btnConfigForm.Text = "⚙️";
+			this.btnConfigForm.Click += new System.EventHandler(this.BtnConfigFormClick);
+			// 
+			// textBox_TipoDeOperadoraComPendencia
+			// 
+			this.textBox_TipoDeOperadoraComPendencia.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+			this.textBox_TipoDeOperadoraComPendencia.FormattingEnabled = true;
+			this.textBox_TipoDeOperadoraComPendencia.Location = new System.Drawing.Point(239, 49);
+			this.textBox_TipoDeOperadoraComPendencia.Name = "textBox_TipoDeOperadoraComPendencia";
+			this.textBox_TipoDeOperadoraComPendencia.Size = new System.Drawing.Size(228, 25);
+			this.textBox_TipoDeOperadoraComPendencia.TabIndex = 28;
 			// 
 			// UcDetalharFaturaDoCliente
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.Control;
+			this.Controls.Add(this.textBox_TipoDeOperadoraComPendencia);
+			this.Controls.Add(this.btnConfigForm);
 			this.Controls.Add(this.textBox_StatusDaFatura);
 			this.Controls.Add(this.label9);
 			this.Controls.Add(this.maskedTextBox_ValorDaFatura);
@@ -306,7 +319,6 @@
 			this.Controls.Add(this.textBox_OperadoraDaUnidade);
 			this.Controls.Add(this.label7);
 			this.Controls.Add(this.maskedTextBox_VencimentoFatura);
-			this.Controls.Add(this.btnDuvida);
 			this.Controls.Add(this.btnAnexar);
 			this.Controls.Add(this.btnVoltar);
 			this.Controls.Add(this.btnGravarECopiarInformacoesDetalhadas);

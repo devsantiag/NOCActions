@@ -50,6 +50,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Config_UcDetalharFaturaDoCliente.cs" />
+    <Compile Include="Config_UcDetalharFaturaDoCliente.Designer.cs">
+      <DependentUpon>Config_UcDetalharFaturaDoCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="UcDetalharFaturaDoCliente.cs" />
     <Compile Include="UcDetalharFaturaDoCliente.Designer.cs">
       <DependentUpon>UcDetalharFaturaDoCliente.cs</DependentUpon>
@@ -102,6 +106,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Config_UcDetalharFaturaDoCliente.resx">
+      <DependentUpon>Config_UcDetalharFaturaDoCliente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InterfaceClienteInformes.resx">
       <DependentUpon>InterfaceClienteInformes.cs</DependentUpon>
     </EmbeddedResource>

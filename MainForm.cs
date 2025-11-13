@@ -112,5 +112,10 @@ namespace NOC_Actions
 			open_window.Show();
 			btnInformesClientes.Text = "Fechar";
 		}
+
+		void BtnMensagemEletrônicaClick(object sender, EventArgs e)
+		{
+	
+		}
 	}
 }
