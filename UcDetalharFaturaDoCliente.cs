@@ -2,6 +2,8 @@
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Linq;
+using System.IO;
 
 namespace NOC_Actions
 {
@@ -21,8 +23,8 @@ namespace NOC_Actions
 		
 		private bool AnaliseDeCamposVazios()
 		{
-			if (string.IsNullOrWhiteSpace(textBox_Unidade.Text) &&
-			    string.IsNullOrWhiteSpace(textBox_TipoDeOperadoraComPendencia.Text) &&
+			if (string.IsNullOrWhiteSpace(comboBox_UnidadeASerNotificada.Text) &&
+			    string.IsNullOrWhiteSpace(textBox_TipoDeOperadoraDoContrato.Text) &&
 			    string.IsNullOrWhiteSpace(richTextBox_ObservacaoDaFatura.Text) &&
 			    string.IsNullOrWhiteSpace(maskedTextBox_ValorDaFatura.Text) &&
 			    string.IsNullOrWhiteSpace(maskedTextBox_VencimentoFatura.Text) &&
@@ -41,10 +43,10 @@ namespace NOC_Actions
 				return string.Empty;
 			}
 			
-			string msn = "Prezados, informamos que foi identificado um bloqueio de natureza administrativo-financeira no contrato da unidade " +textBox_Unidade.Text.ToUpper()+"." +Environment.NewLine +"Seguem abaixo os detalhes." +Environment.NewLine +Environment.NewLine;
+			string msn = "Prezados, informamos que foi identificado um bloqueio de natureza administrativo-financeira no contrato da unidade " +comboBox_UnidadeASerNotificada.Text.ToUpper()+"." +Environment.NewLine +"Seguem abaixo os detalhes." +Environment.NewLine +Environment.NewLine;
 			
 			string detalheFatura =
-				"Operadora: " + textBox_TipoDeOperadoraComPendencia.Text + Environment.NewLine +
+				"Operadora: " + textBox_TipoDeOperadoraDoContrato.Text + Environment.NewLine +
 				"Valor: " + maskedTextBox_ValorDaFatura.Text + Environment.NewLine +
 				"Vencimento: " + maskedTextBox_VencimentoFatura.Text + Environment.NewLine +
 				"Código de pagamento: " + textBox_CodigoDeBarrasDaFatura.Text + Environment.NewLine +

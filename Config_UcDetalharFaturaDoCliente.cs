@@ -9,6 +9,7 @@ namespace NOC_Actions
 {
 	public partial class Config_UcDetalharFaturaDoCliente : UserControl
 	{
+		private readonly string caminhoArquivoUnidadeCliente = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "unidade_cliente.txt");
 		private readonly string caminhoArquivoOperadora = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "operadora.txt");
 		private readonly string caminhoArquivoStatus = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "statusDoCaso.txt");
 		

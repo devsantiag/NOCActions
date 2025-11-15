@@ -20,13 +20,13 @@
 		private System.Windows.Forms.MaskedTextBox maskedTextBox_VencimentoFatura;
 		private System.Windows.Forms.Label label7;
 		private System.Windows.Forms.TextBox textBox_OperadoraDaUnidade;
-		private System.Windows.Forms.TextBox textBox_Unidade;
 		private System.Windows.Forms.Label label8;
 		private System.Windows.Forms.MaskedTextBox maskedTextBox_ValorDaFatura;
 		private System.Windows.Forms.Label label9;
 		private System.Windows.Forms.ComboBox textBox_StatusDaFatura;
 		private System.Windows.Forms.Label btnConfigForm;
-		private System.Windows.Forms.ComboBox textBox_TipoDeOperadoraComPendencia;
+		private System.Windows.Forms.ComboBox textBox_TipoDeOperadoraDoContrato;
+		private System.Windows.Forms.ComboBox comboBox_UnidadeASerNotificada;
 		
 		protected override void Dispose(bool disposing)
 		{
@@ -57,13 +57,13 @@
 			this.maskedTextBox_VencimentoFatura = new System.Windows.Forms.MaskedTextBox();
 			this.label7 = new System.Windows.Forms.Label();
 			this.textBox_OperadoraDaUnidade = new System.Windows.Forms.TextBox();
-			this.textBox_Unidade = new System.Windows.Forms.TextBox();
 			this.label8 = new System.Windows.Forms.Label();
 			this.maskedTextBox_ValorDaFatura = new System.Windows.Forms.MaskedTextBox();
 			this.label9 = new System.Windows.Forms.Label();
 			this.textBox_StatusDaFatura = new System.Windows.Forms.ComboBox();
 			this.btnConfigForm = new System.Windows.Forms.Label();
-			this.textBox_TipoDeOperadoraComPendencia = new System.Windows.Forms.ComboBox();
+			this.textBox_TipoDeOperadoraDoContrato = new System.Windows.Forms.ComboBox();
+			this.comboBox_UnidadeASerNotificada = new System.Windows.Forms.ComboBox();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -237,14 +237,6 @@
 			this.textBox_OperadoraDaUnidade.Size = new System.Drawing.Size(228, 25);
 			this.textBox_OperadoraDaUnidade.TabIndex = 20;
 			// 
-			// textBox_Unidade
-			// 
-			this.textBox_Unidade.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-			this.textBox_Unidade.Location = new System.Drawing.Point(3, 49);
-			this.textBox_Unidade.Name = "textBox_Unidade";
-			this.textBox_Unidade.Size = new System.Drawing.Size(230, 25);
-			this.textBox_Unidade.TabIndex = 21;
-			// 
 			// label8
 			// 
 			this.label8.AutoSize = true;
@@ -295,27 +287,36 @@
 			this.btnConfigForm.Text = "⚙️";
 			this.btnConfigForm.Click += new System.EventHandler(this.BtnConfigFormClick);
 			// 
-			// textBox_TipoDeOperadoraComPendencia
+			// textBox_TipoDeOperadoraDoContrato
 			// 
-			this.textBox_TipoDeOperadoraComPendencia.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-			this.textBox_TipoDeOperadoraComPendencia.FormattingEnabled = true;
-			this.textBox_TipoDeOperadoraComPendencia.Location = new System.Drawing.Point(239, 49);
-			this.textBox_TipoDeOperadoraComPendencia.Name = "textBox_TipoDeOperadoraComPendencia";
-			this.textBox_TipoDeOperadoraComPendencia.Size = new System.Drawing.Size(228, 25);
-			this.textBox_TipoDeOperadoraComPendencia.TabIndex = 28;
+			this.textBox_TipoDeOperadoraDoContrato.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+			this.textBox_TipoDeOperadoraDoContrato.FormattingEnabled = true;
+			this.textBox_TipoDeOperadoraDoContrato.Location = new System.Drawing.Point(239, 49);
+			this.textBox_TipoDeOperadoraDoContrato.Name = "textBox_TipoDeOperadoraDoContrato";
+			this.textBox_TipoDeOperadoraDoContrato.Size = new System.Drawing.Size(228, 25);
+			this.textBox_TipoDeOperadoraDoContrato.TabIndex = 28;
+			// 
+			// comboBox_UnidadeASerNotificada
+			// 
+			this.comboBox_UnidadeASerNotificada.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+			this.comboBox_UnidadeASerNotificada.FormattingEnabled = true;
+			this.comboBox_UnidadeASerNotificada.Location = new System.Drawing.Point(3, 49);
+			this.comboBox_UnidadeASerNotificada.Name = "comboBox_UnidadeASerNotificada";
+			this.comboBox_UnidadeASerNotificada.Size = new System.Drawing.Size(228, 25);
+			this.comboBox_UnidadeASerNotificada.TabIndex = 29;
 			// 
 			// UcDetalharFaturaDoCliente
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.Control;
-			this.Controls.Add(this.textBox_TipoDeOperadoraComPendencia);
+			this.Controls.Add(this.comboBox_UnidadeASerNotificada);
+			this.Controls.Add(this.textBox_TipoDeOperadoraDoContrato);
 			this.Controls.Add(this.btnConfigForm);
 			this.Controls.Add(this.textBox_StatusDaFatura);
 			this.Controls.Add(this.label9);
 			this.Controls.Add(this.maskedTextBox_ValorDaFatura);
 			this.Controls.Add(this.label8);
-			this.Controls.Add(this.textBox_Unidade);
 			this.Controls.Add(this.textBox_OperadoraDaUnidade);
 			this.Controls.Add(this.label7);
 			this.Controls.Add(this.maskedTextBox_VencimentoFatura);

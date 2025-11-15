@@ -9,9 +9,12 @@
 		private System.Windows.Forms.ComboBox comboBox_StatusDoContrato;
 		private System.Windows.Forms.Label label7;
 		private System.Windows.Forms.Label label9;
-		private System.Windows.Forms.Button btnSalvarOperadora;
+		private System.Windows.Forms.Button btnSalvarOperadoraDoContrato;
 		private System.Windows.Forms.Button btnSalvarStatusDoContrato;
 		private System.Windows.Forms.Label label2;
+		private System.Windows.Forms.Button btnSalvarUnidadeCliente;
+		private System.Windows.Forms.Label label3;
+		private System.Windows.Forms.ComboBox comboBox_UnidadeCliente;
 		
 		protected override void Dispose(bool disposing)
 		{
@@ -31,9 +34,12 @@
 			this.comboBox_StatusDoContrato = new System.Windows.Forms.ComboBox();
 			this.label7 = new System.Windows.Forms.Label();
 			this.label9 = new System.Windows.Forms.Label();
-			this.btnSalvarOperadora = new System.Windows.Forms.Button();
+			this.btnSalvarOperadoraDoContrato = new System.Windows.Forms.Button();
 			this.btnSalvarStatusDoContrato = new System.Windows.Forms.Button();
 			this.label2 = new System.Windows.Forms.Label();
+			this.btnSalvarUnidadeCliente = new System.Windows.Forms.Button();
+			this.label3 = new System.Windows.Forms.Label();
+			this.comboBox_UnidadeCliente = new System.Windows.Forms.ComboBox();
 			this.SuspendLayout();
 			// 
 			// btnVoltar
@@ -64,7 +70,7 @@
 			this.comboBox_OperadoraDoContrato.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
 			this.comboBox_OperadoraDoContrato.Font = new System.Drawing.Font("Segoe UI", 9.75F);
 			this.comboBox_OperadoraDoContrato.FormattingEnabled = true;
-			this.comboBox_OperadoraDoContrato.Location = new System.Drawing.Point(140, 37);
+			this.comboBox_OperadoraDoContrato.Location = new System.Drawing.Point(140, 65);
 			this.comboBox_OperadoraDoContrato.Name = "comboBox_OperadoraDoContrato";
 			this.comboBox_OperadoraDoContrato.Size = new System.Drawing.Size(228, 25);
 			this.comboBox_OperadoraDoContrato.TabIndex = 29;
@@ -75,7 +81,7 @@
 			this.comboBox_StatusDoContrato.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
 			this.comboBox_StatusDoContrato.Font = new System.Drawing.Font("Segoe UI", 9.75F);
 			this.comboBox_StatusDoContrato.FormattingEnabled = true;
-			this.comboBox_StatusDoContrato.Location = new System.Drawing.Point(140, 68);
+			this.comboBox_StatusDoContrato.Location = new System.Drawing.Point(140, 96);
 			this.comboBox_StatusDoContrato.Name = "comboBox_StatusDoContrato";
 			this.comboBox_StatusDoContrato.Size = new System.Drawing.Size(228, 25);
 			this.comboBox_StatusDoContrato.TabIndex = 30;
@@ -84,7 +90,7 @@
 			// 
 			this.label7.AutoSize = true;
 			this.label7.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-			this.label7.Location = new System.Drawing.Point(18, 40);
+			this.label7.Location = new System.Drawing.Point(18, 68);
 			this.label7.Name = "label7";
 			this.label7.Size = new System.Drawing.Size(73, 17);
 			this.label7.TabIndex = 31;
@@ -94,27 +100,27 @@
 			// 
 			this.label9.AutoSize = true;
 			this.label9.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-			this.label9.Location = new System.Drawing.Point(18, 71);
+			this.label9.Location = new System.Drawing.Point(18, 99);
 			this.label9.Name = "label9";
 			this.label9.Size = new System.Drawing.Size(118, 17);
 			this.label9.TabIndex = 32;
 			this.label9.Text = "Status do Contrato";
 			// 
-			// btnSalvarOperadora
+			// btnSalvarOperadoraDoContrato
 			// 
-			this.btnSalvarOperadora.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-			this.btnSalvarOperadora.Location = new System.Drawing.Point(379, 36);
-			this.btnSalvarOperadora.Name = "btnSalvarOperadora";
-			this.btnSalvarOperadora.Size = new System.Drawing.Size(74, 25);
-			this.btnSalvarOperadora.TabIndex = 33;
-			this.btnSalvarOperadora.Text = "Salvar";
-			this.btnSalvarOperadora.UseVisualStyleBackColor = true;
-			this.btnSalvarOperadora.Click += new System.EventHandler(this.BtnSalvarOperadoraClick);
+			this.btnSalvarOperadoraDoContrato.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+			this.btnSalvarOperadoraDoContrato.Location = new System.Drawing.Point(379, 64);
+			this.btnSalvarOperadoraDoContrato.Name = "btnSalvarOperadoraDoContrato";
+			this.btnSalvarOperadoraDoContrato.Size = new System.Drawing.Size(74, 25);
+			this.btnSalvarOperadoraDoContrato.TabIndex = 33;
+			this.btnSalvarOperadoraDoContrato.Text = "Salvar";
+			this.btnSalvarOperadoraDoContrato.UseVisualStyleBackColor = true;
+			this.btnSalvarOperadoraDoContrato.Click += new System.EventHandler(this.BtnSalvarOperadoraClick);
 			// 
 			// btnSalvarStatusDoContrato
 			// 
 			this.btnSalvarStatusDoContrato.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-			this.btnSalvarStatusDoContrato.Location = new System.Drawing.Point(379, 69);
+			this.btnSalvarStatusDoContrato.Location = new System.Drawing.Point(379, 97);
 			this.btnSalvarStatusDoContrato.Name = "btnSalvarStatusDoContrato";
 			this.btnSalvarStatusDoContrato.Size = new System.Drawing.Size(74, 25);
 			this.btnSalvarStatusDoContrato.TabIndex = 34;
@@ -132,13 +138,47 @@
 			this.label2.TabIndex = 35;
 			this.label2.Text = "Configuração";
 			// 
+			// btnSalvarUnidadeCliente
+			// 
+			this.btnSalvarUnidadeCliente.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+			this.btnSalvarUnidadeCliente.Location = new System.Drawing.Point(379, 33);
+			this.btnSalvarUnidadeCliente.Name = "btnSalvarUnidadeCliente";
+			this.btnSalvarUnidadeCliente.Size = new System.Drawing.Size(74, 25);
+			this.btnSalvarUnidadeCliente.TabIndex = 38;
+			this.btnSalvarUnidadeCliente.Text = "Salvar";
+			this.btnSalvarUnidadeCliente.UseVisualStyleBackColor = true;
+			// 
+			// label3
+			// 
+			this.label3.AutoSize = true;
+			this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+			this.label3.Location = new System.Drawing.Point(18, 37);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(57, 17);
+			this.label3.TabIndex = 37;
+			this.label3.Text = "Unidade";
+			// 
+			// comboBox_UnidadeCliente
+			// 
+			this.comboBox_UnidadeCliente.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+			this.comboBox_UnidadeCliente.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+			this.comboBox_UnidadeCliente.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+			this.comboBox_UnidadeCliente.FormattingEnabled = true;
+			this.comboBox_UnidadeCliente.Location = new System.Drawing.Point(140, 34);
+			this.comboBox_UnidadeCliente.Name = "comboBox_UnidadeCliente";
+			this.comboBox_UnidadeCliente.Size = new System.Drawing.Size(228, 25);
+			this.comboBox_UnidadeCliente.TabIndex = 36;
+			// 
 			// Config_UcDetalharFaturaDoCliente
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.Controls.Add(this.btnSalvarUnidadeCliente);
+			this.Controls.Add(this.label3);
+			this.Controls.Add(this.comboBox_UnidadeCliente);
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.btnSalvarStatusDoContrato);
-			this.Controls.Add(this.btnSalvarOperadora);
+			this.Controls.Add(this.btnSalvarOperadoraDoContrato);
 			this.Controls.Add(this.label9);
 			this.Controls.Add(this.label7);
 			this.Controls.Add(this.comboBox_StatusDoContrato);
