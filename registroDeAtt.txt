@@ -1,3 +1,9 @@
-﻿declarado BtnRegistroDeFalhaInternaClienteClick() - ainda sem uso para definição de uso
-using 'using System.IO;' e 'using System.Linq;' adicionado no Config_UcDetalharFaturaDoCliente.cs para o uso de Path
-adicionado parametros SalvarItensNoArquivo_Operadora, RegistrarNoArquivo e CarregarOperadoraSalva para salvar as operadora no combobox na sessão Config_UcDetalharFaturaDoCliente;
+﻿adicionado parametros para salvar o status do contrato do cliente e também autocomplete para completar e dar sugestões de pesquisas já salvas
+modificado alguns parametros para deixar enxuto (curto) e semantico para a fluidez e legibilidade do contrato
+ativado o botão 'voltar' sendo ele BtnVoltarClick  do form Config_UcDetalharFaturaDoCLiente.cs para retornar a tela atual, mas inicial, sendo ela a UcDetalharFaturaDoCliente.cs e não a Config_UcDetalharFaturaDoCLiente.cs; para o mesmo caso, foi adicionado o parametro para trabalhar com o user Control, sendo ele 		private void MostrarUserControl(UserControl uc)
+		{
+			this.Controls.Clear();
+			uc.Dock = DockStyle.Fill;
+			this.Controls.Add(uc);
+		}
+O qual segue senco chamado no BtnVoltarClick() < - button

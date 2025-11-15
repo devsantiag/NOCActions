@@ -5,7 +5,7 @@
 		private System.ComponentModel.IContainer components = null;
 		private System.Windows.Forms.Button btnVoltar;
 		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.ComboBox comboBox_TipoDeOperadoraComPendencia;
+		private System.Windows.Forms.ComboBox comboBox_OperadoraDoContrato;
 		private System.Windows.Forms.ComboBox comboBox_StatusDoContrato;
 		private System.Windows.Forms.Label label7;
 		private System.Windows.Forms.Label label9;
@@ -27,7 +27,7 @@
 		{
 			this.btnVoltar = new System.Windows.Forms.Button();
 			this.label1 = new System.Windows.Forms.Label();
-			this.comboBox_TipoDeOperadoraComPendencia = new System.Windows.Forms.ComboBox();
+			this.comboBox_OperadoraDoContrato = new System.Windows.Forms.ComboBox();
 			this.comboBox_StatusDoContrato = new System.Windows.Forms.ComboBox();
 			this.label7 = new System.Windows.Forms.Label();
 			this.label9 = new System.Windows.Forms.Label();
@@ -45,6 +45,7 @@
 			this.btnVoltar.TabIndex = 14;
 			this.btnVoltar.Text = "Voltar";
 			this.btnVoltar.UseVisualStyleBackColor = true;
+			this.btnVoltar.Click += new System.EventHandler(this.BtnVoltarClick);
 			// 
 			// label1
 			// 
@@ -57,17 +58,21 @@
 			this.label1.TabIndex = 16;
 			this.label1.Text = "_____________________________________________________________________________";
 			// 
-			// comboBox_TipoDeOperadoraComPendencia
+			// comboBox_OperadoraDoContrato
 			// 
-			this.comboBox_TipoDeOperadoraComPendencia.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-			this.comboBox_TipoDeOperadoraComPendencia.FormattingEnabled = true;
-			this.comboBox_TipoDeOperadoraComPendencia.Location = new System.Drawing.Point(140, 37);
-			this.comboBox_TipoDeOperadoraComPendencia.Name = "comboBox_TipoDeOperadoraComPendencia";
-			this.comboBox_TipoDeOperadoraComPendencia.Size = new System.Drawing.Size(228, 25);
-			this.comboBox_TipoDeOperadoraComPendencia.TabIndex = 29;
+			this.comboBox_OperadoraDoContrato.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+			this.comboBox_OperadoraDoContrato.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+			this.comboBox_OperadoraDoContrato.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+			this.comboBox_OperadoraDoContrato.FormattingEnabled = true;
+			this.comboBox_OperadoraDoContrato.Location = new System.Drawing.Point(140, 37);
+			this.comboBox_OperadoraDoContrato.Name = "comboBox_OperadoraDoContrato";
+			this.comboBox_OperadoraDoContrato.Size = new System.Drawing.Size(228, 25);
+			this.comboBox_OperadoraDoContrato.TabIndex = 29;
 			// 
 			// comboBox_StatusDoContrato
 			// 
+			this.comboBox_StatusDoContrato.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+			this.comboBox_StatusDoContrato.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
 			this.comboBox_StatusDoContrato.Font = new System.Drawing.Font("Segoe UI", 9.75F);
 			this.comboBox_StatusDoContrato.FormattingEnabled = true;
 			this.comboBox_StatusDoContrato.Location = new System.Drawing.Point(140, 68);
@@ -115,6 +120,7 @@
 			this.btnSalvarStatusDoContrato.TabIndex = 34;
 			this.btnSalvarStatusDoContrato.Text = "Salvar";
 			this.btnSalvarStatusDoContrato.UseVisualStyleBackColor = true;
+			this.btnSalvarStatusDoContrato.Click += new System.EventHandler(this.BtnSalvarStatusDoContratoClick);
 			// 
 			// label2
 			// 
@@ -136,7 +142,7 @@
 			this.Controls.Add(this.label9);
 			this.Controls.Add(this.label7);
 			this.Controls.Add(this.comboBox_StatusDoContrato);
-			this.Controls.Add(this.comboBox_TipoDeOperadoraComPendencia);
+			this.Controls.Add(this.comboBox_OperadoraDoContrato);
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.btnVoltar);
 			this.Name = "Config_UcDetalharFaturaDoCliente";
