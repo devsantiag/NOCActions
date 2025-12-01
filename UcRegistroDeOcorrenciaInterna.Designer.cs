@@ -1,18 +1,7 @@
-﻿/*
- * Criado por SharpDevelop.
- * Usuário: fjstavares
- * Data: 16/11/2025
- * Hora: 16:09
- * 
- * Para alterar este modelo use Ferramentas | Opções | Codificação | Editar Cabeçalhos Padrão.
- */
-namespace NOC_Actions
+﻿namespace NOC_Actions
 {
 	partial class UcRegistroDeOcorrenciaInterna
 	{
-		/// <summary>
-		/// Designer variable used to keep track of non-visual components.
-		/// </summary>
 		private System.ComponentModel.IContainer components = null;
 		private System.Windows.Forms.ListBox listBox_RegistroDeOcorrencia;
 		private System.Windows.Forms.Label label1;
@@ -28,10 +17,6 @@ namespace NOC_Actions
 		private System.Windows.Forms.Label label_textoDeAvisoUnidadeContrato;
 		private System.Windows.Forms.Label label_textoDeAvisoOperadora;
 		
-		/// <summary>
-		/// Disposes resources used by the control.
-		/// </summary>
-		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
 		protected override void Dispose(bool disposing)
 		{
 			if (disposing) {
@@ -42,11 +27,6 @@ namespace NOC_Actions
 			base.Dispose(disposing);
 		}
 		
-		/// <summary>
-		/// This method is required for Windows Forms designer support.
-		/// Do not change the method contents inside the source code editor. The Forms designer might
-		/// not be able to load this method if it was changed manually.
-		/// </summary>
 		private void InitializeComponent()
 		{
 			this.listBox_RegistroDeOcorrencia = new System.Windows.Forms.ListBox();
@@ -69,10 +49,11 @@ namespace NOC_Actions
 			this.listBox_RegistroDeOcorrencia.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.listBox_RegistroDeOcorrencia.FormattingEnabled = true;
 			this.listBox_RegistroDeOcorrencia.ItemHeight = 17;
-			this.listBox_RegistroDeOcorrencia.Location = new System.Drawing.Point(0, 106);
+			this.listBox_RegistroDeOcorrencia.Location = new System.Drawing.Point(0, 104);
 			this.listBox_RegistroDeOcorrencia.Name = "listBox_RegistroDeOcorrencia";
-			this.listBox_RegistroDeOcorrencia.Size = new System.Drawing.Size(470, 157);
+			this.listBox_RegistroDeOcorrencia.Size = new System.Drawing.Size(470, 174);
 			this.listBox_RegistroDeOcorrencia.TabIndex = 0;
+			this.listBox_RegistroDeOcorrencia.SelectedIndexChanged += new System.EventHandler(this.ListBox_RegistroDeOcorrenciaSelectedIndexChanged);
 			// 
 			// label1
 			// 

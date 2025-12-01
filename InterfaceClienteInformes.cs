@@ -63,11 +63,7 @@ namespace NOC_Actions
 		
 		void BtnPendenciaFinanceiraClick(object sender, EventArgs e)
 		{
-<<<<<<< HEAD
-//				Prezados, XXXXXXXX! Identificamos um Bloqueio Administratrivo Financeiro no Circuito XXXX. Poderiam checar?
-=======
-//				Prezados, [SAUDAÇÃO]! Identificamos um Bloqueio Administratrivo Financeiro no Circuito XXXX. Poderiam checar? 
->>>>>>> 89636110820916da611ea4f07a75bce9db7f0411
+//			Prezados, [SAUDAÇÃO]! Identificamos um Bloqueio Administratrivo Financeiro no Circuito XXXX. Poderiam checar?
 			MostrarUserControl(new UcPendenciaFinanceiraInformes());
 		}
 		

@@ -51,6 +51,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class_InformacoesContrato_ReincidenciaDeFalha.cs" />
+    <Compile Include="FormDetalhesDoContrato.cs" />
+    <Compile Include="FormDetalhesDoContrato.Designer.cs">
+      <DependentUpon>FormDetalhesDoContrato.cs</DependentUpon>
+    </Compile>
     <Compile Include="UcDetalharFaturaDoCliente.cs" />
     <Compile Include="UcDetalharFaturaDoCliente.Designer.cs">
       <DependentUpon>UcDetalharFaturaDoCliente.cs</DependentUpon>
@@ -115,6 +119,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="FormDetalhesDoContrato.resx">
+      <DependentUpon>FormDetalhesDoContrato.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InterfaceClienteInformes.resx">
       <DependentUpon>InterfaceClienteInformes.cs</DependentUpon>
     </EmbeddedResource>

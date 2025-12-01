@@ -128,11 +128,12 @@ namespace NOC_Actions
 			// label5
 			// 
 			this.label5.AutoSize = true;
-			this.label5.Location = new System.Drawing.Point(38, 285);
+			this.label5.ForeColor = System.Drawing.SystemColors.ControlLight;
+			this.label5.Location = new System.Drawing.Point(4, 285);
 			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(391, 13);
+			this.label5.Size = new System.Drawing.Size(463, 13);
 			this.label5.TabIndex = 21;
-			this.label5.Text = "________________________________________________________________";
+			this.label5.Text = "____________________________________________________________________________";
 			// 
 			// label2
 			// 

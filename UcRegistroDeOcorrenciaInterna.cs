@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using NOC_Actions;
 using System.Linq;
 using System.IO;
+using System.Collections.Generic;
 
 namespace NOC_Actions
 {
@@ -25,6 +26,45 @@ namespace NOC_Actions
 		}
 		
 		
+//		private void listBox_RegistroDeOcorrencia_MouseDoubleClick(object sender, MouseEventArgs e)
+//		{
+//			MessageBox.Show("DOUBLE CLICK FUNCIONANDO!");
+//		}
+		
+//		private void listBox_RegistroDeOcorrencia_DoubleClick
+		
+		
+		void ListBox_RegistroDeOcorrenciaSelectedIndexChanged(object sender, EventArgs e)
+		{
+			if (listBox_RegistroDeOcorrencia.SelectedItem == null)
+				return;
+
+			string linha = listBox_RegistroDeOcorrencia.SelectedItem.ToString();
+
+			string unidade = "";
+			string operadora = "";
+			// Extrair informações da linha
+			if (linha.Contains("Contrato/unidade:") && linha.Contains("Operadora:"))
+			{
+				int idxUnidade = linha.IndexOf("Contrato/unidade:") + "Contrato/unidade:".Length;
+				int idxOperadora = linha.IndexOf("Operadora:");
+
+				unidade = linha.Substring(idxUnidade, idxOperadora - idxUnidade).Trim();
+				operadora = linha.Substring(idxOperadora + "Operadora:".Length).Trim();
+			}
+
+			Class_InformacoesContrato_ReincidenciaDeFalha contrato =
+				new Class_InformacoesContrato_ReincidenciaDeFalha
+			{
+				Unidade = unidade,
+				Operadora = operadora
+			};
+
+			FormDetalhesDoContrato detalhes = new FormDetalhesDoContrato(contrato);
+			detalhes.Show();
+		
+		
+		}
 		
 		
 		

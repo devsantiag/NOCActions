@@ -208,6 +208,7 @@ namespace NOC_Actions
 			
 			string msn = DetalhamentoDeFatura();
 			Clipboard.SetText(msn);
+			LimparCampos();
 		}
 		
 		void CheckBox_PermitirEdicaoSimCheckedChanged(object sender, EventArgs e)
@@ -275,5 +276,17 @@ namespace NOC_Actions
 				religuePorConfianca_Sim.Checked = false;
 			}
 		}
+		
+		void LimparCampos()
+		{
+			comboBox_UnidadeASerNotificada.Text="";
+			comboBox_TipoDeOperadoraDoContrato.Text="";
+			richTextBox_ObservacaoDaFatura.Text="";
+			maskedTextBox_ValorDaFatura.Text="";
+			maskedTextBox_VencimentoFatura.Text="";
+			comboBox_StatusDaFatura.Text="";
+			textBox_CodigoDeBarrasDaFatura.Text="";
+		}
+		
 	}
 }

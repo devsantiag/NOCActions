@@ -6,6 +6,6 @@ namespace NOC_Actions
 	{
 		public string Unidade { get; set; }
 		public string Operadora { get; set; }
-		public string InformacoesContrato { get; set; }
+//		public string InformacoesContrato { get; set; }
 	}
 }
