@@ -287,6 +287,5 @@ namespace NOC_Actions
 			comboBox_StatusDaFatura.Text="";
 			textBox_CodigoDeBarrasDaFatura.Text="";
 		}
-		
 	}
 }

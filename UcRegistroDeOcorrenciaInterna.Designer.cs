@@ -53,7 +53,6 @@
 			this.listBox_RegistroDeOcorrencia.Name = "listBox_RegistroDeOcorrencia";
 			this.listBox_RegistroDeOcorrencia.Size = new System.Drawing.Size(470, 140);
 			this.listBox_RegistroDeOcorrencia.TabIndex = 0;
-			this.listBox_RegistroDeOcorrencia.SelectedIndexChanged += new System.EventHandler(this.ListBox_RegistroDeOcorrenciaSelectedIndexChanged);
 			// 
 			// label1
 			// 
