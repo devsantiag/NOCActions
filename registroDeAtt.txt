@@ -1,1 +1,3 @@
 ﻿adicionado sistema de apagar os campos quando clicado em gravar, no UcDetalharFaturaDoCliente.cs
+adicionado sistema de observaçao textBox no sistema na UcRegistroDeOcorrenciaInterna.cs
+removido using desnecessário

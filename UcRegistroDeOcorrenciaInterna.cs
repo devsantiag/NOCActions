@@ -3,7 +3,6 @@ using System.Windows.Forms;
 using NOC_Actions;
 using System.Linq;
 using System.IO;
-using System.Collections.Generic;
 
 namespace NOC_Actions
 {
@@ -20,19 +19,11 @@ namespace NOC_Actions
 		
 		void BtnSaveAndCopyClick(object sender, EventArgs e)
 		{
-			string texto = textBox_UnidadeContrato.Text.Trim();
-			string texto2 = textBox_OperadoraDaUnidade.Text.Trim();
-			listBox_RegistroDeOcorrencia.Items.Add("Contrato/unidade: " +texto+ " Operadora: " +texto2);
+			string textContratoUnidade = textBox_UnidadeContrato.Text.Trim();
+			string textOperadoraDoContratoUnidade = textBox_OperadoraDaUnidade.Text.Trim();
+			string textObservacaoContratoUnidade = textBox_observacaoDoContrato.Text.Trim();
+			listBox_RegistroDeOcorrencia.Items.Add("> Contrato/unidade: " +textContratoUnidade+ " |  Operadora: " +textOperadoraDoContratoUnidade+ " |" + " Observação: " +textObservacaoContratoUnidade);
 		}
-		
-		
-//		private void listBox_RegistroDeOcorrencia_MouseDoubleClick(object sender, MouseEventArgs e)
-//		{
-//			MessageBox.Show("DOUBLE CLICK FUNCIONANDO!");
-//		}
-		
-//		private void listBox_RegistroDeOcorrencia_DoubleClick
-		
 		
 		void ListBox_RegistroDeOcorrenciaSelectedIndexChanged(object sender, EventArgs e)
 		{
@@ -62,11 +53,6 @@ namespace NOC_Actions
 
 			FormDetalhesDoContrato detalhes = new FormDetalhesDoContrato(contrato);
 			detalhes.Show();
-		
-		
 		}
-		
-		
-		
 	}
 }

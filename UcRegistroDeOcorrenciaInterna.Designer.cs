@@ -14,8 +14,8 @@
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Label label4;
-		private System.Windows.Forms.Label label_textoDeAvisoUnidadeContrato;
-		private System.Windows.Forms.Label label_textoDeAvisoOperadora;
+		private System.Windows.Forms.TextBox textBox_observacaoDoContrato;
+		private System.Windows.Forms.Label label5;
 		
 		protected override void Dispose(bool disposing)
 		{
@@ -40,8 +40,8 @@
 			this.label2 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
-			this.label_textoDeAvisoUnidadeContrato = new System.Windows.Forms.Label();
-			this.label_textoDeAvisoOperadora = new System.Windows.Forms.Label();
+			this.textBox_observacaoDoContrato = new System.Windows.Forms.TextBox();
+			this.label5 = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
 			// listBox_RegistroDeOcorrencia
@@ -49,9 +49,9 @@
 			this.listBox_RegistroDeOcorrencia.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.listBox_RegistroDeOcorrencia.FormattingEnabled = true;
 			this.listBox_RegistroDeOcorrencia.ItemHeight = 17;
-			this.listBox_RegistroDeOcorrencia.Location = new System.Drawing.Point(0, 104);
+			this.listBox_RegistroDeOcorrencia.Location = new System.Drawing.Point(0, 150);
 			this.listBox_RegistroDeOcorrencia.Name = "listBox_RegistroDeOcorrencia";
-			this.listBox_RegistroDeOcorrencia.Size = new System.Drawing.Size(470, 174);
+			this.listBox_RegistroDeOcorrencia.Size = new System.Drawing.Size(470, 140);
 			this.listBox_RegistroDeOcorrencia.TabIndex = 0;
 			this.listBox_RegistroDeOcorrencia.SelectedIndexChanged += new System.EventHandler(this.ListBox_RegistroDeOcorrenciaSelectedIndexChanged);
 			// 
@@ -123,7 +123,7 @@
 			// textBox_UnidadeContrato
 			// 
 			this.textBox_UnidadeContrato.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-			this.textBox_UnidadeContrato.Location = new System.Drawing.Point(9, 50);
+			this.textBox_UnidadeContrato.Location = new System.Drawing.Point(9, 44);
 			this.textBox_UnidadeContrato.Name = "textBox_UnidadeContrato";
 			this.textBox_UnidadeContrato.Size = new System.Drawing.Size(222, 25);
 			this.textBox_UnidadeContrato.TabIndex = 10;
@@ -131,7 +131,7 @@
 			// textBox_OperadoraDaUnidade
 			// 
 			this.textBox_OperadoraDaUnidade.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-			this.textBox_OperadoraDaUnidade.Location = new System.Drawing.Point(239, 50);
+			this.textBox_OperadoraDaUnidade.Location = new System.Drawing.Point(239, 44);
 			this.textBox_OperadoraDaUnidade.Name = "textBox_OperadoraDaUnidade";
 			this.textBox_OperadoraDaUnidade.Size = new System.Drawing.Size(222, 25);
 			this.textBox_OperadoraDaUnidade.TabIndex = 11;
@@ -142,7 +142,7 @@
 			this.label2.BackColor = System.Drawing.Color.Transparent;
 			this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F);
 			this.label2.ForeColor = System.Drawing.Color.Black;
-			this.label2.Location = new System.Drawing.Point(9, 30);
+			this.label2.Location = new System.Drawing.Point(9, 24);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(121, 17);
 			this.label2.TabIndex = 12;
@@ -154,7 +154,7 @@
 			this.label3.BackColor = System.Drawing.Color.Transparent;
 			this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F);
 			this.label3.ForeColor = System.Drawing.Color.Black;
-			this.label3.Location = new System.Drawing.Point(239, 30);
+			this.label3.Location = new System.Drawing.Point(239, 24);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(73, 17);
 			this.label3.TabIndex = 13;
@@ -166,46 +166,41 @@
 			this.label4.BackColor = System.Drawing.Color.Transparent;
 			this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F);
 			this.label4.ForeColor = System.Drawing.SystemColors.ControlLight;
-			this.label4.Location = new System.Drawing.Point(2, 279);
+			this.label4.Location = new System.Drawing.Point(2, 290);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(468, 17);
 			this.label4.TabIndex = 14;
 			this.label4.Text = "_________________________________________________________________________________" +
 	"___________";
 			// 
-			// label_textoDeAvisoUnidadeContrato
+			// textBox_observacaoDoContrato
 			// 
-			this.label_textoDeAvisoUnidadeContrato.AutoSize = true;
-			this.label_textoDeAvisoUnidadeContrato.BackColor = System.Drawing.Color.Transparent;
-			this.label_textoDeAvisoUnidadeContrato.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label_textoDeAvisoUnidadeContrato.ForeColor = System.Drawing.Color.Red;
-			this.label_textoDeAvisoUnidadeContrato.Location = new System.Drawing.Point(9, 76);
-			this.label_textoDeAvisoUnidadeContrato.Name = "label_textoDeAvisoUnidadeContrato";
-			this.label_textoDeAvisoUnidadeContrato.Size = new System.Drawing.Size(33, 13);
-			this.label_textoDeAvisoUnidadeContrato.TabIndex = 15;
-			this.label_textoDeAvisoUnidadeContrato.Text = "aviso";
-			this.label_textoDeAvisoUnidadeContrato.Visible = false;
+			this.textBox_observacaoDoContrato.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+			this.textBox_observacaoDoContrato.Location = new System.Drawing.Point(0, 97);
+			this.textBox_observacaoDoContrato.Multiline = true;
+			this.textBox_observacaoDoContrato.Name = "textBox_observacaoDoContrato";
+			this.textBox_observacaoDoContrato.Size = new System.Drawing.Size(470, 51);
+			this.textBox_observacaoDoContrato.TabIndex = 17;
 			// 
-			// label_textoDeAvisoOperadora
+			// label5
 			// 
-			this.label_textoDeAvisoOperadora.AutoSize = true;
-			this.label_textoDeAvisoOperadora.BackColor = System.Drawing.Color.Transparent;
-			this.label_textoDeAvisoOperadora.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label_textoDeAvisoOperadora.ForeColor = System.Drawing.Color.Red;
-			this.label_textoDeAvisoOperadora.Location = new System.Drawing.Point(239, 76);
-			this.label_textoDeAvisoOperadora.Name = "label_textoDeAvisoOperadora";
-			this.label_textoDeAvisoOperadora.Size = new System.Drawing.Size(33, 13);
-			this.label_textoDeAvisoOperadora.TabIndex = 16;
-			this.label_textoDeAvisoOperadora.Text = "aviso";
-			this.label_textoDeAvisoOperadora.Visible = false;
+			this.label5.AutoSize = true;
+			this.label5.BackColor = System.Drawing.Color.Transparent;
+			this.label5.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+			this.label5.ForeColor = System.Drawing.Color.Black;
+			this.label5.Location = new System.Drawing.Point(0, 77);
+			this.label5.Name = "label5";
+			this.label5.Size = new System.Drawing.Size(78, 17);
+			this.label5.TabIndex = 18;
+			this.label5.Text = "Observação";
 			// 
 			// UcRegistroDeOcorrenciaInterna
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.Control;
-			this.Controls.Add(this.label_textoDeAvisoOperadora);
-			this.Controls.Add(this.label_textoDeAvisoUnidadeContrato);
+			this.Controls.Add(this.label5);
+			this.Controls.Add(this.textBox_observacaoDoContrato);
 			this.Controls.Add(this.label4);
 			this.Controls.Add(this.label3);
 			this.Controls.Add(this.label2);
