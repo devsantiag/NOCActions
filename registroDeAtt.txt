@@ -1,1 +1,1 @@
-﻿Adicionado sistema de LOAD para carrregar as informações no UcRegistroDeOcorrencias.cs > listBox
+﻿

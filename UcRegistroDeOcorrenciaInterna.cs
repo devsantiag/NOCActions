@@ -76,5 +76,61 @@ namespace NOC_Actions
 				}
 			}
 		}
+		
+		void BtnDeletarSelecionadoClick(object sender, EventArgs e)
+		{
+			
+			if (listBox_RegistroDeOcorrencia.SelectedItem == null) {
+				MessageBox.Show("Nada selecionado. Tente novamente, por favor.");
+				return;
+			}
+
+			listBox_RegistroDeOcorrencia.Items.Remove(listBox_RegistroDeOcorrencia.SelectedItem);
+			
+			using (StreamWriter writer = new StreamWriter(arquivo_todas_as_informacoes, false))
+			{
+				foreach (var item in listBox_RegistroDeOcorrencia.Items)
+				{
+					string linha = item.ToString();
+					var partes = linha.Split('|');
+					if (partes.Length == 3)
+					{
+						string unidade = partes[0].Replace("> Unidade:", "").Replace("> Contrato/unidade:", "").Trim();
+						string operadora = partes[1].Replace("Operadora:", "").Trim();
+						string observacao = partes[2].Replace("Observação:", "").Trim();
+
+						writer.WriteLine(unidade + "|" + operadora + "|" + observacao);
+					}
+				}
+			}
+		}
+		
+		void BtnDeletarListaClick(object sender, EventArgs e)
+		{
+			if (listBox_RegistroDeOcorrencia == null)
+			{
+				MessageBox.Show("A lista já se encontra vazia!");
+				return;
+			}
+			
+			var confirm = MessageBox.Show("Deseja realmente apagar TUDO?\nEsta ação não poderá ser desfeita.", "Confirmar Exclusão Completa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+			
+			if (confirm == DialogResult.Yes)
+			{
+				listBox_RegistroDeOcorrencia.Items.Clear();
+				File.WriteAllText(arquivo_todas_as_informacoes, "");
+				MessageBox.Show("Todos os registros foram deletados com sucesso.");
+			}
+		}
+		
+		void BtnCloseWindowClick(object sender, EventArgs e)
+		{
+			CloseWindow();
+		}
+		
+		void CloseWindow()
+		{
+			this.FindForm().Close();
+		}
 	}
 }

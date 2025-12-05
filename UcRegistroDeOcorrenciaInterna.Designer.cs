@@ -5,10 +5,10 @@
 		private System.ComponentModel.IContainer components = null;
 		private System.Windows.Forms.ListBox listBox_RegistroDeOcorrencia;
 		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.Button btnPreviewMessage;
+		private System.Windows.Forms.Button btnDeletarLista;
 		private System.Windows.Forms.Button btnCloseWindow;
 		private System.Windows.Forms.Button btnSalvarContratoEOperadora;
-		private System.Windows.Forms.Button btnClearFields;
+		private System.Windows.Forms.Button btnDeletarSelecionado;
 		private System.Windows.Forms.TextBox textBox_UnidadeContrato;
 		private System.Windows.Forms.TextBox textBox_OperadoraDaUnidade;
 		private System.Windows.Forms.Label label2;
@@ -31,10 +31,10 @@
 		{
 			this.listBox_RegistroDeOcorrencia = new System.Windows.Forms.ListBox();
 			this.label1 = new System.Windows.Forms.Label();
-			this.btnPreviewMessage = new System.Windows.Forms.Button();
+			this.btnDeletarLista = new System.Windows.Forms.Button();
 			this.btnCloseWindow = new System.Windows.Forms.Button();
 			this.btnSalvarContratoEOperadora = new System.Windows.Forms.Button();
-			this.btnClearFields = new System.Windows.Forms.Button();
+			this.btnDeletarSelecionado = new System.Windows.Forms.Button();
 			this.textBox_UnidadeContrato = new System.Windows.Forms.TextBox();
 			this.textBox_OperadoraDaUnidade = new System.Windows.Forms.TextBox();
 			this.label2 = new System.Windows.Forms.Label();
@@ -66,18 +66,19 @@
 			this.label1.TabIndex = 1;
 			this.label1.Text = "Reincidência de Falha";
 			// 
-			// btnPreviewMessage
+			// btnDeletarLista
 			// 
-			this.btnPreviewMessage.BackColor = System.Drawing.Color.Transparent;
-			this.btnPreviewMessage.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.btnPreviewMessage.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-			this.btnPreviewMessage.ForeColor = System.Drawing.Color.Black;
-			this.btnPreviewMessage.Location = new System.Drawing.Point(153, 315);
-			this.btnPreviewMessage.Name = "btnPreviewMessage";
-			this.btnPreviewMessage.Size = new System.Drawing.Size(96, 44);
-			this.btnPreviewMessage.TabIndex = 8;
-			this.btnPreviewMessage.Text = "Deletar Tudo";
-			this.btnPreviewMessage.UseVisualStyleBackColor = false;
+			this.btnDeletarLista.BackColor = System.Drawing.Color.Transparent;
+			this.btnDeletarLista.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btnDeletarLista.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+			this.btnDeletarLista.ForeColor = System.Drawing.Color.Black;
+			this.btnDeletarLista.Location = new System.Drawing.Point(153, 315);
+			this.btnDeletarLista.Name = "btnDeletarLista";
+			this.btnDeletarLista.Size = new System.Drawing.Size(96, 44);
+			this.btnDeletarLista.TabIndex = 8;
+			this.btnDeletarLista.Text = "Deletar Lista";
+			this.btnDeletarLista.UseVisualStyleBackColor = false;
+			this.btnDeletarLista.Click += new System.EventHandler(this.BtnDeletarListaClick);
 			// 
 			// btnCloseWindow
 			// 
@@ -91,6 +92,7 @@
 			this.btnCloseWindow.TabIndex = 9;
 			this.btnCloseWindow.Text = "Fechar";
 			this.btnCloseWindow.UseVisualStyleBackColor = false;
+			this.btnCloseWindow.Click += new System.EventHandler(this.BtnCloseWindowClick);
 			// 
 			// btnSalvarContratoEOperadora
 			// 
@@ -106,18 +108,19 @@
 			this.btnSalvarContratoEOperadora.UseVisualStyleBackColor = false;
 			this.btnSalvarContratoEOperadora.Click += new System.EventHandler(this.BtnSaveAndCopyClick);
 			// 
-			// btnClearFields
+			// btnDeletarSelecionado
 			// 
-			this.btnClearFields.BackColor = System.Drawing.Color.Transparent;
-			this.btnClearFields.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.btnClearFields.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-			this.btnClearFields.ForeColor = System.Drawing.Color.Black;
-			this.btnClearFields.Location = new System.Drawing.Point(255, 315);
-			this.btnClearFields.Name = "btnClearFields";
-			this.btnClearFields.Size = new System.Drawing.Size(96, 44);
-			this.btnClearFields.TabIndex = 7;
-			this.btnClearFields.Text = "Deletar";
-			this.btnClearFields.UseVisualStyleBackColor = false;
+			this.btnDeletarSelecionado.BackColor = System.Drawing.Color.Transparent;
+			this.btnDeletarSelecionado.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btnDeletarSelecionado.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+			this.btnDeletarSelecionado.ForeColor = System.Drawing.Color.Black;
+			this.btnDeletarSelecionado.Location = new System.Drawing.Point(255, 315);
+			this.btnDeletarSelecionado.Name = "btnDeletarSelecionado";
+			this.btnDeletarSelecionado.Size = new System.Drawing.Size(96, 44);
+			this.btnDeletarSelecionado.TabIndex = 7;
+			this.btnDeletarSelecionado.Text = "Deletar";
+			this.btnDeletarSelecionado.UseVisualStyleBackColor = false;
+			this.btnDeletarSelecionado.Click += new System.EventHandler(this.BtnDeletarSelecionadoClick);
 			// 
 			// textBox_UnidadeContrato
 			// 
@@ -205,10 +208,10 @@
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.textBox_OperadoraDaUnidade);
 			this.Controls.Add(this.textBox_UnidadeContrato);
-			this.Controls.Add(this.btnPreviewMessage);
+			this.Controls.Add(this.btnDeletarLista);
 			this.Controls.Add(this.btnCloseWindow);
 			this.Controls.Add(this.btnSalvarContratoEOperadora);
-			this.Controls.Add(this.btnClearFields);
+			this.Controls.Add(this.btnDeletarSelecionado);
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.listBox_RegistroDeOcorrencia);
 			this.ForeColor = System.Drawing.SystemColors.Control;
