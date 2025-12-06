@@ -117,6 +117,22 @@
     <Compile Include="UcRegistroDeOcorrenciaInterna.Designer.cs">
       <DependentUpon>UcRegistroDeOcorrenciaInterna.cs</DependentUpon>
     </Compile>
+    <Compile Include="Uc_AvisosSolicitacoesAoCliente\Uc_AnaliseDeInfra.cs" />
+    <Compile Include="Uc_AvisosSolicitacoesAoCliente\Uc_AnaliseDeInfra.Designer.cs">
+      <DependentUpon>Uc_AnaliseDeInfra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Uc_AvisosSolicitacoesAoCliente\Uc_BloqueioFinanceiro.cs" />
+    <Compile Include="Uc_AvisosSolicitacoesAoCliente\Uc_BloqueioFinanceiro.Designer.cs">
+      <DependentUpon>Uc_BloqueioFinanceiro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Uc_AvisosSolicitacoesAoCliente\Uc_LiberacaoDeAcesso.cs" />
+    <Compile Include="Uc_AvisosSolicitacoesAoCliente\Uc_LiberacaoDeAcesso.Designer.cs">
+      <DependentUpon>Uc_LiberacaoDeAcesso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Uc_AvisosSolicitacoesAoCliente\Uc_PossivelQuedaDeEnergia.cs" />
+    <Compile Include="Uc_AvisosSolicitacoesAoCliente\Uc_PossivelQuedaDeEnergia.Designer.cs">
+      <DependentUpon>Uc_PossivelQuedaDeEnergia.cs</DependentUpon>
+    </Compile>
     <Compile Include="Uc_BancoDeArmazenamentoDeDados.cs" />
     <Compile Include="Uc_BancoDeArmazenamentoDeDados.Designer.cs">
       <DependentUpon>Uc_BancoDeArmazenamentoDeDados.cs</DependentUpon>
@@ -175,6 +191,9 @@
     <EmbeddedResource Include="Uc_BancoDeArmazenamentoDeDados.resx">
       <DependentUpon>Uc_BancoDeArmazenamentoDeDados.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Uc_AvisosSolicitacoesAoCliente" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
