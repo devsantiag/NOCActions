@@ -49,7 +49,7 @@
 			this.listBox_RegistroDeOcorrencia.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.listBox_RegistroDeOcorrencia.FormattingEnabled = true;
 			this.listBox_RegistroDeOcorrencia.ItemHeight = 17;
-			this.listBox_RegistroDeOcorrencia.Location = new System.Drawing.Point(0, 150);
+			this.listBox_RegistroDeOcorrencia.Location = new System.Drawing.Point(0, 151);
 			this.listBox_RegistroDeOcorrencia.Name = "listBox_RegistroDeOcorrencia";
 			this.listBox_RegistroDeOcorrencia.Size = new System.Drawing.Size(470, 140);
 			this.listBox_RegistroDeOcorrencia.TabIndex = 0;
@@ -75,7 +75,7 @@
 			this.btnDeletarLista.Location = new System.Drawing.Point(153, 315);
 			this.btnDeletarLista.Name = "btnDeletarLista";
 			this.btnDeletarLista.Size = new System.Drawing.Size(96, 44);
-			this.btnDeletarLista.TabIndex = 8;
+			this.btnDeletarLista.TabIndex = 6;
 			this.btnDeletarLista.Text = "Deletar Lista";
 			this.btnDeletarLista.UseVisualStyleBackColor = false;
 			this.btnDeletarLista.Click += new System.EventHandler(this.BtnDeletarListaClick);
@@ -89,7 +89,7 @@
 			this.btnCloseWindow.Location = new System.Drawing.Point(34, 315);
 			this.btnCloseWindow.Name = "btnCloseWindow";
 			this.btnCloseWindow.Size = new System.Drawing.Size(96, 44);
-			this.btnCloseWindow.TabIndex = 9;
+			this.btnCloseWindow.TabIndex = 4;
 			this.btnCloseWindow.Text = "Fechar";
 			this.btnCloseWindow.UseVisualStyleBackColor = false;
 			this.btnCloseWindow.Click += new System.EventHandler(this.BtnCloseWindowClick);
@@ -103,7 +103,7 @@
 			this.btnSalvarContratoEOperadora.Location = new System.Drawing.Point(357, 315);
 			this.btnSalvarContratoEOperadora.Name = "btnSalvarContratoEOperadora";
 			this.btnSalvarContratoEOperadora.Size = new System.Drawing.Size(96, 44);
-			this.btnSalvarContratoEOperadora.TabIndex = 6;
+			this.btnSalvarContratoEOperadora.TabIndex = 3;
 			this.btnSalvarContratoEOperadora.Text = "Gravar e Copiar";
 			this.btnSalvarContratoEOperadora.UseVisualStyleBackColor = false;
 			this.btnSalvarContratoEOperadora.Click += new System.EventHandler(this.BtnSaveAndCopyClick);
@@ -117,7 +117,7 @@
 			this.btnDeletarSelecionado.Location = new System.Drawing.Point(255, 315);
 			this.btnDeletarSelecionado.Name = "btnDeletarSelecionado";
 			this.btnDeletarSelecionado.Size = new System.Drawing.Size(96, 44);
-			this.btnDeletarSelecionado.TabIndex = 7;
+			this.btnDeletarSelecionado.TabIndex = 5;
 			this.btnDeletarSelecionado.Text = "Deletar";
 			this.btnDeletarSelecionado.UseVisualStyleBackColor = false;
 			this.btnDeletarSelecionado.Click += new System.EventHandler(this.BtnDeletarSelecionadoClick);
@@ -128,7 +128,7 @@
 			this.textBox_UnidadeContrato.Location = new System.Drawing.Point(9, 44);
 			this.textBox_UnidadeContrato.Name = "textBox_UnidadeContrato";
 			this.textBox_UnidadeContrato.Size = new System.Drawing.Size(222, 25);
-			this.textBox_UnidadeContrato.TabIndex = 10;
+			this.textBox_UnidadeContrato.TabIndex = 0;
 			// 
 			// textBox_OperadoraDaUnidade
 			// 
@@ -136,7 +136,7 @@
 			this.textBox_OperadoraDaUnidade.Location = new System.Drawing.Point(239, 44);
 			this.textBox_OperadoraDaUnidade.Name = "textBox_OperadoraDaUnidade";
 			this.textBox_OperadoraDaUnidade.Size = new System.Drawing.Size(222, 25);
-			this.textBox_OperadoraDaUnidade.TabIndex = 11;
+			this.textBox_OperadoraDaUnidade.TabIndex = 1;
 			// 
 			// label2
 			// 
@@ -158,9 +158,9 @@
 			this.label3.ForeColor = System.Drawing.Color.Black;
 			this.label3.Location = new System.Drawing.Point(239, 24);
 			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(73, 17);
+			this.label3.Size = new System.Drawing.Size(130, 17);
 			this.label3.TabIndex = 13;
-			this.label3.Text = "Operadora";
+			this.label3.Text = "Operadora / Circuito";
 			// 
 			// label4
 			// 
@@ -182,7 +182,7 @@
 			this.textBox_observacaoDoContrato.Multiline = true;
 			this.textBox_observacaoDoContrato.Name = "textBox_observacaoDoContrato";
 			this.textBox_observacaoDoContrato.Size = new System.Drawing.Size(470, 51);
-			this.textBox_observacaoDoContrato.TabIndex = 17;
+			this.textBox_observacaoDoContrato.TabIndex = 2;
 			// 
 			// label5
 			// 

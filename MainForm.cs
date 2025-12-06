@@ -120,9 +120,17 @@ namespace NOC_Actions
 			open_window.Show();
 			btnInformesClientes.Text = "Fechar";
 		}
-
+		
 //		desativados temporariamente
-		void BtnMensagemEletrônicaClick(object sender, EventArgs e) {}
-		void BtnAvisoSolicitacoesClick(object sender, EventArgs e) {}
+		void BtnAvisoSolicitacoesClick(object sender, EventArgs e)
+		{
+			AvisosSolicitacoesAoCliente openForm = new AvisosSolicitacoesAoCliente();
+			openForm.Show();
+		}
+		void BtnMensagemEletrônicaClick(object sender, EventArgs e) 
+		{
+		
+		
+		}
 	}
 }

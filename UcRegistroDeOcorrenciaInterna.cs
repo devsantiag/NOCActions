@@ -24,7 +24,7 @@ namespace NOC_Actions
 
 			string itemList =
 				"> Unidade: " + textContratoUnidade +
-				" | Operadora: " + textOperadoraDoContratoUnidade +
+				" | Operadora/Designação: " + textOperadoraDoContratoUnidade +
 				" | Observação: " + textObservacaoContratoUnidade;
 			
 			listBox_RegistroDeOcorrencia.Items.Add(
@@ -46,7 +46,6 @@ namespace NOC_Actions
 		
 		void ListBox_RegistroDeOcorrencia_MouseDoubleClick(object sender, MouseEventArgs e)
 		{
-			
 			if (listBox_RegistroDeOcorrencia.SelectedItem != null)
 			{
 				SelectedIndexOnListBoxToShowInformation(listBox_RegistroDeOcorrencia.SelectedItem.ToString());
@@ -71,7 +70,6 @@ namespace NOC_Actions
 							" | Operadora: " + operadora +
 							" | Observação: " + observacao
 						);
-
 					}
 				}
 			}
