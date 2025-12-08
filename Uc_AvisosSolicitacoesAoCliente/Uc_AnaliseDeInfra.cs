@@ -5,9 +5,9 @@ using System.Windows.Forms;
 
 namespace NOC_Actions
 {
-	public partial class Uc_AnaliseDeInfra : UserControl
+	public partial class btnEditarTipoDeAnalise : UserControl
 	{
-		public Uc_AnaliseDeInfra()
+		public btnEditarTipoDeAnalise()
 		{
 			InitializeComponent();
 		}

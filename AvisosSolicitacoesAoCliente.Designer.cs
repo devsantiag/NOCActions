@@ -66,6 +66,10 @@ namespace NOC_Actions
 			this.splitContainer.Panel1.Controls.Add(this.btnPossivelQuedaDeEnergia);
 			this.splitContainer.Panel1.Controls.Add(this.btnLiberacaoDeAcesso);
 			this.splitContainer.Panel1.Controls.Add(this.btnAnaliseDeInfra);
+			// 
+			// splitContainer.Panel2
+			// 
+			this.splitContainer.Panel2.BackColor = System.Drawing.SystemColors.ControlLight;
 			this.splitContainer.Size = new System.Drawing.Size(745, 380);
 			this.splitContainer.SplitterDistance = 248;
 			this.splitContainer.TabIndex = 0;

@@ -59,6 +59,7 @@
     <Compile Include="FormDetalhesDoContrato.Designer.cs">
       <DependentUpon>FormDetalhesDoContrato.cs</DependentUpon>
     </Compile>
+    <Compile Include="LoginUsuario.cs" />
     <Compile Include="UcDetalharFaturaDoCliente.cs" />
     <Compile Include="UcDetalharFaturaDoCliente.Designer.cs">
       <DependentUpon>UcDetalharFaturaDoCliente.cs</DependentUpon>

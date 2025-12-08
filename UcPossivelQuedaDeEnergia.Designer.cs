@@ -28,6 +28,7 @@ namespace NOC_Actions
 		private System.Windows.Forms.CheckBox checkEditarCampoUnidade;
 		private System.Windows.Forms.Label labelAviso;
 		private System.Windows.Forms.Label label_modoDiretorAtivado;
+		private System.Windows.Forms.Label label3;
 		
 		/// <summary>
 		/// Disposes resources used by the control.
@@ -64,6 +65,7 @@ namespace NOC_Actions
 			this.checkEditarCampoUnidade = new System.Windows.Forms.CheckBox();
 			this.labelAviso = new System.Windows.Forms.Label();
 			this.label_modoDiretorAtivado = new System.Windows.Forms.Label();
+			this.label3 = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
 			// label5
@@ -228,10 +230,24 @@ namespace NOC_Actions
 			this.label_modoDiretorAtivado.Text = "Modo Diretor ativado";
 			this.label_modoDiretorAtivado.Visible = false;
 			// 
+			// label3
+			// 
+			this.label3.AutoSize = true;
+			this.label3.BackColor = System.Drawing.Color.Transparent;
+			this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+			this.label3.ForeColor = System.Drawing.SystemColors.ControlLight;
+			this.label3.Location = new System.Drawing.Point(-1, 287);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(468, 17);
+			this.label3.TabIndex = 53;
+			this.label3.Text = "_________________________________________________________________________________" +
+	"___________";
+			// 
 			// UcPossivelQuedaDeEnergia
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.Controls.Add(this.label3);
 			this.Controls.Add(this.label_modoDiretorAtivado);
 			this.Controls.Add(this.labelAviso);
 			this.Controls.Add(this.checkEditarCampoUnidade);
