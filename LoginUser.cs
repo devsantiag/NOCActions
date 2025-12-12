@@ -3,37 +3,43 @@ using System.Windows.Forms;
 
 namespace NOC_Actions
 {
-	public partial class LoginUser : Form
-	{
-		LoginUsuario class_login = new LoginUsuario();
-		
-		public LoginUser()
-		{
-			InitializeComponent();
-		}
-		
-		public LoginUser(string userName)
-		{
-			InitializeComponent();
-			userName += class_login;
+    public partial class LoginUser : Form
+    {
+        private readonly LoginUsuario loginInfo = new LoginUsuario();
 
-		}
-		
-		void BtnLoginClick(object sender, EventArgs e)
-		{
-			if (textBox1_userLogin.Text == class_login.UserLogin_Windows && textBox2_userPassword.Text == class_login.UserLogin_Windows) {
-				MainForm open_mainForm = new MainForm();
-				open_mainForm.Show();
-				this.Hide();
-			} else
-			{
-				MessageBox.Show("Senha incorreta!");
-			}
-		}
-		void BtnSairClick(object sender, EventArgs e)
-		{
-			Application.Exit();
-		}
-	}
+        public LoginUser()
+        {
+            InitializeComponent();
+        }
+
+        private void BtnLoginClick(object sender, EventArgs e)
+        {
+            string usuarioDigitado = textBox1_userLogin.Text;
+            string senhaDigitada   = textBox2_userPassword.Text;
+
+            bool loginWindowsValido =
+                usuarioDigitado == loginInfo.UserLogin_Windows &&
+                senhaDigitada   == loginInfo.UserLogin_Windows;
+
+            bool loginPadraoValido =
+                usuarioDigitado == loginInfo.UserLoginPadrao &&
+                senhaDigitada   == loginInfo.UserLoginPadrao;
+
+            if (loginWindowsValido || loginPadraoValido)
+            {
+                MainForm principal = new MainForm();
+                principal.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Usuário ou senha incorretos!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void BtnSairClick(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+    }
 }
-

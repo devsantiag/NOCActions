@@ -8,10 +8,12 @@ namespace NOC_Actions
     {
 //    	login padrão de usuário na máquina
         public string UserLogin_Windows { get; set; }
-
+        public string UserLoginPadrao {get; set; }
+        
         public LoginUsuario()
         {
             UserLogin_Windows = Environment.UserName;
+            UserLoginPadrao = "admin";
         }
     }
 }
