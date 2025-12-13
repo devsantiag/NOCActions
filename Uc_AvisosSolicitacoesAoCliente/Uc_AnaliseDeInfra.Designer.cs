@@ -29,6 +29,7 @@ namespace NOC_Actions
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.Label label7;
 		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.Button btnGerarAlerta;
 		
 		/// <summary>
 		/// Disposes resources used by the control.
@@ -66,6 +67,7 @@ namespace NOC_Actions
 			this.label5 = new System.Windows.Forms.Label();
 			this.label7 = new System.Windows.Forms.Label();
 			this.button1 = new System.Windows.Forms.Button();
+			this.btnGerarAlerta = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// btnCloseWindow
@@ -74,7 +76,7 @@ namespace NOC_Actions
 			this.btnCloseWindow.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.btnCloseWindow.Font = new System.Drawing.Font("Segoe UI", 9.75F);
 			this.btnCloseWindow.ForeColor = System.Drawing.Color.Black;
-			this.btnCloseWindow.Location = new System.Drawing.Point(37, 320);
+			this.btnCloseWindow.Location = new System.Drawing.Point(36, 320);
 			this.btnCloseWindow.Name = "btnCloseWindow";
 			this.btnCloseWindow.Size = new System.Drawing.Size(96, 44);
 			this.btnCloseWindow.TabIndex = 6;
@@ -100,9 +102,9 @@ namespace NOC_Actions
 			this.btnApagarCampos.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.btnApagarCampos.Font = new System.Drawing.Font("Segoe UI", 9.75F);
 			this.btnApagarCampos.ForeColor = System.Drawing.Color.Black;
-			this.btnApagarCampos.Location = new System.Drawing.Point(224, 320);
+			this.btnApagarCampos.Location = new System.Drawing.Point(138, 320);
 			this.btnApagarCampos.Name = "btnApagarCampos";
-			this.btnApagarCampos.Size = new System.Drawing.Size(130, 44);
+			this.btnApagarCampos.Size = new System.Drawing.Size(114, 44);
 			this.btnApagarCampos.TabIndex = 5;
 			this.btnApagarCampos.Text = "Apagar campos";
 			this.btnApagarCampos.UseVisualStyleBackColor = false;
@@ -113,9 +115,9 @@ namespace NOC_Actions
 			this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F);
 			this.label1.Location = new System.Drawing.Point(3, 0);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(175, 17);
+			this.label1.Size = new System.Drawing.Size(176, 17);
 			this.label1.TabIndex = 15;
-			this.label1.Text = "Análise de infra - mensagem";
+			this.label1.Text = "Mensagem - Análise de infra";
 			// 
 			// label2
 			// 
@@ -230,11 +232,25 @@ namespace NOC_Actions
 			this.button1.Text = "Editar";
 			this.button1.UseVisualStyleBackColor = false;
 			// 
+			// btnGerarAlerta
+			// 
+			this.btnGerarAlerta.BackColor = System.Drawing.Color.Transparent;
+			this.btnGerarAlerta.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btnGerarAlerta.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+			this.btnGerarAlerta.ForeColor = System.Drawing.Color.Black;
+			this.btnGerarAlerta.Location = new System.Drawing.Point(258, 320);
+			this.btnGerarAlerta.Name = "btnGerarAlerta";
+			this.btnGerarAlerta.Size = new System.Drawing.Size(96, 44);
+			this.btnGerarAlerta.TabIndex = 28;
+			this.btnGerarAlerta.Text = "Gerar";
+			this.btnGerarAlerta.UseVisualStyleBackColor = false;
+			// 
 			// btnEditarTipoDeAnalise
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.Control;
+			this.Controls.Add(this.btnGerarAlerta);
 			this.Controls.Add(this.button1);
 			this.Controls.Add(this.label7);
 			this.Controls.Add(this.label5);

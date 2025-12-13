@@ -118,6 +118,10 @@
     <Compile Include="UcRegistroDeOcorrenciaInterna.Designer.cs">
       <DependentUpon>UcRegistroDeOcorrenciaInterna.cs</DependentUpon>
     </Compile>
+    <Compile Include="Uc_AvisosSolicitacoesAoCliente\Config_UserControl_AvisosESolicitacoesAoCliente.cs" />
+    <Compile Include="Uc_AvisosSolicitacoesAoCliente\Config_UserControl_AvisosESolicitacoesAoCliente.Designer.cs">
+      <DependentUpon>Config_UserControl_AvisosESolicitacoesAoCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Uc_AvisosSolicitacoesAoCliente\Uc_AnaliseDeInfra.cs" />
     <Compile Include="Uc_AvisosSolicitacoesAoCliente\Uc_AnaliseDeInfra.Designer.cs">
       <DependentUpon>Uc_AnaliseDeInfra.cs</DependentUpon>

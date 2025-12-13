@@ -37,5 +37,15 @@ namespace NOC_Actions
 		{
 			MostrarUserControl(new Uc_BloqueioFinanceiro());
 		}
+		void Label_login_usernameClick(object sender, EventArgs e)
+		{
+	
+		}
+		void LabelUsernameClick(object sender, EventArgs e)
+		{
+			AvisosSolicitacoesAoCliente home = new AvisosSolicitacoesAoCliente();
+			home.Show();
+			this.Hide();
+		}
 	}
 }
