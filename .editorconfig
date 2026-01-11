@@ -1,0 +1,59 @@
+root = true
+
+[*.{cs,sln,csproj}]
+charset = utf-8
+end_of_line = crlf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 4
+
+# C# coding styles (Roslyn analyzers friendly)
+# Naming conventions
+# PascalCase for types and methods
+dotnet_naming_rule.types_and_methods_should_be_pascal_case.severity = suggestion
+dotnet_naming_rule.types_and_methods_should_be_pascal_case.symbols = types_and_methods
+dotnet_naming_rule.types_and_methods_should_be_pascal_case.style = pascal_case_style
+
+dotnet_naming_symbols.types_and_methods.applicable_kinds = class, struct, interface, enum, delegate, method, property
+
+dotnet_naming_style.pascal_case_style.capitalization = pascal_case
+
+# camelCase for parameters and local variables
+dotnet_naming_rule.parameters_and_locals_should_be_camel_case.severity = suggestion
+dotnet_naming_rule.parameters_and_locals_should_be_camel_case.symbols = parameters_and_locals
+dotnet_naming_rule.parameters_and_locals_should_be_camel_case.style = camel_case_style
+
+dotnet_naming_symbols.parameters_and_locals.applicable_kinds = parameter, local
+
+dotnet_naming_style.camel_case_style.capitalization = camel_case
+
+# Private fields with leading underscore
+dotnet_naming_rule.private_fields_should_have_underscore_prefix.severity = suggestion
+dotnet_naming_rule.private_fields_should_have_underscore_prefix.symbols = private_fields
+dotnet_naming_rule.private_fields_should_have_underscore_prefix.style = underscore_prefix_style
+
+dotnet_naming_symbols.private_fields.applicable_kinds = field
+dotnet_naming_symbols.private_fields.applicable_accessibilities = private
+
+dotnet_naming_style.underscore_prefix_style.required_prefix = _
+dotnet_naming_style.underscore_prefix_style.capitalization = camel_case
+
+# Enforce file-scoped namespace if C# 10+ (optional)
+csharp_style_namespace_declarations = file_scoped:suggestion
+
+# Expression-bodied members
+csharp_style_expression_bodied_methods = when_on_single_line:suggestion
+csharp_style_expression_bodied_properties = when_on_single_line:suggestion
+
+# Prefer var when type is apparent
+csharp_style_var_when_type_is_apparent = true:suggestion
+csharp_style_var_elsewhere = false:suggestion
+
+# Prefer explicit tuple names
+dotnet_style_explicit_tuple_names = true:suggestion
+
+# Using directive placement
+dotnet_sort_system_directives_first = true
+
+# File header (optional): add license header template if needed
