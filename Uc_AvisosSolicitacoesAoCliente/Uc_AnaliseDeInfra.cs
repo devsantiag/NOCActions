@@ -116,11 +116,18 @@ namespace NOC_Actions
         {
             richTextBox_MensagemASerEncaminhadaAoCliente.Clear();
 
+            string operadora = comboBox_OperadoraDaUnidade.Text;
+            string unidade = comboBox_unidade.Text;
+            string status = comboBox_statusObtidoPelaOperadora.Text;
+
+
             SalvarOperadora();
             SalvarUnidade();
             SalvarTipoDeAnalise();
-
             LimparCampos();
+
+            string mensagem = GerarMensagem(operadora, unidade, status);
+            Clipboard.SetText(mensagem);
         }
 
         private void btnGerarAlerta_Click(object sender, EventArgs e)
@@ -153,6 +160,11 @@ namespace NOC_Actions
             LimparCampos();
         }
 
+        private void btnCloseWindow_Click(object sender, EventArgs e)
+        {
+            CloseWindow();
+        }
+
         #endregion
 
         #region Utilitários
@@ -174,6 +186,18 @@ namespace NOC_Actions
                 $"Fico no aguardo.\n" +
                 $"Obrigado.";
         }
+
+        private string GerarMensagem(string operadora, string unidade, string tipoDeAnalise)
+        {
+            return
+                $"Prezados, {ObterSaudacao()}.\n\n" +
+                $"Faço parte do NOC da Tel&Com e estou realizando uma análise interna na {unidade}.\n\n" +
+                $"Poderiam, por gentileza, verificar o serviço da {operadora}? " +
+                $"Conforme identificado pela fornecedora, o serviço encontra-se com o seguinte status: {tipoDeAnalise}.\n\n" +
+                $"Fico no aguardo.\n" +
+                $"Obrigado.";
+        }
+
 
         private string ObterSaudacao()
         {
@@ -220,6 +244,10 @@ namespace NOC_Actions
                 MessageBox.Show("Erro ao excluir todos os itens: " + ex.Message);
                 return false;
             }
+        }
+        void CloseWindow()
+        {
+            this.FindForm().Close();
         }
     }
     #endregion

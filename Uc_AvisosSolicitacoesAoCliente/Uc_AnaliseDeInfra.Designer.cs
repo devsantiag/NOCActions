@@ -74,6 +74,7 @@
             this.btnCloseWindow.TabIndex = 6;
             this.btnCloseWindow.Text = "Fechar";
             this.btnCloseWindow.UseVisualStyleBackColor = false;
+            this.btnCloseWindow.Click += new System.EventHandler(this.btnCloseWindow_Click);
             // 
             // btnSalvarECopiar
             // 
@@ -216,6 +217,7 @@
             // 
             // bntExcluirSelecionado
             // 
+            this.bntExcluirSelecionado.AutoSize = true;
             this.bntExcluirSelecionado.BackColor = System.Drawing.Color.Transparent;
             this.bntExcluirSelecionado.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bntExcluirSelecionado.Font = new System.Drawing.Font("Segoe UI", 9.75F);
@@ -223,7 +225,7 @@
             this.bntExcluirSelecionado.Location = new System.Drawing.Point(223, 113);
             this.bntExcluirSelecionado.Margin = new System.Windows.Forms.Padding(4);
             this.bntExcluirSelecionado.Name = "bntExcluirSelecionado";
-            this.bntExcluirSelecionado.Size = new System.Drawing.Size(162, 38);
+            this.bntExcluirSelecionado.Size = new System.Drawing.Size(165, 38);
             this.bntExcluirSelecionado.TabIndex = 27;
             this.bntExcluirSelecionado.Text = "Excluir selecionado";
             this.bntExcluirSelecionado.UseVisualStyleBackColor = false;
@@ -246,6 +248,7 @@
             // 
             // btnExcluirTodosOsCampos
             // 
+            this.btnExcluirTodosOsCampos.AutoSize = true;
             this.btnExcluirTodosOsCampos.BackColor = System.Drawing.Color.Transparent;
             this.btnExcluirTodosOsCampos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnExcluirTodosOsCampos.Font = new System.Drawing.Font("Segoe UI", 9.75F);
@@ -253,7 +256,7 @@
             this.btnExcluirTodosOsCampos.Location = new System.Drawing.Point(391, 113);
             this.btnExcluirTodosOsCampos.Margin = new System.Windows.Forms.Padding(4);
             this.btnExcluirTodosOsCampos.Name = "btnExcluirTodosOsCampos";
-            this.btnExcluirTodosOsCampos.Size = new System.Drawing.Size(120, 38);
+            this.btnExcluirTodosOsCampos.Size = new System.Drawing.Size(122, 38);
             this.btnExcluirTodosOsCampos.TabIndex = 29;
             this.btnExcluirTodosOsCampos.Text = "Excluir tudo";
             this.btnExcluirTodosOsCampos.UseVisualStyleBackColor = false;
