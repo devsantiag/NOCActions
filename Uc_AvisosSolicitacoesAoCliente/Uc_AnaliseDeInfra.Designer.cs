@@ -71,7 +71,7 @@
             this.btnCloseWindow.Margin = new System.Windows.Forms.Padding(4);
             this.btnCloseWindow.Name = "btnCloseWindow";
             this.btnCloseWindow.Size = new System.Drawing.Size(128, 54);
-            this.btnCloseWindow.TabIndex = 6;
+            this.btnCloseWindow.TabIndex = 5;
             this.btnCloseWindow.Text = "Fechar";
             this.btnCloseWindow.UseVisualStyleBackColor = false;
             this.btnCloseWindow.Click += new System.EventHandler(this.btnCloseWindow_Click);
@@ -101,7 +101,7 @@
             this.btnApagarCampos.Margin = new System.Windows.Forms.Padding(4);
             this.btnApagarCampos.Name = "btnApagarCampos";
             this.btnApagarCampos.Size = new System.Drawing.Size(152, 54);
-            this.btnApagarCampos.TabIndex = 5;
+            this.btnApagarCampos.TabIndex = 6;
             this.btnApagarCampos.Text = "Apagar campos";
             this.btnApagarCampos.UseVisualStyleBackColor = false;
             this.btnApagarCampos.Click += new System.EventHandler(this.btnApagarCampos_Click);
@@ -186,8 +186,9 @@
             this.richTextBox_MensagemASerEncaminhadaAoCliente.Location = new System.Drawing.Point(15, 189);
             this.richTextBox_MensagemASerEncaminhadaAoCliente.Margin = new System.Windows.Forms.Padding(4);
             this.richTextBox_MensagemASerEncaminhadaAoCliente.Name = "richTextBox_MensagemASerEncaminhadaAoCliente";
+            this.richTextBox_MensagemASerEncaminhadaAoCliente.ShortcutsEnabled = false;
             this.richTextBox_MensagemASerEncaminhadaAoCliente.Size = new System.Drawing.Size(592, 149);
-            this.richTextBox_MensagemASerEncaminhadaAoCliente.TabIndex = 3;
+            this.richTextBox_MensagemASerEncaminhadaAoCliente.TabIndex = 100;
             this.richTextBox_MensagemASerEncaminhadaAoCliente.Text = "";
             // 
             // label5
@@ -226,7 +227,7 @@
             this.bntExcluirSelecionado.Margin = new System.Windows.Forms.Padding(4);
             this.bntExcluirSelecionado.Name = "bntExcluirSelecionado";
             this.bntExcluirSelecionado.Size = new System.Drawing.Size(165, 38);
-            this.bntExcluirSelecionado.TabIndex = 27;
+            this.bntExcluirSelecionado.TabIndex = 100;
             this.bntExcluirSelecionado.Text = "Excluir selecionado";
             this.bntExcluirSelecionado.UseVisualStyleBackColor = false;
             this.bntExcluirSelecionado.Click += new System.EventHandler(this.btnEditarInformacoes_Click);
@@ -241,7 +242,7 @@
             this.btnGerarAlerta.Margin = new System.Windows.Forms.Padding(4);
             this.btnGerarAlerta.Name = "btnGerarAlerta";
             this.btnGerarAlerta.Size = new System.Drawing.Size(128, 54);
-            this.btnGerarAlerta.TabIndex = 28;
+            this.btnGerarAlerta.TabIndex = 3;
             this.btnGerarAlerta.Text = "Gerar";
             this.btnGerarAlerta.UseVisualStyleBackColor = false;
             this.btnGerarAlerta.Click += new System.EventHandler(this.btnGerarAlerta_Click);
@@ -257,7 +258,7 @@
             this.btnExcluirTodosOsCampos.Margin = new System.Windows.Forms.Padding(4);
             this.btnExcluirTodosOsCampos.Name = "btnExcluirTodosOsCampos";
             this.btnExcluirTodosOsCampos.Size = new System.Drawing.Size(122, 38);
-            this.btnExcluirTodosOsCampos.TabIndex = 29;
+            this.btnExcluirTodosOsCampos.TabIndex = 100;
             this.btnExcluirTodosOsCampos.Text = "Excluir tudo";
             this.btnExcluirTodosOsCampos.UseVisualStyleBackColor = false;
             this.btnExcluirTodosOsCampos.Click += new System.EventHandler(this.btnExcluirTodosOsCampos_Click);

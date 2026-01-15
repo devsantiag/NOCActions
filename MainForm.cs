@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using NOC_Actions;
+using NOC_Actions.Uc_AvisosSolicitacoesAoCliente;
 
 namespace NOC_Actions
 {
@@ -127,9 +128,10 @@ namespace NOC_Actions
 			AvisosSolicitacoesAoCliente openForm = new AvisosSolicitacoesAoCliente();
 			openForm.Show();
 		}
-		void BtnMensagemEletrônicaClick(object sender, EventArgs e) 
+		void BtnCentralNoc(object sender, EventArgs e) 
 		{
-		
+			WebForm open = new WebForm();
+			open.Show();
 		
 		}
 	}

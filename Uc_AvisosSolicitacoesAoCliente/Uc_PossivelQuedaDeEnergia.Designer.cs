@@ -95,7 +95,7 @@ namespace NOC_Actions
             this.btnGerarAlerta.Margin = new System.Windows.Forms.Padding(4);
             this.btnGerarAlerta.Name = "btnGerarAlerta";
             this.btnGerarAlerta.Size = new System.Drawing.Size(128, 54);
-            this.btnGerarAlerta.TabIndex = 49;
+            this.btnGerarAlerta.TabIndex = 5;
             this.btnGerarAlerta.Text = "Gerar";
             this.btnGerarAlerta.UseVisualStyleBackColor = false;
             this.btnGerarAlerta.Click += new System.EventHandler(this.btnGerarAlerta_Click);
@@ -110,7 +110,7 @@ namespace NOC_Actions
             this.btnCloseWindow.Margin = new System.Windows.Forms.Padding(4);
             this.btnCloseWindow.Name = "btnCloseWindow";
             this.btnCloseWindow.Size = new System.Drawing.Size(128, 54);
-            this.btnCloseWindow.TabIndex = 48;
+            this.btnCloseWindow.TabIndex = 7;
             this.btnCloseWindow.Text = "Fechar";
             this.btnCloseWindow.UseVisualStyleBackColor = false;
             this.btnCloseWindow.Click += new System.EventHandler(this.btnCloseWindow_Click_1);
@@ -125,7 +125,7 @@ namespace NOC_Actions
             this.btnSalvarECopiar.Margin = new System.Windows.Forms.Padding(4);
             this.btnSalvarECopiar.Name = "btnSalvarECopiar";
             this.btnSalvarECopiar.Size = new System.Drawing.Size(128, 54);
-            this.btnSalvarECopiar.TabIndex = 46;
+            this.btnSalvarECopiar.TabIndex = 6;
             this.btnSalvarECopiar.Text = "Gravar e Copiar";
             this.btnSalvarECopiar.UseVisualStyleBackColor = false;
             this.btnSalvarECopiar.Click += new System.EventHandler(this.btnSalvarECopiar_Click);
@@ -140,7 +140,7 @@ namespace NOC_Actions
             this.btnApagarCampos.Margin = new System.Windows.Forms.Padding(4);
             this.btnApagarCampos.Name = "btnApagarCampos";
             this.btnApagarCampos.Size = new System.Drawing.Size(152, 54);
-            this.btnApagarCampos.TabIndex = 47;
+            this.btnApagarCampos.TabIndex = 8;
             this.btnApagarCampos.Text = "Apagar campos";
             this.btnApagarCampos.UseVisualStyleBackColor = false;
             // 
@@ -163,7 +163,7 @@ namespace NOC_Actions
             this.comboBox_unidadeParaAnaliseEnergia.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox_unidadeParaAnaliseEnergia.Name = "comboBox_unidadeParaAnaliseEnergia";
             this.comboBox_unidadeParaAnaliseEnergia.Size = new System.Drawing.Size(227, 29);
-            this.comboBox_unidadeParaAnaliseEnergia.TabIndex = 51;
+            this.comboBox_unidadeParaAnaliseEnergia.TabIndex = 0;
             // 
             // comboBox_enderecoUnidade
             // 
@@ -173,7 +173,7 @@ namespace NOC_Actions
             this.comboBox_enderecoUnidade.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox_enderecoUnidade.Name = "comboBox_enderecoUnidade";
             this.comboBox_enderecoUnidade.Size = new System.Drawing.Size(355, 29);
-            this.comboBox_enderecoUnidade.TabIndex = 53;
+            this.comboBox_enderecoUnidade.TabIndex = 1;
             // 
             // label2
             // 
@@ -194,7 +194,7 @@ namespace NOC_Actions
             this.comboBox_operadoraUnidade.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox_operadoraUnidade.Name = "comboBox_operadoraUnidade";
             this.comboBox_operadoraUnidade.Size = new System.Drawing.Size(227, 29);
-            this.comboBox_operadoraUnidade.TabIndex = 55;
+            this.comboBox_operadoraUnidade.TabIndex = 2;
             // 
             // label3
             // 
@@ -226,7 +226,7 @@ namespace NOC_Actions
             this.maskedTextBox_horarioQuedaCircuito.Mask = "00:00";
             this.maskedTextBox_horarioQuedaCircuito.Name = "maskedTextBox_horarioQuedaCircuito";
             this.maskedTextBox_horarioQuedaCircuito.Size = new System.Drawing.Size(132, 29);
-            this.maskedTextBox_horarioQuedaCircuito.TabIndex = 58;
+            this.maskedTextBox_horarioQuedaCircuito.TabIndex = 3;
             this.maskedTextBox_horarioQuedaCircuito.ValidatingType = typeof(System.DateTime);
             // 
             // label5
@@ -248,7 +248,7 @@ namespace NOC_Actions
             this.maskedTextBox_dataReferencia.Mask = "00/00/0000";
             this.maskedTextBox_dataReferencia.Name = "maskedTextBox_dataReferencia";
             this.maskedTextBox_dataReferencia.Size = new System.Drawing.Size(213, 29);
-            this.maskedTextBox_dataReferencia.TabIndex = 60;
+            this.maskedTextBox_dataReferencia.TabIndex = 4;
             this.maskedTextBox_dataReferencia.ValidatingType = typeof(System.DateTime);
             // 
             // labelMensagemASerEncaminhada

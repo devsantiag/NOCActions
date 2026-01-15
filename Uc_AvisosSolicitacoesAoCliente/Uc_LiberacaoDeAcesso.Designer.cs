@@ -87,7 +87,7 @@ namespace NOC_Actions
             this.btnGerarAlerta.Margin = new System.Windows.Forms.Padding(4);
             this.btnGerarAlerta.Name = "btnGerarAlerta";
             this.btnGerarAlerta.Size = new System.Drawing.Size(128, 54);
-            this.btnGerarAlerta.TabIndex = 43;
+            this.btnGerarAlerta.TabIndex = 6;
             this.btnGerarAlerta.Text = "Gerar";
             this.btnGerarAlerta.UseVisualStyleBackColor = false;
             this.btnGerarAlerta.Click += new System.EventHandler(this.btnGerarAlerta_Click);
@@ -102,7 +102,7 @@ namespace NOC_Actions
             this.btnCloseWindow.Margin = new System.Windows.Forms.Padding(4);
             this.btnCloseWindow.Name = "btnCloseWindow";
             this.btnCloseWindow.Size = new System.Drawing.Size(128, 54);
-            this.btnCloseWindow.TabIndex = 35;
+            this.btnCloseWindow.TabIndex = 9;
             this.btnCloseWindow.Text = "Fechar";
             this.btnCloseWindow.UseVisualStyleBackColor = false;
             this.btnCloseWindow.Click += new System.EventHandler(this.btnCloseWindow_Click);
@@ -117,7 +117,7 @@ namespace NOC_Actions
             this.btnSalvarECopiar.Margin = new System.Windows.Forms.Padding(4);
             this.btnSalvarECopiar.Name = "btnSalvarECopiar";
             this.btnSalvarECopiar.Size = new System.Drawing.Size(128, 54);
-            this.btnSalvarECopiar.TabIndex = 33;
+            this.btnSalvarECopiar.TabIndex = 7;
             this.btnSalvarECopiar.Text = "Gravar e Copiar";
             this.btnSalvarECopiar.UseVisualStyleBackColor = false;
             this.btnSalvarECopiar.Click += new System.EventHandler(this.btnSalvarECopiar_Click);
@@ -132,7 +132,7 @@ namespace NOC_Actions
             this.btnApagarCampos.Margin = new System.Windows.Forms.Padding(4);
             this.btnApagarCampos.Name = "btnApagarCampos";
             this.btnApagarCampos.Size = new System.Drawing.Size(152, 54);
-            this.btnApagarCampos.TabIndex = 34;
+            this.btnApagarCampos.TabIndex = 8;
             this.btnApagarCampos.Text = "Apagar campos";
             this.btnApagarCampos.UseVisualStyleBackColor = false;
             this.btnApagarCampos.Click += new System.EventHandler(this.btnApagarCampos_Click);
@@ -155,7 +155,7 @@ namespace NOC_Actions
             this.textBox_nomeEquipeTecnica.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_nomeEquipeTecnica.Name = "textBox_nomeEquipeTecnica";
             this.textBox_nomeEquipeTecnica.Size = new System.Drawing.Size(248, 29);
-            this.textBox_nomeEquipeTecnica.TabIndex = 45;
+            this.textBox_nomeEquipeTecnica.TabIndex = 0;
             // 
             // labelNomeEqTecnica
             // 
@@ -187,7 +187,7 @@ namespace NOC_Actions
             this.comboBox_operadoraResponsavel.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox_operadoraResponsavel.Name = "comboBox_operadoraResponsavel";
             this.comboBox_operadoraResponsavel.Size = new System.Drawing.Size(159, 29);
-            this.comboBox_operadoraResponsavel.TabIndex = 48;
+            this.comboBox_operadoraResponsavel.TabIndex = 1;
             // 
             // comboBox_previaoDeChegada
             // 
@@ -197,7 +197,7 @@ namespace NOC_Actions
             this.comboBox_previaoDeChegada.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox_previaoDeChegada.Name = "comboBox_previaoDeChegada";
             this.comboBox_previaoDeChegada.Size = new System.Drawing.Size(151, 29);
-            this.comboBox_previaoDeChegada.TabIndex = 50;
+            this.comboBox_previaoDeChegada.TabIndex = 2;
             // 
             // labelChegada
             // 
@@ -218,7 +218,7 @@ namespace NOC_Actions
             this.comboBox_unidadeParaLiberacaoDeAcesso.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox_unidadeParaLiberacaoDeAcesso.Name = "comboBox_unidadeParaLiberacaoDeAcesso";
             this.comboBox_unidadeParaLiberacaoDeAcesso.Size = new System.Drawing.Size(319, 29);
-            this.comboBox_unidadeParaLiberacaoDeAcesso.TabIndex = 51;
+            this.comboBox_unidadeParaLiberacaoDeAcesso.TabIndex = 4;
             // 
             // labelUnidade
             // 
@@ -250,7 +250,7 @@ namespace NOC_Actions
             this.comboBox_enderecoDaUnidadeResponsavel.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox_enderecoDaUnidadeResponsavel.Name = "comboBox_enderecoDaUnidadeResponsavel";
             this.comboBox_enderecoDaUnidadeResponsavel.Size = new System.Drawing.Size(586, 29);
-            this.comboBox_enderecoDaUnidadeResponsavel.TabIndex = 53;
+            this.comboBox_enderecoDaUnidadeResponsavel.TabIndex = 5;
             // 
             // richTextBox_mensagemASerEncaminhadaAoCliente
             // 
@@ -305,7 +305,7 @@ namespace NOC_Actions
             this.textBox_credenciaisDePessoaFisica.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_credenciaisDePessoaFisica.Name = "textBox_credenciaisDePessoaFisica";
             this.textBox_credenciaisDePessoaFisica.Size = new System.Drawing.Size(248, 29);
-            this.textBox_credenciaisDePessoaFisica.TabIndex = 59;
+            this.textBox_credenciaisDePessoaFisica.TabIndex = 3;
             // 
             // btnAmplicarTexto
             // 
@@ -318,7 +318,7 @@ namespace NOC_Actions
             this.btnAmplicarTexto.Margin = new System.Windows.Forms.Padding(4);
             this.btnAmplicarTexto.Name = "btnAmplicarTexto";
             this.btnAmplicarTexto.Size = new System.Drawing.Size(40, 30);
-            this.btnAmplicarTexto.TabIndex = 60;
+            this.btnAmplicarTexto.TabIndex = 10;
             this.btnAmplicarTexto.Text = "🔎";
             this.btnAmplicarTexto.UseVisualStyleBackColor = false;
             // 

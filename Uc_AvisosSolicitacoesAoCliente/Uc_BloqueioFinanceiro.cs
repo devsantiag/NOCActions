@@ -164,10 +164,10 @@ namespace NOC_Actions
             DateTime horarioQueda)
         {
             MessageBox.Show(
-                $"Prezados, {ObterSaudacao()}! Informamos que a unidade {ValorOuNull(unidadeComBloqueio)} " +
-                $"encontra-se inoperante em decorrência de um bloqueio administrativo de natureza financeira junto à operadora " +
-                $"{ValorOuNull(operadoraComBloqueio)}. O valor total pendente é de R$ {valorFatura:N2}, " +
-                $"com vencimento em {dataVencimento:dd/MM/yyyy}. A indisponibilidade teve início às {horarioQueda:HH:mm} horas."
+              $"Prezados, {ObterSaudacao()}! Informamos que a unidade {ValorOuNull(unidadeComBloqueio)} " +
+              $"encontra-se inoperante em decorrência de um bloqueio administrativo de natureza financeira junto à operadora " +
+              $"{ValorOuNull(operadoraComBloqueio)}. O valor total pendente é de R$ {valorFatura:N2}, " +
+              $"com vencimento em {dataVencimento:dd/MM/yyyy}. A indisponibilidade teve início às {horarioQueda:HH:mm} horas. " 
             );
         }
 
@@ -182,7 +182,8 @@ namespace NOC_Actions
                 $"Prezados, {ObterSaudacao()}! Informamos que a unidade {ValorOuNull(unidadeComBloqueio)} " +
                 $"encontra-se inoperante em decorrência de um bloqueio administrativo de natureza financeira junto à operadora " +
                 $"{ValorOuNull(operadoraComBloqueio)}. O valor total pendente é de R$ {valorFatura:N2}, " +
-                $"com vencimento em {dataVencimento:dd/MM/yyyy}. A indisponibilidade teve início às {horarioQueda:HH:mm} horas.";
+                $"com vencimento em {dataVencimento:dd/MM/yyyy}. A indisponibilidade teve início às {horarioQueda:HH:mm} horas." +
+                $"\n\nFicamos à disposição, atenciosamente,\nEquipe NOC";
         }
 
 

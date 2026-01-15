@@ -104,7 +104,7 @@ namespace NOC_Actions
             this.btnVisualizar.Margin = new System.Windows.Forms.Padding(4);
             this.btnVisualizar.Name = "btnVisualizar";
             this.btnVisualizar.Size = new System.Drawing.Size(128, 54);
-            this.btnVisualizar.TabIndex = 67;
+            this.btnVisualizar.TabIndex = 7;
             this.btnVisualizar.Text = "Visualizar";
             this.btnVisualizar.UseVisualStyleBackColor = false;
             this.btnVisualizar.Click += new System.EventHandler(this.btnVisualizar_Click);
@@ -119,7 +119,7 @@ namespace NOC_Actions
             this.btnCloseWindow.Margin = new System.Windows.Forms.Padding(4);
             this.btnCloseWindow.Name = "btnCloseWindow";
             this.btnCloseWindow.Size = new System.Drawing.Size(128, 54);
-            this.btnCloseWindow.TabIndex = 66;
+            this.btnCloseWindow.TabIndex = 8;
             this.btnCloseWindow.Text = "Fechar";
             this.btnCloseWindow.UseVisualStyleBackColor = false;
             this.btnCloseWindow.Click += new System.EventHandler(this.btnCloseWindow_Click);
@@ -137,7 +137,7 @@ namespace NOC_Actions
             this.btnSalvarECopiar.Margin = new System.Windows.Forms.Padding(4);
             this.btnSalvarECopiar.Name = "btnSalvarECopiar";
             this.btnSalvarECopiar.Size = new System.Drawing.Size(143, 54);
-            this.btnSalvarECopiar.TabIndex = 64;
+            this.btnSalvarECopiar.TabIndex = 6;
             this.btnSalvarECopiar.Text = "Gravar e Copiar";
             this.btnSalvarECopiar.UseVisualStyleBackColor = false;
             this.btnSalvarECopiar.Click += new System.EventHandler(this.btnSalvarECopiar_Click);
@@ -152,7 +152,7 @@ namespace NOC_Actions
             this.btnApagarCampos.Margin = new System.Windows.Forms.Padding(4);
             this.btnApagarCampos.Name = "btnApagarCampos";
             this.btnApagarCampos.Size = new System.Drawing.Size(152, 54);
-            this.btnApagarCampos.TabIndex = 65;
+            this.btnApagarCampos.TabIndex = 9;
             this.btnApagarCampos.Text = "Apagar campos";
             this.btnApagarCampos.UseVisualStyleBackColor = false;
             this.btnApagarCampos.Click += new System.EventHandler(this.btnApagarCampos_Click);
@@ -203,7 +203,7 @@ namespace NOC_Actions
             this.comboBox_unidadeComBloqueioFinanceiro.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox_unidadeComBloqueioFinanceiro.Name = "comboBox_unidadeComBloqueioFinanceiro";
             this.comboBox_unidadeComBloqueioFinanceiro.Size = new System.Drawing.Size(435, 29);
-            this.comboBox_unidadeComBloqueioFinanceiro.TabIndex = 81;
+            this.comboBox_unidadeComBloqueioFinanceiro.TabIndex = 0;
             // 
             // label6
             // 
@@ -226,7 +226,7 @@ namespace NOC_Actions
             this.comboBox_enderecoRespectivoDoBloqueioFinanceiro.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox_enderecoRespectivoDoBloqueioFinanceiro.Name = "comboBox_enderecoRespectivoDoBloqueioFinanceiro";
             this.comboBox_enderecoRespectivoDoBloqueioFinanceiro.Size = new System.Drawing.Size(435, 29);
-            this.comboBox_enderecoRespectivoDoBloqueioFinanceiro.TabIndex = 83;
+            this.comboBox_enderecoRespectivoDoBloqueioFinanceiro.TabIndex = 1;
             // 
             // label3
             // 
@@ -249,7 +249,7 @@ namespace NOC_Actions
             this.comboBox_operadoraComBloqueioFinanceiro.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox_operadoraComBloqueioFinanceiro.Name = "comboBox_operadoraComBloqueioFinanceiro";
             this.comboBox_operadoraComBloqueioFinanceiro.Size = new System.Drawing.Size(435, 29);
-            this.comboBox_operadoraComBloqueioFinanceiro.TabIndex = 85;
+            this.comboBox_operadoraComBloqueioFinanceiro.TabIndex = 2;
             // 
             // label4
             // 
@@ -303,7 +303,7 @@ namespace NOC_Actions
             this.maskedTextBox_horarioQueda.Mask = "00:00";
             this.maskedTextBox_horarioQueda.Name = "maskedTextBox_horarioQueda";
             this.maskedTextBox_horarioQueda.Size = new System.Drawing.Size(135, 29);
-            this.maskedTextBox_horarioQueda.TabIndex = 90;
+            this.maskedTextBox_horarioQueda.TabIndex = 4;
             this.maskedTextBox_horarioQueda.ValidatingType = typeof(System.DateTime);
             // 
             // maskedTextBox_dataDaReferencia
@@ -314,7 +314,7 @@ namespace NOC_Actions
             this.maskedTextBox_dataDaReferencia.Mask = "00/00/0000";
             this.maskedTextBox_dataDaReferencia.Name = "maskedTextBox_dataDaReferencia";
             this.maskedTextBox_dataDaReferencia.Size = new System.Drawing.Size(135, 29);
-            this.maskedTextBox_dataDaReferencia.TabIndex = 91;
+            this.maskedTextBox_dataDaReferencia.TabIndex = 5;
             this.maskedTextBox_dataDaReferencia.ValidatingType = typeof(System.DateTime);
             // 
             // label11
@@ -351,7 +351,7 @@ namespace NOC_Actions
             this.maskedTextBox_valorAPagar.Margin = new System.Windows.Forms.Padding(4);
             this.maskedTextBox_valorAPagar.Name = "maskedTextBox_valorAPagar";
             this.maskedTextBox_valorAPagar.Size = new System.Drawing.Size(107, 29);
-            this.maskedTextBox_valorAPagar.TabIndex = 86;
+            this.maskedTextBox_valorAPagar.TabIndex = 3;
             // 
             // bntExcluirSelecionado
             // 
@@ -364,7 +364,7 @@ namespace NOC_Actions
             this.bntExcluirSelecionado.Margin = new System.Windows.Forms.Padding(4);
             this.bntExcluirSelecionado.Name = "bntExcluirSelecionado";
             this.bntExcluirSelecionado.Size = new System.Drawing.Size(164, 33);
-            this.bntExcluirSelecionado.TabIndex = 94;
+            this.bntExcluirSelecionado.TabIndex = 10;
             this.bntExcluirSelecionado.Text = "Excluir selecionado";
             this.bntExcluirSelecionado.UseVisualStyleBackColor = false;
             // 
@@ -379,7 +379,7 @@ namespace NOC_Actions
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(113, 33);
-            this.button1.TabIndex = 95;
+            this.button1.TabIndex = 11;
             this.button1.Text = "Excluir tudo";
             this.button1.UseVisualStyleBackColor = false;
             // 
