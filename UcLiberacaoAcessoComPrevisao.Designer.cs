@@ -67,7 +67,7 @@ namespace NOC_Actions
             this.btnSaveAndCopy.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSaveAndCopy.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.btnSaveAndCopy.Location = new System.Drawing.Point(476, 388);
-            this.btnSaveAndCopy.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSaveAndCopy.Margin = new System.Windows.Forms.Padding(4);
             this.btnSaveAndCopy.Name = "btnSaveAndCopy";
             this.btnSaveAndCopy.Size = new System.Drawing.Size(128, 54);
             this.btnSaveAndCopy.TabIndex = 2;
@@ -91,10 +91,10 @@ namespace NOC_Actions
             this.btnClearFields.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClearFields.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.btnClearFields.Location = new System.Drawing.Point(340, 388);
-            this.btnClearFields.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnClearFields.Margin = new System.Windows.Forms.Padding(4);
             this.btnClearFields.Name = "btnClearFields";
             this.btnClearFields.Size = new System.Drawing.Size(128, 54);
-            this.btnClearFields.TabIndex = 3;
+            this.btnClearFields.TabIndex = 4;
             this.btnClearFields.Text = "Apagar";
             this.btnClearFields.UseVisualStyleBackColor = true;
             this.btnClearFields.Click += new System.EventHandler(this.BtnClearFieldsClick);
@@ -125,7 +125,7 @@ namespace NOC_Actions
             // 
             this.richTextBoxTechnicalData.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.richTextBoxTechnicalData.Location = new System.Drawing.Point(76, 123);
-            this.richTextBoxTechnicalData.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.richTextBoxTechnicalData.Margin = new System.Windows.Forms.Padding(4);
             this.richTextBoxTechnicalData.Name = "richTextBoxTechnicalData";
             this.richTextBoxTechnicalData.Size = new System.Drawing.Size(477, 117);
             this.richTextBoxTechnicalData.TabIndex = 0;
@@ -157,7 +157,7 @@ namespace NOC_Actions
             // 
             this.textBoxEstimatedArrival.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.textBoxEstimatedArrival.Location = new System.Drawing.Point(244, 316);
-            this.textBoxEstimatedArrival.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxEstimatedArrival.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxEstimatedArrival.Name = "textBoxEstimatedArrival";
             this.textBoxEstimatedArrival.Size = new System.Drawing.Size(315, 29);
             this.textBoxEstimatedArrival.TabIndex = 1;
@@ -178,7 +178,7 @@ namespace NOC_Actions
             this.btnCloseWindow.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCloseWindow.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.btnCloseWindow.Location = new System.Drawing.Point(45, 388);
-            this.btnCloseWindow.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCloseWindow.Margin = new System.Windows.Forms.Padding(4);
             this.btnCloseWindow.Name = "btnCloseWindow";
             this.btnCloseWindow.Size = new System.Drawing.Size(128, 54);
             this.btnCloseWindow.TabIndex = 5;
@@ -191,10 +191,10 @@ namespace NOC_Actions
             this.btnPreviewMessage.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPreviewMessage.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.btnPreviewMessage.Location = new System.Drawing.Point(204, 388);
-            this.btnPreviewMessage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnPreviewMessage.Margin = new System.Windows.Forms.Padding(4);
             this.btnPreviewMessage.Name = "btnPreviewMessage";
             this.btnPreviewMessage.Size = new System.Drawing.Size(128, 54);
-            this.btnPreviewMessage.TabIndex = 4;
+            this.btnPreviewMessage.TabIndex = 3;
             this.btnPreviewMessage.Text = "Prévia";
             this.btnPreviewMessage.UseVisualStyleBackColor = true;
             this.btnPreviewMessage.Click += new System.EventHandler(this.BtnPreviewMessageClick);
@@ -216,7 +216,7 @@ namespace NOC_Actions
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnClearFields);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UcLiberacaoDeAcessoComPrevisao";
             this.Size = new System.Drawing.Size(627, 468);
             this.ResumeLayout(false);
