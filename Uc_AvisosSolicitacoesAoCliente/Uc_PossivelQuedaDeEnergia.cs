@@ -112,7 +112,7 @@ namespace NOC_Actions
             string mensagem = GerarMensagem(operadora, unidade, endereco, horario, dataRef);
             Clipboard.SetText(mensagem);
 
-            //LimparCampos();
+            LimparCampos();
         }
 
 

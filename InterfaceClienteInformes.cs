@@ -1,74 +1,115 @@
 ﻿using System;
 using System.Windows.Forms;
-using System.Runtime.InteropServices;
 
 namespace NOC_Actions
 {
-	public partial class InterfaceClienteInformes : Form
-	{
-		public InterfaceClienteInformes()
-		{
-			InitializeComponent();
-		}
+    public partial class InterfaceClienteInformes : Form
+    {
+        public InterfaceClienteInformes()
+        {
+            InitializeComponent();
+            this.KeyPreview = true;
+        }
 
-		private void MostrarUserControl(UserControl uc)
-		{
-			painelInterface.Controls.Clear();
-			uc.Dock = DockStyle.Fill;
-			painelInterface.Controls.Add(uc);
-		}
-		
-		private void BtnAlarmeLinkIndisponivel_Click(object sender, EventArgs e)
-		{
-//			Prezados, bom dia! Identificamos alarme do link da __ (operadora) indisponível as ___ (hh:mm). Iremos seguir com acionamento junto ao fornecedor.
-			MostrarUserControl(new UcAlarmeDeLinkIndisponivel());
-		}
+        private void MostrarUserControl(UserControl uc)
+        {
+            painelInterface.Controls.Clear();
+            uc.Dock = DockStyle.Fill;
+            painelInterface.Controls.Add(uc);
+        }
 
-		private void BtnChamadoRegistrado_Click(object sender, EventArgs e)
-		{
-//			Prezados, chamado ___ registrado as ___ (hh:mm) junto ao fornecedor.
-			MostrarUserControl(new UcAberturaDeReparo());
-		}
+        private void BtnAlarmeLinkIndisponivel_Click(object sender, EventArgs e)
+        {
+            var uc = new UcAlarmeDeLinkIndisponivel();
+            MostrarUserControl(uc);
+            DarFocoNoUserControl(uc);
+        }
 
-		private void BtnLibAcessoSemPrevisao_Click(object sender, EventArgs e)
-		{
-//			Prezados, necessário acionamento com a loja para liberação de acesso do(s) técnico(s) abaixo. Ainda não foi repassado previsão de chegada, assim que obtivermos iremos atualizar a thread.
-			MostrarUserControl(new UcLiberacaoDeAcessoSemPrevisao());
-		}
+        private void BtnChamadoRegistrado_Click(object sender, EventArgs e)
+        {
+            var uc = new UcAberturaDeReparo();
+            MostrarUserControl(uc);
+            DarFocoNoUserControl(uc);
+        }
 
-		private void BtnLibAcessoComPrevisao_Click(object sender, EventArgs e)
-		{
-//		Prezados, necessário acionamento com a loja para liberação de acesso do(s) técnico(s) abaixo. Previsão de chegada as __ (hh) OU no período da manhã/tarde/noite.
-			MostrarUserControl(new UcLiberacaoDeAcessoComPrevisao());
-		}
+        private void BtnLibAcessoSemPrevisao_Click(object sender, EventArgs e)
+        {
+            var uc = new UcLiberacaoDeAcessoSemPrevisao();
+            MostrarUserControl(uc);
+            DarFocoNoUserControl(uc);
+        }
 
-		private void BtnAnaliseEnergia_Click(object sender, EventArgs e)
-		{
-//			Prezados, poderiam confirmar possível queda de energia na loja CE___? Constatamos que ambos os links estão indisponíveis neste momento.
-			MostrarUserControl(new UcPossivelQuedaDeEnergia());
-		}
+        private void BtnLibAcessoComPrevisao_Click(object sender, EventArgs e)
+        {
+            var uc = new UcLiberacaoDeAcessoComPrevisao();
+            MostrarUserControl(uc);
+            DarFocoNoUserControl(uc);
+        }
 
-		void BtnQuedaEnergiaClick(object sender, EventArgs e)
-		{
-//			Prezados, poderiam confirmar possível queda de energia na loja CE___? Constatamos que ambos os links estão indisponíveis neste momento.
-			MostrarUserControl(new UcPossivelQuedaDeEnergia());
-		}
-		
-		void Button1Click(object sender, EventArgs e)
-		{
-//			Prezados, constatamos a existência de um bloqueio administrativo-financeiro no contrato da unidade...
-			MostrarUserControl (new UcPendenciaFinanceiraInformes());
-		}
-		
-		void BtnPendenciaFinanceiraClick(object sender, EventArgs e)
-		{
-//			Prezados, [SAUDAÇÃO]! Identificamos um Bloqueio Administratrivo Financeiro no Circuito XXXX. Poderiam checar?
-			MostrarUserControl(new UcPendenciaFinanceiraInformes());
-		}
-		
-		void BtnRegistroDeFalhaInternaClienteClick(object sender, EventArgs e)
-		{
-			MostrarUserControl(new UcRegistroDeOcorrenciaInterna());
-		}
-	}
+        private void BtnAnaliseEnergia_Click(object sender, EventArgs e)
+        {
+            var uc = new UcPossivelQuedaDeEnergia();
+            MostrarUserControl(uc);
+            DarFocoNoUserControl(uc);
+        }
+
+        private void BtnQuedaEnergiaClick(object sender, EventArgs e)
+        {
+            var uc = new UcPossivelQuedaDeEnergia();
+            MostrarUserControl(uc);
+            DarFocoNoUserControl(uc);
+        }
+
+        private void Button1Click(object sender, EventArgs e)
+        {
+            var uc = new UcPendenciaFinanceiraInformes();
+            MostrarUserControl(uc);
+            DarFocoNoUserControl(uc);
+        }
+
+        private void BtnPendenciaFinanceiraClick(object sender, EventArgs e)
+        {
+            var uc = new UcPendenciaFinanceiraInformes();
+            MostrarUserControl(uc);
+            DarFocoNoUserControl(uc);
+        }
+
+        private void BtnRegistroDeFalhaInternaClienteClick(object sender, EventArgs e)
+        {
+            var uc = new UcRegistroDeOcorrenciaInterna();
+            MostrarUserControl(uc);
+            DarFocoNoUserControl(uc);
+        }
+
+        private void DarFocoNoUserControl(UserControl uc)
+        {
+            uc.Select();
+            uc.Focus();
+
+            Control controleInicial = null;
+
+            foreach (Control c in uc.Controls)
+            {
+                if (c.TabIndex == 0 && c.CanSelect)
+                {
+                    controleInicial = c;
+                    break;
+                }
+            }
+
+            if (controleInicial == null)
+            {
+                foreach (Control c in uc.Controls)
+                {
+                    if (c.CanSelect)
+                    {
+                        controleInicial = c;
+                        break;
+                    }
+                }
+            }
+
+            controleInicial?.Focus();
+        }
+    }
 }

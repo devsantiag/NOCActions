@@ -8,7 +8,7 @@ namespace NOC_Actions
         public AvisosSolicitacoesAoCliente()
         {
             InitializeComponent();
-            this.KeyPreview = true; // 👈 essencial para teclado
+            this.KeyPreview = true; 
         }
 
         private void MostrarUserControl(UserControl uc)
@@ -23,8 +23,6 @@ namespace NOC_Actions
             var uc = new Uc_AnaliseDeInfra();
 
             MostrarUserControl(uc);
-
-            // 👇 foco entra no UserControl
             DarFocoNoUserControl(uc);
         }
 
