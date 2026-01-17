@@ -143,21 +143,20 @@ namespace NOC_Actions
         }
 
 
-        private void btnCloseWindow_Click(object sender, EventArgs e)
-        {
-            this.FindForm()?.Close();
-        }
-
-
         #endregion
 
-
         #region Utilitários
+        
         private void btnApagarCampos_Click(object sender, EventArgs e)
         {
             LimparCampos();
         }
-
+        
+        // Fechar userControl
+        private void btnCloseWindow_Click(object sender, EventArgs e)
+        {
+            CloseWindow();
+        }
 
         private void LimparCampos()
         {
@@ -205,5 +204,9 @@ namespace NOC_Actions
 
         #endregion
 
+        void CloseWindow()
+        {
+            this.FindForm().Close();
+        }
     }
 }

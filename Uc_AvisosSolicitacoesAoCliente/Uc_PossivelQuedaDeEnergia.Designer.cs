@@ -113,6 +113,7 @@ namespace NOC_Actions
             this.btnCloseWindow.TabIndex = 7;
             this.btnCloseWindow.Text = "Fechar";
             this.btnCloseWindow.UseVisualStyleBackColor = false;
+            this.btnCloseWindow.Click += new System.EventHandler(this.btnCloseWindow_Click);
             // 
             // btnSalvarECopiar
             // 
