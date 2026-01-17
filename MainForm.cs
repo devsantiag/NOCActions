@@ -1,138 +1,178 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
-using NOC_Actions;
 using NOC_Actions.Uc_AvisosSolicitacoesAoCliente;
 
 namespace NOC_Actions
 {
-	public partial class MainForm : Form
-	{
-		[DllImport("user32.dll")]
-		public static extern bool ReleaseCapture();
+    public partial class MainForm : Form
+    {
+        #region Win32 - Drag Window
 
-		[DllImport("user32.dll")]
-		public static extern IntPtr SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+        [DllImport("user32.dll")]
+        private static extern bool ReleaseCapture();
 
-		private const int WM_NCLBUTTONDOWN = 0xA1;
-		private const int HTCAPTION = 0x2;
-		
-		public MainForm()
-		{
-			InitializeComponent();
-			this.FormBorderStyle = FormBorderStyle.None;
-			this.TopMost = true;
-			PointerMouseMove.MouseDown += PointerMouseMovePaint_MouseDown;
-		}
+        [DllImport("user32.dll")]
+        private static extern IntPtr SendMessage(
+            IntPtr hWnd,
+            int Msg,
+            int wParam,
+            int lParam
+        );
 
-		private void PointerMouseMovePaint_MouseDown(object sender, MouseEventArgs e)
-		{
-			if (e.Button == MouseButtons.Left)
-			{
-				ReleaseCapture();
-				SendMessage(this.Handle, WM_NCLBUTTONDOWN, HTCAPTION, 0);
-			}
-		}
-		
-		private void MostrarUserControl(UserControl uc)
-		{
-			this.Controls.Clear();
-			uc.Dock = DockStyle.Fill;
-			this.Controls.Add(uc);
-		}
-		
+        private const int WM_NCLBUTTONDOWN = 0xA1;
+        private const int HTCAPTION = 0x2;
 
-//		 Eventos de clique dos botões que copiam mensagens padronizadas para a área de transferência
-		void SemEnergiaClick(object sender, EventArgs e)
-		{
-			Clipboard.SetText("Sem contato com a unidade. Devido queda simultânea dos links, possível queda de energia.");
-		}
+        #endregion
 
-		void ButtonSemContatoLocalClick(object sender, EventArgs e)
-		{
-			Clipboard.SetText("Sem contato do local, solicitado auxílio do Cliente na validação interna.");
-		}
+        // Janelas controladas
+        private InterfaceClienteInformes informesWindow;
+        private AvisosSolicitacoesAoCliente avisosWindow;
+        private MassivaForm massivaWindow;
+        private WebForm webFormWindow;
 
-		void ButtonSemExpedienteClick(object sender, EventArgs e)
-		{
-			Clipboard.SetText("Devido expediente do cliente, manteremos o link em monitoração até o próximo dia útil.");
-		}
+        public MainForm()
+        {
+            InitializeComponent();
 
-		void ButtonInfraOkClienteClick(object sender, EventArgs e)
-		{
-			Clipboard.SetText("Cliente informa que unidade está com energia e Internet, será acionado fornecedor para verificação do alarme.");
-		}
+            FormBorderStyle = FormBorderStyle.None;
+            TopMost = false;
 
-		void ButtonSemContatoOperadoraClick(object sender, EventArgs e)
-		{
-			Clipboard.SetText("Sem contato com a Operadora, tentaremos novamente mais tarde.");
-		}
+            PointerMouseMove.MouseDown += PointerMouseMovePaint_MouseDown;
+        }
 
-		void ButtonAberturaDeOsClick(object sender, EventArgs e)
-		{
-			Clipboard.SetText("Encaminhado e-mail solicitando abertura de chamado ao fornecedor.");
-		}
+        private void PointerMouseMovePaint_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HTCAPTION, 0);
+            }
+        }
 
-		void ButtonPosicionamentoTecnicoClick(object sender, EventArgs e)
-		{
-			Clipboard.SetText("Encaminhado e-mail solicitando posicionamento frente ao reparo em aberto junto ao fornecedor.");
-		}
+        // ===============================
+        // CLIPBOARD
+        // ===============================
 
-		void BtnAberturaDeMassivaClick(object sender, EventArgs e)
-		{
-			MassivaForm open_window_massiva = new MassivaForm();
-			open_window_massiva.Show();
-		}
-		
-		InterfaceClienteInformes open_window = null;
-		
-		void BtnInformesClientesClick(object sender, EventArgs e)
-		{
-			
-			if (open_window != null && !open_window.IsDisposed)
-				
-			{
-				open_window.Close();
-				open_window = null;
-				btnInformesClientes.Text = "Informes";
-				return;
-			}
-			
-			foreach (Form form in Application.OpenForms)
-			{
-				if (form is InterfaceClienteInformes) {
-					MessageBox.Show("Processo já em execução!",
-					                "Aviso",
-					                MessageBoxButtons.OK,
-					                MessageBoxIcon.Information);
+        private void SemEnergiaClick(object sender, EventArgs e)
+        {
+            Clipboard.SetText(
+                "Sem contato com a unidade. Devido queda simultânea dos links, possível queda de energia."
+            );
+        }
 
-					form.BringToFront();
-					return;
-				}
-			}
-			
-			open_window = new InterfaceClienteInformes();
-			open_window.FormClosed += (s, args) =>
-			{
-				btnInformesClientes.Text = "Informes";
-				open_window = null;
-			};
-			
-			open_window.Show();
-			btnInformesClientes.Text = "Fechar";
-		}
-		
-//		desativados temporariamente
-		void BtnAvisoSolicitacoesClick(object sender, EventArgs e)
-		{
-			AvisosSolicitacoesAoCliente openForm = new AvisosSolicitacoesAoCliente();
-			openForm.Show();
-		}
-		void BtnCentralNoc(object sender, EventArgs e) 
-		{
-			WebForm open = new WebForm();
-			open.Show();
-		
-		}
-	}
+        private void ButtonSemContatoLocalClick(object sender, EventArgs e)
+        {
+            Clipboard.SetText(
+                "Sem contato do local, solicitado auxílio do Cliente na validação interna."
+            );
+        }
+
+        private void ButtonSemExpedienteClick(object sender, EventArgs e)
+        {
+            Clipboard.SetText(
+                "Devido expediente do cliente, manteremos o link em monitoração até o próximo dia útil."
+            );
+        }
+
+        private void ButtonInfraOkClienteClick(object sender, EventArgs e)
+        {
+            Clipboard.SetText(
+                "Cliente informa que unidade está com energia e Internet, será acionado fornecedor para verificação do alarme."
+            );
+        }
+
+        private void ButtonSemContatoOperadoraClick(object sender, EventArgs e)
+        {
+            Clipboard.SetText(
+                "Sem contato com a Operadora, tentaremos novamente mais tarde."
+            );
+        }
+
+        private void ButtonAberturaDeOsClick(object sender, EventArgs e)
+        {
+            Clipboard.SetText(
+                "Encaminhado e-mail solicitando abertura de chamado ao fornecedor."
+            );
+        }
+
+        private void ButtonPosicionamentoTecnicoClick(object sender, EventArgs e)
+        {
+            Clipboard.SetText(
+                "Encaminhado e-mail solicitando posicionamento frente ao reparo em aberto junto ao fornecedor."
+            );
+        }
+
+        // ===============================
+        // JANELAS
+        // ===============================
+
+        private void BtnAberturaDeMassivaClick(object sender, EventArgs e)
+        {
+            if (massivaWindow == null || massivaWindow.IsDisposed)
+            {
+                massivaWindow = new MassivaForm();
+                massivaWindow.FormClosed += (s, args) => massivaWindow = null;
+                massivaWindow.Show();
+            }
+            else
+            {
+                massivaWindow.BringToFront();
+            }
+        }
+
+        private void BtnInformesClientesClick(object sender, EventArgs e)
+        {
+            if (informesWindow != null && !informesWindow.IsDisposed)
+            {
+                informesWindow.Close();
+                btnInformesClientes.Text = "Informes";
+                return;
+            }
+
+            informesWindow = new InterfaceClienteInformes();
+            informesWindow.FormClosed += (s, args) =>
+            {
+                informesWindow = null;
+                btnInformesClientes.Text = "Informes";
+            };
+
+            informesWindow.Show();
+            btnInformesClientes.Text = "Fechar";
+        }
+
+        private void BtnAvisoSolicitacoesClick(object sender, EventArgs e)
+        {
+            if (avisosWindow != null && !avisosWindow.IsDisposed)
+            {
+                avisosWindow.Close();
+                btnAvisoSolicitacoes.Text = "Avisos / Solicitações";
+                return;
+            }
+
+            avisosWindow = new AvisosSolicitacoesAoCliente();
+            avisosWindow.FormClosed += (s, args) =>
+            {
+                avisosWindow = null;
+                btnAvisoSolicitacoes.Text = "Avisos / Solicitações";
+            };
+
+            avisosWindow.Show();
+            btnAvisoSolicitacoes.Text = "Fechar";
+        }
+
+        private void BtnCentralNoc(object sender, EventArgs e)
+        {
+            if (webFormWindow == null || webFormWindow.IsDisposed)
+            {
+                webFormWindow = new WebForm();
+                webFormWindow.FormClosed += (s, args) => webFormWindow = null;
+                webFormWindow.Show();
+            }
+            else
+            {
+                webFormWindow.BringToFront();
+            }
+        }
+    }
 }

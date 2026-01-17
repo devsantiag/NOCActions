@@ -158,6 +158,11 @@ namespace NOC_Actions
             CloseWindow();
         }
 
+        void CloseWindow()
+        {
+            this.FindForm().Close();
+        }
+
         private void LimparCampos()
         {
             comboBox_operadoraUnidade.SelectedIndex = -1;
@@ -204,9 +209,5 @@ namespace NOC_Actions
 
         #endregion
 
-        void CloseWindow()
-        {
-            this.FindForm().Close();
-        }
     }
 }

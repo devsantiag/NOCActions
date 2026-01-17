@@ -49,7 +49,7 @@
             this.btnAlarmeLinkIndisponivel.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnAlarmeLinkIndisponivel.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.btnAlarmeLinkIndisponivel.Location = new System.Drawing.Point(0, 0);
-            this.btnAlarmeLinkIndisponivel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAlarmeLinkIndisponivel.Margin = new System.Windows.Forms.Padding(4);
             this.btnAlarmeLinkIndisponivel.Name = "btnAlarmeLinkIndisponivel";
             this.btnAlarmeLinkIndisponivel.Size = new System.Drawing.Size(357, 33);
             this.btnAlarmeLinkIndisponivel.TabIndex = 0;
@@ -62,7 +62,7 @@
             this.btnChamadoRegistrado.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnChamadoRegistrado.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.btnChamadoRegistrado.Location = new System.Drawing.Point(0, 33);
-            this.btnChamadoRegistrado.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnChamadoRegistrado.Margin = new System.Windows.Forms.Padding(4);
             this.btnChamadoRegistrado.Name = "btnChamadoRegistrado";
             this.btnChamadoRegistrado.Size = new System.Drawing.Size(357, 33);
             this.btnChamadoRegistrado.TabIndex = 1;
@@ -75,7 +75,7 @@
             this.btnLibAcessoSemPrevisao.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnLibAcessoSemPrevisao.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.btnLibAcessoSemPrevisao.Location = new System.Drawing.Point(0, 66);
-            this.btnLibAcessoSemPrevisao.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLibAcessoSemPrevisao.Margin = new System.Windows.Forms.Padding(4);
             this.btnLibAcessoSemPrevisao.Name = "btnLibAcessoSemPrevisao";
             this.btnLibAcessoSemPrevisao.Size = new System.Drawing.Size(357, 33);
             this.btnLibAcessoSemPrevisao.TabIndex = 2;
@@ -88,7 +88,7 @@
             this.btnLibAcessoComPrevisao.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnLibAcessoComPrevisao.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.btnLibAcessoComPrevisao.Location = new System.Drawing.Point(0, 99);
-            this.btnLibAcessoComPrevisao.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLibAcessoComPrevisao.Margin = new System.Windows.Forms.Padding(4);
             this.btnLibAcessoComPrevisao.Name = "btnLibAcessoComPrevisao";
             this.btnLibAcessoComPrevisao.Size = new System.Drawing.Size(357, 33);
             this.btnLibAcessoComPrevisao.TabIndex = 3;
@@ -101,7 +101,7 @@
             this.btnAnaliseEnergia.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnAnaliseEnergia.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.btnAnaliseEnergia.Location = new System.Drawing.Point(0, 132);
-            this.btnAnaliseEnergia.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAnaliseEnergia.Margin = new System.Windows.Forms.Padding(4);
             this.btnAnaliseEnergia.Name = "btnAnaliseEnergia";
             this.btnAnaliseEnergia.Size = new System.Drawing.Size(357, 33);
             this.btnAnaliseEnergia.TabIndex = 4;
@@ -112,7 +112,7 @@
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -142,7 +142,7 @@
             this.btnNoTicket.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnNoTicket.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.btnNoTicket.Location = new System.Drawing.Point(0, 198);
-            this.btnNoTicket.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnNoTicket.Margin = new System.Windows.Forms.Padding(4);
             this.btnNoTicket.Name = "btnNoTicket";
             this.btnNoTicket.Size = new System.Drawing.Size(357, 33);
             this.btnNoTicket.TabIndex = 6;
@@ -155,7 +155,7 @@
             this.btnPendenciaFinanceira.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnPendenciaFinanceira.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.btnPendenciaFinanceira.Location = new System.Drawing.Point(0, 165);
-            this.btnPendenciaFinanceira.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnPendenciaFinanceira.Margin = new System.Windows.Forms.Padding(4);
             this.btnPendenciaFinanceira.Name = "btnPendenciaFinanceira";
             this.btnPendenciaFinanceira.Size = new System.Drawing.Size(357, 33);
             this.btnPendenciaFinanceira.TabIndex = 5;
@@ -180,7 +180,7 @@
             // 
             this.painelInterface.Dock = System.Windows.Forms.DockStyle.Fill;
             this.painelInterface.Location = new System.Drawing.Point(0, 0);
-            this.painelInterface.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.painelInterface.Margin = new System.Windows.Forms.Padding(4);
             this.painelInterface.Name = "painelInterface";
             this.painelInterface.Size = new System.Drawing.Size(631, 468);
             this.painelInterface.TabIndex = 0;
@@ -193,7 +193,7 @@
             this.ClientSize = new System.Drawing.Size(993, 468);
             this.Controls.Add(this.splitContainer1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "InterfaceClienteInformes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "InterfaceClienteInformes";
