@@ -80,7 +80,7 @@ namespace NOC_Actions
             this.label12 = new System.Windows.Forms.Label();
             this.maskedTextBox_valorAPagar = new System.Windows.Forms.MaskedTextBox();
             this.bntExcluirSelecionado = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnExcluirTudoDasListas = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -367,28 +367,30 @@ namespace NOC_Actions
             this.bntExcluirSelecionado.TabIndex = 10;
             this.bntExcluirSelecionado.Text = "Excluir selecionado";
             this.bntExcluirSelecionado.UseVisualStyleBackColor = false;
+            this.bntExcluirSelecionado.Click += new System.EventHandler(this.bntExcluirSelecionado_Click);
             // 
-            // button1
+            // btnExcluirTudoDasListas
             // 
-            this.button1.AutoSize = true;
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(494, 308);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(113, 33);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Excluir tudo";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnExcluirTudoDasListas.AutoSize = true;
+            this.btnExcluirTudoDasListas.BackColor = System.Drawing.Color.Transparent;
+            this.btnExcluirTudoDasListas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExcluirTudoDasListas.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.btnExcluirTudoDasListas.ForeColor = System.Drawing.Color.Black;
+            this.btnExcluirTudoDasListas.Location = new System.Drawing.Point(494, 308);
+            this.btnExcluirTudoDasListas.Margin = new System.Windows.Forms.Padding(4);
+            this.btnExcluirTudoDasListas.Name = "btnExcluirTudoDasListas";
+            this.btnExcluirTudoDasListas.Size = new System.Drawing.Size(113, 33);
+            this.btnExcluirTudoDasListas.TabIndex = 11;
+            this.btnExcluirTudoDasListas.Text = "Excluir tudo";
+            this.btnExcluirTudoDasListas.UseVisualStyleBackColor = false;
+            this.btnExcluirTudoDasListas.Click += new System.EventHandler(this.btnExcluirTudoDasListas_Click);
             // 
             // Uc_BloqueioFinanceiro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnExcluirTudoDasListas);
             this.Controls.Add(this.bntExcluirSelecionado);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
@@ -422,6 +424,6 @@ namespace NOC_Actions
 
         private System.Windows.Forms.MaskedTextBox maskedTextBox_valorAPagar;
         private System.Windows.Forms.Button bntExcluirSelecionado;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnExcluirTudoDasListas;
     }
 }

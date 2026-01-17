@@ -142,7 +142,7 @@ namespace NOC_Actions
         }
 
 
-        private void btnEditarInformacoes_Click(object sender, EventArgs e)
+        private void bntExcluirSelecionado_Click(object sender, EventArgs e)
         {
             bool excluiuAlgo = false;
 

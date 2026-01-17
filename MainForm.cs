@@ -36,7 +36,7 @@ namespace NOC_Actions
             InitializeComponent();
 
             FormBorderStyle = FormBorderStyle.None;
-            TopMost = false;
+            TopMost = true;
 
             PointerMouseMove.MouseDown += PointerMouseMovePaint_MouseDown;
         }

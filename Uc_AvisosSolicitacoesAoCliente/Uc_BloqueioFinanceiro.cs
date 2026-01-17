@@ -1,8 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
-using System.Globalization;
 
 
 namespace NOC_Actions
@@ -18,6 +19,14 @@ namespace NOC_Actions
 
         private readonly string arquivo_operadoraComBloqueioFinanceiro =
             Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "operadoraComBloqueioFinanceiro.txt");
+
+
+
+
+
+
+
+
 
         public Uc_BloqueioFinanceiro()
         {
@@ -114,11 +123,80 @@ namespace NOC_Actions
             ClearField();
         }
 
+
         private void btnCloseWindow_Click(object sender, EventArgs e)
         {
             CloseWindow();
         }
 
+        private void btnExcluirTudoDasListas_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("ijdsodjasid");
+
+            bool excluiuAlgo = false;
+
+            excluiuAlgo |= ExcluirTodos(comboBox_unidadeComBloqueioFinanceiro, arquivo_bloqueioFinanceiro_unidade);
+            excluiuAlgo |= ExcluirTodos(comboBox_enderecoRespectivoDoBloqueioFinanceiro, arquivo_bloqueioFinanceiro_enderecoUnidade);
+            excluiuAlgo |= ExcluirTodos(comboBox_operadoraComBloqueioFinanceiro, arquivo_operadoraComBloqueioFinanceiro);
+
+            MessageBox.Show(
+                excluiuAlgo ? "Item(ns) excluído(s) com sucesso!" : "Selecione ao menos um item para excluir.");
+
+        }
+
+        private void bntExcluirSelecionado_Click(object sender, EventArgs e)
+        {
+            bool excluiuAlgo = false;
+
+            excluiuAlgo |= ExcluirSelecionado(comboBox_unidadeComBloqueioFinanceiro, arquivo_bloqueioFinanceiro_unidade);
+            excluiuAlgo |= ExcluirSelecionado(comboBox_enderecoRespectivoDoBloqueioFinanceiro, arquivo_bloqueioFinanceiro_enderecoUnidade);
+            excluiuAlgo |= ExcluirSelecionado(comboBox_operadoraComBloqueioFinanceiro, arquivo_operadoraComBloqueioFinanceiro);
+
+            MessageBox.Show(
+                excluiuAlgo ? "Item(ns) excluído(s) com sucesso!" : "Selecione ao menos um item para excluir."
+            );
+        }
+
+        private bool ExcluirTodos(ComboBox comboBox, string caminhoArquivo)
+        {
+            if (!File.Exists(caminhoArquivo))
+                return false;
+
+            try
+            {
+                File.WriteAllText(caminhoArquivo, string.Empty);
+                comboBox.Items.Clear();
+                comboBox.SelectedIndex = -1;
+                comboBox.Text = string.Empty;
+
+                return true;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao excluir todos os itens: " + ex.Message);
+                return false;
+            }
+        }
+
+        private bool ExcluirSelecionado(ComboBox comboBox, string caminhoArquivo)
+        {
+            if (comboBox.SelectedItem == null || !File.Exists(caminhoArquivo))
+                return false;
+
+            string valor = comboBox.SelectedItem.ToString();
+            
+            List<string> linhas = File.ReadAllLines(caminhoArquivo).ToList();
+
+            if (!linhas.Remove(valor))
+                return false;
+
+            File.WriteAllLines(caminhoArquivo, linhas);
+            comboBox.Items.Remove(valor);
+            comboBox.SelectedIndex = -1;
+
+            return true;
+        }
 
         private void SalvarItem(ComboBox comboBox, string caminhoArquivo)
         {
@@ -201,5 +279,7 @@ namespace NOC_Actions
         {
             this.FindForm().Close();
         }
+
+
     }
 }

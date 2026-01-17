@@ -230,7 +230,7 @@
             this.bntExcluirSelecionado.TabIndex = 100;
             this.bntExcluirSelecionado.Text = "Excluir selecionado";
             this.bntExcluirSelecionado.UseVisualStyleBackColor = false;
-            this.bntExcluirSelecionado.Click += new System.EventHandler(this.btnEditarInformacoes_Click);
+            this.bntExcluirSelecionado.Click += new System.EventHandler(this.bntExcluirSelecionado_Click);
             // 
             // btnGerarAlerta
             // 
