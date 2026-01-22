@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -9,16 +8,23 @@ namespace NOC_Actions
 {
     public partial class Uc_BloqueioFinanceiro : UserControl
     {
+        #region Arquivos (Persistência)
 
-        private readonly string arquivo_bloqueioFinanceiro_unidade =
-           Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "unidadeBloqueioFinanceiro.txt");
+        private static readonly string AppData =
+            Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
 
-        private readonly string arquivo_bloqueioFinanceiro_enderecoUnidade =
-            Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "enderecoUnidadeBloqueioFinanceiro.txt");
+        private readonly string arquivo_unidade =
+            Path.Combine(AppData, "unidadeBloqueioFinanceiro.txt");
 
-        private readonly string arquivo_operadoraComBloqueioFinanceiro =
-            Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "operadoraComBloqueioFinanceiro.txt");
+        private readonly string arquivo_endereco =
+            Path.Combine(AppData, "enderecoUnidadeBloqueioFinanceiro.txt");
 
+        private readonly string arquivo_operadora =
+            Path.Combine(AppData, "operadoraComBloqueioFinanceiro.txt");
+
+        #endregion
+
+        #region Construtor
 
         public Uc_BloqueioFinanceiro()
         {
@@ -26,76 +32,20 @@ namespace NOC_Actions
             CarregarInformacoes();
         }
 
-        private string ObterSaudacao()
-        {
-            int hora = DateTime.Now.Hour;
+        #endregion
 
-            if (hora >= 5 && hora < 12) return "bom dia";
-            if (hora >= 12 && hora < 18) return "boa tarde";
-            return "boa noite";
-        }
+        #region Eventos
 
         private void btnSalvarECopiar_Click(object sender, EventArgs e)
         {
-            var unidade = comboBox_unidadeComBloqueioFinanceiro.Text;
-            var endereco = comboBox_enderecoRespectivoDoBloqueioFinanceiro.Text;
-            var operadora = comboBox_operadoraComBloqueioFinanceiro.Text;
-            //var valorFatura = maskedTextBox_valorAPagar.Text;
-            var horaIndisponibilidade = maskedTextBox_horarioQueda.Text;
-            var dataReferenciaDaFatura = maskedTextBox_dataDaReferencia.Text;
-            string faturaValorConvertToParse = maskedTextBox_valorAPagar.Text
-                           .Replace("R$", "")
-                           .Trim();
-
-            if (string.IsNullOrWhiteSpace(unidade) ||
-                string.IsNullOrWhiteSpace(endereco) ||
-                string.IsNullOrWhiteSpace(operadora) ||
-                string.IsNullOrWhiteSpace(horaIndisponibilidade) ||
-                string.IsNullOrWhiteSpace(dataReferenciaDaFatura) ||
-                string.IsNullOrWhiteSpace(faturaValorConvertToParse))
-            {
-                MessageBox.Show(
-                    "Preencha todos os campos antes de salvar.",
-                    "Atenção",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
-                );
+            if (!ValidarCampos())
                 return;
-            }
 
-            SalvarItem(comboBox_unidadeComBloqueioFinanceiro, arquivo_bloqueioFinanceiro_unidade);
-            SalvarItem(comboBox_enderecoRespectivoDoBloqueioFinanceiro, arquivo_bloqueioFinanceiro_enderecoUnidade);
-            SalvarItem(comboBox_operadoraComBloqueioFinanceiro, arquivo_operadoraComBloqueioFinanceiro);
+            SalvarItem(comboBox_unidadeComBloqueioFinanceiro, arquivo_unidade);
+            SalvarItem(comboBox_enderecoRespectivoDoBloqueioFinanceiro, arquivo_endereco);
+            SalvarItem(comboBox_operadoraComBloqueioFinanceiro, arquivo_operadora);
 
-            if (!decimal.TryParse(
-                faturaValorConvertToParse.Replace("R$", "").Trim(),
-                NumberStyles.Number,
-                new CultureInfo("pt-BR"),
-                out decimal valorFatura))
-            {
-                MessageBox.Show("Valor da fatura inválido.");
-                return;
-            }
-
-            if (!DateTime.TryParse(maskedTextBox_dataDaReferencia.Text, out DateTime dataVencimento))
-            {
-                MessageBox.Show("Data de vencimento inválida.");
-                return;
-            }
-
-            if (!DateTime.TryParse(maskedTextBox_horarioQueda.Text, out DateTime horarioQueda))
-            {
-                MessageBox.Show("Horário da queda inválido.");
-                return;
-            }
-
-            string mensagem = GerarMensagem(
-                comboBox_unidadeComBloqueioFinanceiro.Text,
-                comboBox_operadoraComBloqueioFinanceiro.Text,
-                valorFatura,
-                dataVencimento,
-                horarioQueda
-            );
+            Clipboard.SetText(GerarMensagem());
 
             MessageBox.Show(
                 "Itens salvos e mensagem copiada para a área de transferência.",
@@ -104,206 +54,241 @@ namespace NOC_Actions
                 MessageBoxIcon.Information
             );
 
-            ClearField();
-            Clipboard.SetText(mensagem);
-        
+            LimparCampos();
         }
 
         private void btnVisualizar_Click(object sender, EventArgs e)
         {
-            string valorTexto = maskedTextBox_valorAPagar.Text
-                .Replace("R$", "")
-                .Trim();
-
-            if (!decimal.TryParse(
-                valorTexto,
-                NumberStyles.Number | NumberStyles.AllowCurrencySymbol,
-                new CultureInfo("pt-BR"),
-                out decimal valorFatura))
-            {
-                MessageBox.Show("Valor da fatura inválido.");
+            if (!ValidarCampos())
                 return;
-            }
 
-            if (!DateTime.TryParse(maskedTextBox_dataDaReferencia.Text, out DateTime dataVencimento))
-            {
-                MessageBox.Show("Data de vencimento inválida.");
-                return;
-            }
-
-            if (!DateTime.TryParse(maskedTextBox_horarioQueda.Text, out DateTime horarioQueda))
-            {
-                MessageBox.Show("Horário da queda inválido.");
-                return;
-            }
-
-            MensagemPronta(
-                comboBox_unidadeComBloqueioFinanceiro.Text,
-                comboBox_operadoraComBloqueioFinanceiro.Text,
-                valorFatura,
-                dataVencimento,
-                horarioQueda
+            MessageBox.Show(
+                GerarMensagem(),
+                "Visualização da Mensagem",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information
             );
         }
 
         private void btnApagarCampos_Click(object sender, EventArgs e)
         {
-            ClearField();
+            LimparCampos();
         }
-
 
         private void btnCloseWindow_Click(object sender, EventArgs e)
         {
-            CloseWindow();
-        }
-
-        private void btnExcluirTudoDasListas_Click(object sender, EventArgs e)
-        {
-            bool excluiuAlgo = false;
-
-            excluiuAlgo |= ExcluirTodos(comboBox_unidadeComBloqueioFinanceiro, arquivo_bloqueioFinanceiro_unidade);
-            excluiuAlgo |= ExcluirTodos(comboBox_enderecoRespectivoDoBloqueioFinanceiro, arquivo_bloqueioFinanceiro_enderecoUnidade);
-            excluiuAlgo |= ExcluirTodos(comboBox_operadoraComBloqueioFinanceiro, arquivo_operadoraComBloqueioFinanceiro);
-
-            MessageBox.Show(
-                excluiuAlgo ? "Item(ns) excluído(s) com sucesso!" : "Selecione ao menos um item para excluir.");
-
+            FindForm()?.Close();
         }
 
         private void bntExcluirSelecionado_Click(object sender, EventArgs e)
         {
-            bool excluiuAlgo = false;
+            bool excluiu = false;
 
-            excluiuAlgo |= ExcluirSelecionado(comboBox_unidadeComBloqueioFinanceiro, arquivo_bloqueioFinanceiro_unidade);
-            excluiuAlgo |= ExcluirSelecionado(comboBox_enderecoRespectivoDoBloqueioFinanceiro, arquivo_bloqueioFinanceiro_enderecoUnidade);
-            excluiuAlgo |= ExcluirSelecionado(comboBox_operadoraComBloqueioFinanceiro, arquivo_operadoraComBloqueioFinanceiro);
+            excluiu |= ExcluirSelecionado(comboBox_unidadeComBloqueioFinanceiro, arquivo_unidade);
+            excluiu |= ExcluirSelecionado(comboBox_enderecoRespectivoDoBloqueioFinanceiro, arquivo_endereco);
+            excluiu |= ExcluirSelecionado(comboBox_operadoraComBloqueioFinanceiro, arquivo_operadora);
 
-            MessageBox.Show(
-                excluiuAlgo ? "Item(ns) excluído(s) com sucesso!" : "Selecione ao menos um item para excluir."
+            if (excluiu)
+            {
+                MessageBox.Show(
+                    "Item(ns) selecionado(s) excluído(s) com sucesso.",
+                    "Sucesso",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                );
+            }
+            else
+            {
+                MessageBox.Show(
+                    "Selecione ao menos um item válido para exclusão.",
+                    "Atenção",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+            }
+        }
+
+        private void btnExcluirTudoDasListas_Click(object sender, EventArgs e)
+        {
+            var confirmacao = MessageBox.Show(
+                "Tem certeza que deseja excluir TODOS os itens?\n\nEssa ação não poderá ser desfeita.",
+                "Confirmação de Exclusão",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
             );
+
+            if (confirmacao != DialogResult.Yes)
+                return;
+
+            bool excluiu = false;
+
+            excluiu |= ExcluirTodos(comboBox_unidadeComBloqueioFinanceiro, arquivo_unidade);
+            excluiu |= ExcluirTodos(comboBox_enderecoRespectivoDoBloqueioFinanceiro, arquivo_endereco);
+            excluiu |= ExcluirTodos(comboBox_operadoraComBloqueioFinanceiro, arquivo_operadora);
+
+            if (excluiu)
+            {
+                MessageBox.Show(
+                    "Todos os itens foram excluídos com sucesso.",
+                    "Sucesso",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                );
+            }
+            else
+            {
+                MessageBox.Show(
+                    "Não havia itens cadastrados para exclusão.",
+                    "Atenção",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+            }
         }
 
-        private bool ExcluirTodos(ComboBox comboBox, string caminhoArquivo)
+        #endregion
+
+        #region Validações
+
+        private bool ValidarCampos()
         {
-            if (!File.Exists(caminhoArquivo))
-                return false;
-
-            try
+            if (string.IsNullOrWhiteSpace(comboBox_unidadeComBloqueioFinanceiro.Text) ||
+                string.IsNullOrWhiteSpace(comboBox_operadoraComBloqueioFinanceiro.Text) ||
+                !maskedTextBox_valorAPagar.MaskCompleted ||
+                !maskedTextBox_dataDaReferencia.MaskCompleted ||
+                !maskedTextBox_horarioQueda.MaskCompleted)
             {
-                File.WriteAllText(caminhoArquivo, string.Empty);
-                comboBox.Items.Clear();
-                comboBox.SelectedIndex = -1;
-                comboBox.Text = string.Empty;
-
-                return true;
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro ao excluir todos os itens: " + ex.Message);
+                MessageBox.Show(
+                    "Preencha todos os campos antes de continuar.",
+                    "Atenção",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
                 return false;
             }
+
+            return true;
         }
 
-        private bool ExcluirSelecionado(ComboBox comboBox, string caminhoArquivo)
+        #endregion
+
+        #region Mensagem
+
+        private string GerarMensagem()
         {
-            if (comboBox.SelectedItem == null || !File.Exists(caminhoArquivo))
+            decimal valor = decimal.Parse(
+                maskedTextBox_valorAPagar.Text,
+                CultureInfo.CurrentCulture
+            );
+
+            DateTime data = DateTime.Parse(maskedTextBox_dataDaReferencia.Text);
+            DateTime hora = DateTime.Parse(maskedTextBox_horarioQueda.Text);
+
+            return
+                $"Prezados, {ObterSaudacao()}.\n\n" +
+                $"Informamos que a unidade {comboBox_unidadeComBloqueioFinanceiro.Text} encontra-se inoperante " +
+                $"devido a bloqueio financeiro junto à operadora {comboBox_operadoraComBloqueioFinanceiro.Text}.\n\n" +
+                $"Valor pendente: R$ {valor:N2}\n" +
+                $"Data de referência: {data:dd/MM/yyyy}\n" +
+                $"Início da indisponibilidade: {hora:HH:mm}\n\n" +
+                $"Atenciosamente,\nEquipe NOC";
+        }
+
+        private static string ObterSaudacao()
+        {
+            int hora = DateTime.Now.Hour;
+
+            if (hora < 12) return "bom dia";
+            if (hora < 18) return "boa tarde";
+            return "boa noite";
+        }
+
+        #endregion
+
+        #region Utilidades
+
+        private void LimparCampos()
+        {
+            comboBox_unidadeComBloqueioFinanceiro.Text = "";
+            comboBox_enderecoRespectivoDoBloqueioFinanceiro.Text = "";
+            comboBox_operadoraComBloqueioFinanceiro.Text = "";
+
+            maskedTextBox_valorAPagar.Clear();
+            maskedTextBox_dataDaReferencia.Clear();
+            maskedTextBox_horarioQueda.Clear();
+        }
+
+        #endregion
+
+        #region Arquivos
+
+        private void SalvarItem(ComboBox comboBox, string arquivo)
+        {
+            var valor = comboBox.Text?.Trim();
+
+            if (string.IsNullOrWhiteSpace(valor))
+                return;
+
+            if (comboBox.Items.Contains(valor))
+                return;
+
+            comboBox.Items.Add(valor);
+            File.WriteAllLines(arquivo, comboBox.Items.Cast<string>());
+        }
+
+        private bool ExcluirSelecionado(ComboBox comboBox, string arquivo)
+        {
+            var valor = comboBox.SelectedItem as string;
+
+            if (valor == null || !File.Exists(arquivo))
                 return false;
 
-            string valor = comboBox.SelectedItem.ToString();
-            
-            List<string> linhas = File.ReadAllLines(caminhoArquivo).ToList();
+            var linhas = File.ReadAllLines(arquivo).ToList();
 
             if (!linhas.Remove(valor))
                 return false;
 
-            File.WriteAllLines(caminhoArquivo, linhas);
+            File.WriteAllLines(arquivo, linhas);
             comboBox.Items.Remove(valor);
             comboBox.SelectedIndex = -1;
 
             return true;
         }
 
-        private void SalvarItem(ComboBox comboBox, string caminhoArquivo)
+        private bool ExcluirTodos(ComboBox comboBox, string arquivo)
         {
-            string valor = comboBox.Text.Trim();
+            if (!File.Exists(arquivo))
+                return false;
 
-            if (string.IsNullOrWhiteSpace(valor))
-                return;
+            File.WriteAllText(arquivo, string.Empty);
+            comboBox.Items.Clear();
+            comboBox.SelectedIndex = -1;
+            comboBox.Text = string.Empty;
 
-            if (!comboBox.Items.Contains(valor))
-            {
-                comboBox.Items.Add(valor);
-                File.WriteAllLines(caminhoArquivo, comboBox.Items.Cast<string>());
-            }
+            return true;
         }
+
         private void CarregarInformacoes()
         {
-            CarregarItens(arquivo_bloqueioFinanceiro_unidade, comboBox_unidadeComBloqueioFinanceiro);
-            CarregarItens(arquivo_bloqueioFinanceiro_enderecoUnidade, comboBox_enderecoRespectivoDoBloqueioFinanceiro);
-            CarregarItens(arquivo_operadoraComBloqueioFinanceiro, comboBox_operadoraComBloqueioFinanceiro);
+            CarregarItens(arquivo_unidade, comboBox_unidadeComBloqueioFinanceiro);
+            CarregarItens(arquivo_endereco, comboBox_enderecoRespectivoDoBloqueioFinanceiro);
+            CarregarItens(arquivo_operadora, comboBox_operadoraComBloqueioFinanceiro);
         }
 
         private void CarregarItens(string arquivo, ComboBox comboBox)
         {
-            // Se o arquivo não existe, nada a carregar
             if (!File.Exists(arquivo))
                 return;
 
-            var linhas = File.ReadAllLines(arquivo)
-                            .Where(l => !string.IsNullOrWhiteSpace(l))
-                            .Distinct()
-                            .ToArray();
-
             comboBox.Items.Clear();
-            comboBox.Items.AddRange(linhas);
-        }
-
-
-        private void MensagemPronta(
-            string unidadeComBloqueio,
-            string operadoraComBloqueio,
-            decimal valorFatura,
-            DateTime dataVencimento,
-            DateTime horarioQueda)
-        {
-            MessageBox.Show(
-              $"Prezados, {ObterSaudacao()}! Informamos que a unidade {(unidadeComBloqueio)} " +
-              $"encontra-se inoperante em decorrência de um bloqueio administrativo de natureza financeira junto à operadora " +
-              $"{(operadoraComBloqueio)}. O valor total pendente é de R$ {valorFatura:N2}, " +
-              $"com vencimento em {dataVencimento:dd/MM/yyyy}. A indisponibilidade teve início às {horarioQueda:HH:mm} horas. " 
+            comboBox.Items.AddRange(
+                File.ReadAllLines(arquivo)
+                    .Where(l => !string.IsNullOrWhiteSpace(l))
+                    .Distinct()
+                    .ToArray()
             );
         }
 
-        private string GerarMensagem(
-        string unidadeComBloqueio,
-        string operadoraComBloqueio,
-        decimal valorFatura,
-        DateTime dataVencimento,
-        DateTime horarioQueda)
-        {
-            return
-                $"Prezados, {ObterSaudacao()}! Informamos que a unidade {(unidadeComBloqueio)} " +
-                $"encontra-se inoperante em decorrência de um bloqueio administrativo de natureza financeira junto à operadora " +
-                $"{(operadoraComBloqueio)}. O valor total pendente é de R$ {valorFatura:N2}, " +
-                $"com vencimento em {dataVencimento:dd/MM/yyyy}. A indisponibilidade teve início às {horarioQueda:HH:mm} horas." +
-                $"\n\nFicamos à disposição, atenciosamente,\nEquipe NOC";
-        }
-
-
-        private void ClearField()
-        {
-            comboBox_unidadeComBloqueioFinanceiro.Text = "";
-            comboBox_enderecoRespectivoDoBloqueioFinanceiro.Text = "";
-            comboBox_operadoraComBloqueioFinanceiro.Text = "";
-            maskedTextBox_valorAPagar.Text = "";
-            maskedTextBox_horarioQueda.Text = "";
-            maskedTextBox_dataDaReferencia.Text = "";
-        }
-
-        void CloseWindow()
-        {
-            this.FindForm().Close();
-        }
+        #endregion
     }
 }

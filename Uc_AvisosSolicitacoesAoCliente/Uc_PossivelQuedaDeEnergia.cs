@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -8,16 +7,19 @@ namespace NOC_Actions
 {
     public partial class Uc_PossivelQuedaDeEnergia : UserControl
     {
-        #region Constantes / Caminhos de Arquivo
+        #region Arquivos (Persistência)
+
+        private static readonly string AppData =
+            Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
 
         private readonly string arquivoOperadora =
-            Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "arquivoOperadoraEnergia.txt");
+            Path.Combine(AppData, "arquivoOperadoraEnergia.txt");
 
         private readonly string arquivoUnidade =
-            Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "arquivoUnidadeEnergia.txt");
+            Path.Combine(AppData, "arquivoUnidadeEnergia.txt");
 
         private readonly string arquivoEndereco =
-            Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "arquivoEnderecoEnergia.txt");
+            Path.Combine(AppData, "arquivoEnderecoEnergia.txt");
 
         #endregion
 
@@ -46,26 +48,27 @@ namespace NOC_Actions
 
         private void SalvarItem(ComboBox comboBox, string caminhoArquivo)
         {
-            string valor = comboBox.Text.Trim();
+            var valor = comboBox.Text?.Trim();
 
             if (string.IsNullOrWhiteSpace(valor))
                 return;
 
-            if (!comboBox.Items.Contains(valor))
-            {
-                comboBox.Items.Add(valor);
-                File.WriteAllLines(caminhoArquivo, comboBox.Items.Cast<string>());
-            }
+            if (comboBox.Items.Contains(valor))
+                return;
+
+            comboBox.Items.Add(valor);
+            File.WriteAllLines(caminhoArquivo, comboBox.Items.Cast<string>());
         }
 
-        private void CarregarItens(string arquivo, ComboBox comboBox)
+        private void CarregarItens(string caminhoArquivo, ComboBox comboBox)
         {
-            if (!File.Exists(arquivo))
+            if (!File.Exists(caminhoArquivo))
                 return;
 
             comboBox.Items.Clear();
             comboBox.Items.AddRange(
-                File.ReadAllLines(arquivo)
+                File.ReadAllLines(caminhoArquivo)
+                    .Where(l => !string.IsNullOrWhiteSpace(l))
                     .Distinct()
                     .ToArray()
             );
@@ -77,20 +80,40 @@ namespace NOC_Actions
 
         private bool ExcluirSelecionado(ComboBox comboBox, string caminhoArquivo)
         {
-            if (comboBox.SelectedItem == null || !File.Exists(caminhoArquivo))
+            var valor = comboBox.SelectedItem as string;
+
+            if (string.IsNullOrWhiteSpace(valor))
                 return false;
 
-            string valor = comboBox.SelectedItem.ToString();
-            List<string> linhas = File.ReadAllLines(caminhoArquivo).ToList();
+            if (!File.Exists(caminhoArquivo))
+                return false;
+
+            var linhas = File.ReadAllLines(caminhoArquivo).ToList();
 
             if (!linhas.Remove(valor))
                 return false;
 
             File.WriteAllLines(caminhoArquivo, linhas);
+
             comboBox.Items.Remove(valor);
             comboBox.SelectedIndex = -1;
+            comboBox.Text = "";
 
             return true;
+        }
+
+        private bool ExcluirTodos(ComboBox comboBox, string caminhoArquivo)
+        {
+            bool haviaItens = comboBox.Items.Count > 0 || File.Exists(caminhoArquivo);
+
+            comboBox.Items.Clear();
+            comboBox.SelectedIndex = -1;
+            comboBox.Text = "";
+
+            if (File.Exists(caminhoArquivo))
+                File.Delete(caminhoArquivo);
+
+            return haviaItens;
         }
 
         #endregion
@@ -99,13 +122,112 @@ namespace NOC_Actions
 
         private void btnSalvarECopiar_Click(object sender, EventArgs e)
         {
-            string operadora = comboBox_operadoraUnidade.Text;
-            string unidade = comboBox_unidadeParaAnaliseEnergia.Text;
-            string endereco = comboBox_enderecoUnidade.Text;
+            if (!ValidarCampos())
+                return;
 
-            if (string.IsNullOrWhiteSpace(operadora) ||
-                string.IsNullOrWhiteSpace(unidade) ||
-                string.IsNullOrWhiteSpace(endereco) ||
+            SalvarItem(comboBox_operadoraUnidade, arquivoOperadora);
+            SalvarItem(comboBox_unidadeParaAnaliseEnergia, arquivoUnidade);
+            SalvarItem(comboBox_enderecoUnidade, arquivoEndereco);
+
+            var mensagem = GerarMensagem(
+                comboBox_operadoraUnidade.Text,
+                comboBox_unidadeParaAnaliseEnergia.Text,
+                comboBox_enderecoUnidade.Text,
+                maskedTextBox_horarioQuedaCircuito.Text,
+                maskedTextBox_dataReferencia.Text
+            );
+
+            Clipboard.SetText(mensagem);
+
+            MessageBox.Show(
+                "Itens salvos e mensagem copiada para a área de transferência.",
+                "Sucesso",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information
+            );
+
+            LimparCampos();
+        }
+
+        private void btnGerarAlerta_Click(object sender, EventArgs e)
+        {
+            richTextBox_MensagemASerEncaminhadaAoCliente.Text =
+                GerarMensagem(
+                    comboBox_operadoraUnidade.Text,
+                    comboBox_unidadeParaAnaliseEnergia.Text,
+                    comboBox_enderecoUnidade.Text,
+                    maskedTextBox_horarioQuedaCircuito.Text,
+                    maskedTextBox_dataReferencia.Text
+                );
+        }
+
+        private void bntExcluirSelecionado_Click(object sender, EventArgs e)
+        {
+            bool excluiu = false;
+
+            excluiu |= ExcluirSelecionado(comboBox_operadoraUnidade, arquivoOperadora);
+            excluiu |= ExcluirSelecionado(comboBox_unidadeParaAnaliseEnergia, arquivoUnidade);
+            excluiu |= ExcluirSelecionado(comboBox_enderecoUnidade, arquivoEndereco);
+
+            MessageBox.Show(
+                excluiu
+                    ? "Item(ns) selecionado(s) excluído(s) com sucesso."
+                    : "Selecione ao menos um item válido para exclusão.",
+                excluiu ? "Sucesso" : "Atenção",
+                MessageBoxButtons.OK,
+                excluiu ? MessageBoxIcon.Information : MessageBoxIcon.Warning
+            );
+        }
+
+        private void btnExcluirTodosOsCampos_Click(object sender, EventArgs e)
+        {
+            var confirmacao = MessageBox.Show(
+                "Tem certeza que deseja excluir TODOS os itens?\n\nEssa ação não poderá ser desfeita.",
+                "Confirmação de Exclusão",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
+            );
+
+            if (confirmacao != DialogResult.Yes)
+                return;
+
+            bool excluiu = false;
+
+            excluiu |= ExcluirTodos(comboBox_operadoraUnidade, arquivoOperadora);
+            excluiu |= ExcluirTodos(comboBox_unidadeParaAnaliseEnergia, arquivoUnidade);
+            excluiu |= ExcluirTodos(comboBox_enderecoUnidade, arquivoEndereco);
+
+            richTextBox_MensagemASerEncaminhadaAoCliente.Clear();
+
+            MessageBox.Show(
+                excluiu
+                    ? "Todos os itens foram excluídos com sucesso."
+                    : "Não havia itens cadastrados para exclusão.",
+                excluiu ? "Sucesso" : "Atenção",
+                MessageBoxButtons.OK,
+                excluiu ? MessageBoxIcon.Information : MessageBoxIcon.Warning
+            );
+        }
+
+        private void btnApagarCampos_Click(object sender, EventArgs e)
+        {
+            LimparCampos();
+        }
+
+        private void btnCloseWindow_Click(object sender, EventArgs e)
+        {
+            FindForm()?.Close();
+        }
+
+        #endregion
+
+        #region Utilitários
+
+        private bool ValidarCampos()
+        {
+            if (string.IsNullOrWhiteSpace(comboBox_operadoraUnidade.Text) ||
+                string.IsNullOrWhiteSpace(comboBox_unidadeParaAnaliseEnergia.Text) ||
+                string.IsNullOrWhiteSpace(comboBox_enderecoUnidade.Text) ||
                 !maskedTextBox_horarioQuedaCircuito.MaskCompleted ||
                 !maskedTextBox_dataReferencia.MaskCompleted)
             {
@@ -115,86 +237,17 @@ namespace NOC_Actions
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning
                 );
-                return;
+                return false;
             }
 
-            string horario = maskedTextBox_horarioQuedaCircuito.Text;
-            string dataRef = maskedTextBox_dataReferencia.Text;
-
-            // Salvar dados
-            SalvarItem(comboBox_operadoraUnidade, arquivoOperadora);
-            SalvarItem(comboBox_unidadeParaAnaliseEnergia, arquivoUnidade);
-            SalvarItem(comboBox_enderecoUnidade, arquivoEndereco);
-
-            // Gerar e copiar mensagem
-            string mensagem = GerarMensagem(operadora, unidade, endereco, horario, dataRef);
-            Clipboard.SetText(mensagem);
-
-            // Feedback correto
-            MessageBox.Show(
-                "Itens salvos e mensagem copiada para a área de transferência.",
-                "Sucesso",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information
-            );
-            LimparCampos();
-        }
-
-
-        private void btnGerarAlerta_Click(object sender, EventArgs e)
-        {
-            string mensagem = GerarMensagem(
-                comboBox_operadoraUnidade.Text,
-                comboBox_unidadeParaAnaliseEnergia.Text,
-                comboBox_enderecoUnidade.Text,
-                maskedTextBox_horarioQuedaCircuito.Text,
-                maskedTextBox_dataReferencia.Text
-            );
-            richTextBox_MensagemASerEncaminhadaAoCliente.Text = mensagem;
-        }
-
-
-        private void btnEditarInformacoes_Click(object sender, EventArgs e)
-        {
-            bool excluiu =
-                ExcluirSelecionado(comboBox_operadoraUnidade, arquivoOperadora) |
-                ExcluirSelecionado(comboBox_unidadeParaAnaliseEnergia, arquivoUnidade) |
-                ExcluirSelecionado(comboBox_enderecoUnidade, arquivoEndereco);
-
-            MessageBox.Show(
-                excluiu ? "Item(ns) excluído(s) com sucesso!" : "Selecione ao menos um item para excluir."
-            );
-        }
-
-        #endregion
-
-        #region Utilitários
-
-        private void btnApagarCampos_Click(object sender, EventArgs e)
-        {
-            LimparCampos();
-        }
-
-        // Fechar userControl
-        private void btnCloseWindow_Click(object sender, EventArgs e)
-        {
-            CloseWindow();
-        }
-
-        void CloseWindow()
-        {
-            this.FindForm().Close();
+            return true;
         }
 
         private void LimparCampos()
         {
-            comboBox_operadoraUnidade.SelectedIndex = -1;
-            comboBox_unidadeParaAnaliseEnergia.SelectedIndex = -1;
-            comboBox_enderecoUnidade.SelectedIndex = -1;
-
-            comboBox_operadoraUnidade.Text = string.Empty;
-            comboBox_unidadeParaAnaliseEnergia.Text = string.Empty;
-            comboBox_enderecoUnidade.Text = string.Empty;
+            comboBox_operadoraUnidade.Text = "";
+            comboBox_unidadeParaAnaliseEnergia.Text = "";
+            comboBox_enderecoUnidade.Text = "";
 
             maskedTextBox_horarioQuedaCircuito.Clear();
             maskedTextBox_dataReferencia.Clear();
@@ -202,8 +255,12 @@ namespace NOC_Actions
             richTextBox_MensagemASerEncaminhadaAoCliente.Clear();
         }
 
-
-        private string GerarMensagem(string operadora, string unidade, string endereco, string horario, string dataRef)
+        private static string GerarMensagem(
+            string operadora,
+            string unidade,
+            string endereco,
+            string horario,
+            string dataRef)
         {
             return
                 $"Prezados,\n\n" +
@@ -220,16 +277,15 @@ namespace NOC_Actions
                 $"Atenciosamente,\nEquipe NOC";
         }
 
-        private string ObterSaudacao()
+        private static string ObterSaudacao()
         {
             int hora = DateTime.Now.Hour;
 
-            if (hora >= 5 && hora < 12) return "Bom dia";
-            if (hora >= 12 && hora < 18) return "Boa tarde";
+            if (hora < 12) return "Bom dia";
+            if (hora < 18) return "Boa tarde";
             return "Boa noite";
         }
 
         #endregion
-
     }
 }

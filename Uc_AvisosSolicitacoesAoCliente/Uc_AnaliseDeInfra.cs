@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -128,21 +127,19 @@ namespace NOC_Actions
                 return;
             }
 
-            // Salvar
             SalvarItem(comboBox_OperadoraDaUnidade, _arquivoOperadora);
             SalvarItem(comboBox_unidade, _arquivoUnidade);
             SalvarItem(comboBox_statusObtidoPelaOperadora, _arquivoTipoAnalise);
 
-            // Copiar
             Clipboard.SetText(GerarMensagem(operadora, unidade, status));
 
-            // Feedback correto
             MessageBox.Show(
                 "Itens salvos e mensagem copiada para a área de transferência.",
                 "Sucesso",
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Information
             );
+
             LimparCampos();
         }
 
@@ -158,6 +155,16 @@ namespace NOC_Actions
 
         private void bntExcluirSelecionado_Click(object sender, EventArgs e)
         {
+            var confirmacao = MessageBox.Show(
+                "Deseja realmente excluir o(s) item(ns) selecionado(s)?",
+                "Confirmação de Exclusão",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
+            );
+
+            if (confirmacao != DialogResult.Yes)
+                return;
+
             var excluiu = false;
 
             excluiu |= ExcluirSelecionado(comboBox_OperadoraDaUnidade, _arquivoOperadora);
@@ -166,16 +173,27 @@ namespace NOC_Actions
 
             MessageBox.Show(
                 excluiu
-                    ? "Item(ns) excluído(s) com sucesso!"
-                    : "Selecione ao menos um item para excluir.",
-                "Resultado",
+                    ? "Item(ns) selecionado(s) excluído(s) com sucesso."
+                    : "Selecione ao menos um item válido para exclusão.",
+                excluiu ? "Sucesso" : "Atenção",
                 MessageBoxButtons.OK,
-                MessageBoxIcon.Information
+                excluiu ? MessageBoxIcon.Information : MessageBoxIcon.Warning
             );
         }
 
         private void btnExcluirTodosOsCampos_Click(object sender, EventArgs e)
         {
+            var confirmacao = MessageBox.Show(
+                "Tem certeza que deseja excluir TODOS os itens?\n\n" +
+                "Essa ação não poderá ser desfeita.",
+                "Confirmação de Exclusão",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
+            );
+
+            if (confirmacao != DialogResult.Yes)
+                return;
+
             var excluiu = false;
 
             excluiu |= ExcluirTodos(comboBox_OperadoraDaUnidade, _arquivoOperadora);
@@ -186,11 +204,11 @@ namespace NOC_Actions
 
             MessageBox.Show(
                 excluiu
-                    ? "Todos os itens foram excluídos com sucesso!"
-                    : "Não havia itens para excluir.",
-                "Resultado",
+                    ? "Todos os itens foram excluídos com sucesso."
+                    : "Não havia itens cadastrados para exclusão.",
+                excluiu ? "Sucesso" : "Atenção",
                 MessageBoxButtons.OK,
-                MessageBoxIcon.Information
+                excluiu ? MessageBoxIcon.Information : MessageBoxIcon.Warning
             );
         }
 

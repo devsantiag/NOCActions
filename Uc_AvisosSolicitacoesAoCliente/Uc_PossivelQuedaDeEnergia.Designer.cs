@@ -304,6 +304,7 @@ namespace NOC_Actions
             this.btnExcluirTodosOsCampos.TabIndex = 103;
             this.btnExcluirTodosOsCampos.Text = "Excluir tudo";
             this.btnExcluirTodosOsCampos.UseVisualStyleBackColor = false;
+            this.btnExcluirTodosOsCampos.Click += new System.EventHandler(this.btnExcluirTodosOsCampos_Click);
             // 
             // bntExcluirSelecionado
             // 
@@ -319,6 +320,7 @@ namespace NOC_Actions
             this.bntExcluirSelecionado.TabIndex = 104;
             this.bntExcluirSelecionado.Text = "Excluir selecionado";
             this.bntExcluirSelecionado.UseVisualStyleBackColor = false;
+            this.bntExcluirSelecionado.Click += new System.EventHandler(this.bntExcluirSelecionado_Click);
             // 
             // btnAmplicarTexto
             // 

@@ -8,19 +8,22 @@ namespace NOC_Actions
 {
     public partial class Uc_LiberacaoDeAcesso : UserControl
     {
-        #region Caminhos dos Arquivos
+        #region Arquivos (Persistência)
+
+        private static readonly string AppData =
+            Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
 
         private readonly string arquivoOperadoraSolicitacaoVisita =
-            Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "operadoraSolicitacaoVisita.txt");
+            Path.Combine(AppData, "operadoraSolicitacaoVisita.txt");
 
         private readonly string arquivoPrevisaoDeChegadaTecnica =
-            Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "previsaoDeChegadaTecnica.txt");
+            Path.Combine(AppData, "previsaoDeChegadaTecnica.txt");
 
         private readonly string arquivoUnidadeRespectivaParaVisita =
-            Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "unidadeRespectivaParaVisita.txt");
+            Path.Combine(AppData, "unidadeRespectivaParaVisita.txt");
 
         private readonly string arquivoEnderecoDaUnidade =
-            Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "unidadeEnderecoParaVisitaTecnica.txt");
+            Path.Combine(AppData, "unidadeEnderecoParaVisitaTecnica.txt");
 
         #endregion
 
@@ -47,20 +50,20 @@ namespace NOC_Actions
 
         #endregion
 
-        #region Persistência (Salvar / Carregar)
+        #region Persistência
 
         private void SalvarItem(ComboBox comboBox, string caminhoArquivo)
         {
-            string valor = comboBox.Text.Trim();
+            var valor = comboBox.Text?.Trim();
 
             if (string.IsNullOrWhiteSpace(valor))
                 return;
 
-            if (!comboBox.Items.Contains(valor))
-            {
-                comboBox.Items.Add(valor);
-                File.WriteAllLines(caminhoArquivo, comboBox.Items.Cast<string>());
-            }
+            if (comboBox.Items.Contains(valor))
+                return;
+
+            comboBox.Items.Add(valor);
+            File.WriteAllLines(caminhoArquivo, comboBox.Items.Cast<string>());
         }
 
         private void CarregarItens(string caminhoArquivo, ComboBox comboBox)
@@ -71,6 +74,7 @@ namespace NOC_Actions
             comboBox.Items.Clear();
             comboBox.Items.AddRange(
                 File.ReadAllLines(caminhoArquivo)
+                    .Where(l => !string.IsNullOrWhiteSpace(l))
                     .Distinct()
                     .ToArray()
             );
@@ -78,37 +82,19 @@ namespace NOC_Actions
 
         #endregion
 
-        #region Eventos de Botão
+        #region Botões Principais
 
         private void btnSalvarECopiar_Click(object sender, EventArgs e)
         {
-            var operadora = comboBox_operadoraResponsavel.Text;
-            var previsao = comboBox_previaoDeChegada.Text;
-            var unidade = comboBox_unidadeParaLiberacaoDeAcesso.Text;
-            var endereco = comboBox_enderecoDaUnidadeResponsavel.Text;
-
-            if (string.IsNullOrWhiteSpace(operadora) ||
-                string.IsNullOrWhiteSpace(previsao) ||
-                string.IsNullOrWhiteSpace(unidade) ||
-                string.IsNullOrWhiteSpace(endereco))
-            {
-                MessageBox.Show(
-                    "Preencha todos os campos antes de salvar.",
-                    "Atenção",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
-                );
+            if (!ValidarCampos())
                 return;
-            }
-
-            string mensagem = GerarMensagem();
 
             SalvarItem(comboBox_operadoraResponsavel, arquivoOperadoraSolicitacaoVisita);
             SalvarItem(comboBox_previaoDeChegada, arquivoPrevisaoDeChegadaTecnica);
             SalvarItem(comboBox_unidadeParaLiberacaoDeAcesso, arquivoUnidadeRespectivaParaVisita);
             SalvarItem(comboBox_enderecoDaUnidadeResponsavel, arquivoEnderecoDaUnidade);
 
-            Clipboard.SetText(mensagem);
+            Clipboard.SetText(GerarMensagem());
 
             MessageBox.Show(
                 "Itens salvos e mensagem copiada para a área de transferência.",
@@ -120,24 +106,35 @@ namespace NOC_Actions
             LimparCampos();
         }
 
-
         private void btnGerarAlerta_Click(object sender, EventArgs e)
         {
-            richTextBox_mensagemASerEncaminhadaAoCliente.Text = "";
             richTextBox_mensagemASerEncaminhadaAoCliente.Text = GerarMensagem();
         }
 
         #endregion
 
-        #region Mensagem
+        #region Validação
 
-        private string SanitizarTextoLinhaUnica(string texto)
+        private bool ValidarCampos()
         {
-            return texto?
-                .Replace("\r", "")
-                .Replace("\n", "")
-                .Trim();
+            if (string.IsNullOrWhiteSpace(comboBox_operadoraResponsavel.Text) ||
+                string.IsNullOrWhiteSpace(comboBox_previaoDeChegada.Text) ||
+                string.IsNullOrWhiteSpace(comboBox_unidadeParaLiberacaoDeAcesso.Text) ||
+                string.IsNullOrWhiteSpace(comboBox_enderecoDaUnidadeResponsavel.Text))
+            {
+                MostrarMensagem(
+                    "Preencha todos os campos antes de continuar.",
+                    MessageBoxIcon.Warning
+                );
+                return false;
+            }
+
+            return true;
         }
+
+        #endregion
+
+        #region Mensagem
 
         private string GerarMensagem()
         {
@@ -145,86 +142,149 @@ namespace NOC_Actions
                 string.IsNullOrWhiteSpace(textBox_nomeEquipeTecnica.Text) &&
                 string.IsNullOrWhiteSpace(textBox_credenciaisDePessoaFisica.Text)
                     ? string.Empty
-                    : $"Equipe técnica: {SanitizarTextoLinhaUnica(textBox_nomeEquipeTecnica.Text)} | " +
-                      $"{SanitizarTextoLinhaUnica(textBox_credenciaisDePessoaFisica.Text)}\n";
+                    : $"Equipe técnica: {textBox_nomeEquipeTecnica.Text} | {textBox_credenciaisDePessoaFisica.Text}\n";
 
             return
                 $"Prezados, {ObterSaudacao()}.\n\n" +
-                $"Faço parte do NOC da Tel&Com e solicito, por gentileza, a liberação de acesso para visita técnica.\n\n" +
+                $"Faço parte do NOC da Tel&Com e solicito liberação de acesso para visita técnica.\n\n" +
                 $"Operadora responsável: {comboBox_operadoraResponsavel.Text}\n" +
                 $"Unidade: {comboBox_unidadeParaLiberacaoDeAcesso.Text}\n" +
                 $"Endereço: {comboBox_enderecoDaUnidadeResponsavel.Text}\n" +
                 equipeTecnica +
-                $"Previsão de chegada do técnico: {comboBox_previaoDeChegada.Text}\n\n" +
-                $"Fico no aguardo da confirmação.\n" +
-                $"Obrigado.\n\n" +
-                $"Atenciosamente,\n" +
-                $"Network Operations Center (NOC)\n" +
-                $"Tel&Com Telecomunicações";
+                $"Previsão de chegada: {comboBox_previaoDeChegada.Text}\n\n" +
+                $"Atenciosamente,\nNOC - Tel&Com";
+        }
+
+        private static string ObterSaudacao()
+        {
+            int hora = DateTime.Now.Hour;
+
+            if (hora < 12) return "bom dia";
+            if (hora < 18) return "boa tarde";
+            return "boa noite";
         }
 
         #endregion
 
-        #region Saudação
+        #region Exclusão
 
-        private string ObterSaudacao()
+        private void bntExcluirSelecionado_Click(object sender, EventArgs e)
         {
-            int hora = DateTime.Now.Hour;
+            bool excluiu = false;
 
-            if (hora >= 5 && hora < 12) return "bom dia";
-            if (hora >= 12 && hora < 18) return "boa tarde";
-            return "boa noite";
+            excluiu |= ExcluirSelecionado(comboBox_operadoraResponsavel, arquivoOperadoraSolicitacaoVisita);
+            excluiu |= ExcluirSelecionado(comboBox_previaoDeChegada, arquivoPrevisaoDeChegadaTecnica);
+            excluiu |= ExcluirSelecionado(comboBox_unidadeParaLiberacaoDeAcesso, arquivoUnidadeRespectivaParaVisita);
+            excluiu |= ExcluirSelecionado(comboBox_enderecoDaUnidadeResponsavel, arquivoEnderecoDaUnidade);
+
+            MostrarMensagem(
+                excluiu
+                    ? "Item(ns) selecionado(s) excluído(s) com sucesso."
+                    : "Selecione ao menos um item válido para exclusão.",
+                excluiu ? MessageBoxIcon.Information : MessageBoxIcon.Warning
+            );
+        }
+
+        private void btnExcluirTodosOsCampos_Click(object sender, EventArgs e)
+        {
+            if (!ConfirmarAcao(
+                "Tem certeza que deseja excluir TODOS os itens?\n\nEssa ação não poderá ser desfeita."))
+                return;
+
+            bool excluiu = false;
+
+            excluiu |= LimparComboBoxEArquivo(comboBox_operadoraResponsavel, arquivoOperadoraSolicitacaoVisita);
+            excluiu |= LimparComboBoxEArquivo(comboBox_previaoDeChegada, arquivoPrevisaoDeChegadaTecnica);
+            excluiu |= LimparComboBoxEArquivo(comboBox_unidadeParaLiberacaoDeAcesso, arquivoUnidadeRespectivaParaVisita);
+            excluiu |= LimparComboBoxEArquivo(comboBox_enderecoDaUnidadeResponsavel, arquivoEnderecoDaUnidade);
+
+            MostrarMensagem(
+                excluiu
+                    ? "Todos os itens foram excluídos com sucesso."
+                    : "Não havia itens cadastrados para exclusão.",
+                excluiu ? MessageBoxIcon.Information : MessageBoxIcon.Warning
+            );
+        }
+
+        private bool ExcluirSelecionado(ComboBox comboBox, string caminhoArquivo)
+        {
+            var valor = comboBox.SelectedItem as string;
+
+            if (string.IsNullOrWhiteSpace(valor) || !File.Exists(caminhoArquivo))
+                return false;
+
+            var linhas = File.ReadAllLines(caminhoArquivo).ToList();
+
+            if (!linhas.Remove(valor))
+                return false;
+
+            File.WriteAllLines(caminhoArquivo, linhas);
+            comboBox.Items.Remove(valor);
+            comboBox.SelectedIndex = -1;
+            comboBox.Text = "";
+
+            return true;
+        }
+
+        private bool LimparComboBoxEArquivo(ComboBox comboBox, string caminhoArquivo)
+        {
+            if (comboBox.Items.Count == 0 && !File.Exists(caminhoArquivo))
+                return false;
+
+            comboBox.Items.Clear();
+            comboBox.Text = "";
+
+            if (File.Exists(caminhoArquivo))
+                File.Delete(caminhoArquivo);
+
+            return true;
+        }
+
+        #endregion
+
+        #region Utilidades
+
+        private void LimparCampos()
+        {
+            textBox_nomeEquipeTecnica.Clear();
+            textBox_credenciaisDePessoaFisica.Clear();
+            comboBox_operadoraResponsavel.Text = "";
+            comboBox_previaoDeChegada.Text = "";
+            comboBox_unidadeParaLiberacaoDeAcesso.Text = "";
+            comboBox_enderecoDaUnidadeResponsavel.Text = "";
+            richTextBox_mensagemASerEncaminhadaAoCliente.Clear();
         }
 
         private void btnAmplicarTexto_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(richTextBox_mensagemASerEncaminhadaAoCliente.Text))
-            {
-                MessageBox.Show(
-                    "Não há mensagem para ampliar.",
-                    "Aviso",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information
-                );
                 return;
-            }
 
-            using (var form = new AmpliarMensagemDeTexto_LiberacaoDeAcesso(
-                richTextBox_mensagemASerEncaminhadaAoCliente.Text))
-            {
-                form.ShowDialog(this.FindForm());
-            }
+            new AmpliarMensagemDeTexto_LiberacaoDeAcesso(
+                richTextBox_mensagemASerEncaminhadaAoCliente.Text
+            ).ShowDialog();
         }
 
-        private void btnApagarCampos_Click(object sender, EventArgs e)
+        private void MostrarMensagem(string texto, MessageBoxIcon icon = MessageBoxIcon.Information)
         {
-            LimparCampos();
+            MessageBox.Show(
+                texto,
+                "NOC - Tel&Com",
+                MessageBoxButtons.OK,
+                icon
+            );
         }
 
-        private void btnCloseWindow_Click(object sender, EventArgs e)
+        private bool ConfirmarAcao(string texto)
         {
-            CloseWindow();
+            return MessageBox.Show(
+                texto,
+                "Confirmação de Exclusão",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
+            ) == DialogResult.Yes;
         }
-
-        void CloseWindow()
-        {
-            this.FindForm().Close();
-        }
-
-        void LimparCampos()
-        {
-            textBox_nomeEquipeTecnica.Text = "";
-            comboBox_operadoraResponsavel.Text = "";
-            comboBox_previaoDeChegada.Text = "";
-            textBox_credenciaisDePessoaFisica.Text = "";
-            comboBox_unidadeParaLiberacaoDeAcesso.Text = "";
-            comboBox_enderecoDaUnidadeResponsavel.Text = "";
-            richTextBox_mensagemASerEncaminhadaAoCliente.Text = "";
-        }
-
 
         #endregion
-
     }
 }
-    
