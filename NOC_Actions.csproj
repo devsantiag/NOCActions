@@ -37,11 +37,23 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <Prefer32Bit>false</Prefer32Bit>
+    <WarningLevel>2</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Office.Interop.Outlook, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.OutlookViewCtl, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Office.Tools.Outlook, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Office.Tools.Outlook.v4.0.Utilities, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Web.WebView2.Core, Version=1.0.3650.58, Culture=neutral, PublicKeyToken=2a8ab48044d2601e, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.Web.WebView2.1.0.3650.58\lib\net462\Microsoft.Web.WebView2.Core.dll</HintPath>
     </Reference>
@@ -179,6 +191,12 @@
     <Compile Include="Uc_AvisosSolicitacoesAoCliente\Config_AnaliseDeInfra.Designer.cs">
       <DependentUpon>Config_AnaliseDeInfra.cs</DependentUpon>
     </Compile>
+    <Compile Include="Uc_AvisosSolicitacoesAoCliente\EmailTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Uc_AvisosSolicitacoesAoCliente\EmailTest.Designer.cs">
+      <DependentUpon>EmailTest.cs</DependentUpon>
+    </Compile>
     <Compile Include="Uc_AvisosSolicitacoesAoCliente\InfraFileService.cs" />
     <Compile Include="Uc_AvisosSolicitacoesAoCliente\WebForm.cs">
       <SubType>Form</SubType>
@@ -272,6 +290,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Uc_AvisosSolicitacoesAoCliente\Config_AnaliseDeInfra.resx">
       <DependentUpon>Config_AnaliseDeInfra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Uc_AvisosSolicitacoesAoCliente\EmailTest.resx">
+      <DependentUpon>EmailTest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Uc_AvisosSolicitacoesAoCliente\WebForm.resx">
       <DependentUpon>WebForm.cs</DependentUpon>

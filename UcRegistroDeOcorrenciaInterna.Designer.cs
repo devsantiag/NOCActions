@@ -50,7 +50,7 @@
             this.listBox_RegistroDeOcorrencia.FormattingEnabled = true;
             this.listBox_RegistroDeOcorrencia.ItemHeight = 21;
             this.listBox_RegistroDeOcorrencia.Location = new System.Drawing.Point(0, 186);
-            this.listBox_RegistroDeOcorrencia.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listBox_RegistroDeOcorrencia.Margin = new System.Windows.Forms.Padding(4);
             this.listBox_RegistroDeOcorrencia.Name = "listBox_RegistroDeOcorrencia";
             this.listBox_RegistroDeOcorrencia.Size = new System.Drawing.Size(625, 151);
             this.listBox_RegistroDeOcorrencia.TabIndex = 3;
@@ -75,7 +75,7 @@
             this.btnDeletarLista.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.btnDeletarLista.ForeColor = System.Drawing.Color.Black;
             this.btnDeletarLista.Location = new System.Drawing.Point(204, 388);
-            this.btnDeletarLista.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDeletarLista.Margin = new System.Windows.Forms.Padding(4);
             this.btnDeletarLista.Name = "btnDeletarLista";
             this.btnDeletarLista.Size = new System.Drawing.Size(128, 54);
             this.btnDeletarLista.TabIndex = 7;
@@ -90,7 +90,7 @@
             this.btnCloseWindow.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.btnCloseWindow.ForeColor = System.Drawing.Color.Black;
             this.btnCloseWindow.Location = new System.Drawing.Point(45, 388);
-            this.btnCloseWindow.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCloseWindow.Margin = new System.Windows.Forms.Padding(4);
             this.btnCloseWindow.Name = "btnCloseWindow";
             this.btnCloseWindow.Size = new System.Drawing.Size(128, 54);
             this.btnCloseWindow.TabIndex = 6;
@@ -105,7 +105,7 @@
             this.btnSalvarContratoEOperadora.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.btnSalvarContratoEOperadora.ForeColor = System.Drawing.Color.Black;
             this.btnSalvarContratoEOperadora.Location = new System.Drawing.Point(476, 388);
-            this.btnSalvarContratoEOperadora.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSalvarContratoEOperadora.Margin = new System.Windows.Forms.Padding(4);
             this.btnSalvarContratoEOperadora.Name = "btnSalvarContratoEOperadora";
             this.btnSalvarContratoEOperadora.Size = new System.Drawing.Size(128, 54);
             this.btnSalvarContratoEOperadora.TabIndex = 4;
@@ -120,7 +120,7 @@
             this.btnDeletarSelecionado.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.btnDeletarSelecionado.ForeColor = System.Drawing.Color.Black;
             this.btnDeletarSelecionado.Location = new System.Drawing.Point(340, 388);
-            this.btnDeletarSelecionado.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDeletarSelecionado.Margin = new System.Windows.Forms.Padding(4);
             this.btnDeletarSelecionado.Name = "btnDeletarSelecionado";
             this.btnDeletarSelecionado.Size = new System.Drawing.Size(128, 54);
             this.btnDeletarSelecionado.TabIndex = 5;
@@ -132,7 +132,7 @@
             // 
             this.textBox_UnidadeContrato.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.textBox_UnidadeContrato.Location = new System.Drawing.Point(12, 54);
-            this.textBox_UnidadeContrato.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox_UnidadeContrato.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_UnidadeContrato.Name = "textBox_UnidadeContrato";
             this.textBox_UnidadeContrato.Size = new System.Drawing.Size(295, 29);
             this.textBox_UnidadeContrato.TabIndex = 0;
@@ -141,7 +141,7 @@
             // 
             this.textBox_OperadoraDaUnidade.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.textBox_OperadoraDaUnidade.Location = new System.Drawing.Point(319, 54);
-            this.textBox_OperadoraDaUnidade.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox_OperadoraDaUnidade.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_OperadoraDaUnidade.Name = "textBox_OperadoraDaUnidade";
             this.textBox_OperadoraDaUnidade.Size = new System.Drawing.Size(295, 29);
             this.textBox_OperadoraDaUnidade.TabIndex = 1;
@@ -190,7 +190,7 @@
             // 
             this.textBox_observacaoDoContrato.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.textBox_observacaoDoContrato.Location = new System.Drawing.Point(0, 119);
-            this.textBox_observacaoDoContrato.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox_observacaoDoContrato.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_observacaoDoContrato.Multiline = true;
             this.textBox_observacaoDoContrato.Name = "textBox_observacaoDoContrato";
             this.textBox_observacaoDoContrato.Size = new System.Drawing.Size(625, 62);
@@ -228,7 +228,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listBox_RegistroDeOcorrencia);
             this.ForeColor = System.Drawing.SystemColors.Control;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UcRegistroDeOcorrenciaInterna";
             this.Size = new System.Drawing.Size(627, 468);
             this.ResumeLayout(false);

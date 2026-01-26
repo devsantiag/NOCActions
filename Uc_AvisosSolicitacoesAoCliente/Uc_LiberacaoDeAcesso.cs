@@ -206,6 +206,11 @@ namespace NOC_Actions
             );
         }
 
+        private void btnCloseWindow_Click(object sender, EventArgs e)
+        {
+            CloseWindow();
+        }
+
         private bool ExcluirSelecionado(ComboBox comboBox, string caminhoArquivo)
         {
             var valor = comboBox.SelectedItem as string;
@@ -286,5 +291,16 @@ namespace NOC_Actions
         }
 
         #endregion
+
+
+        #region Close Form
+
+        private void CloseWindow()
+        {
+            FindForm()?.Close();
+        }
+
+        #endregion
+
     }
 }

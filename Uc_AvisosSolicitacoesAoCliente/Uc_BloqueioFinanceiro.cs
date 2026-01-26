@@ -77,7 +77,7 @@ namespace NOC_Actions
 
         private void btnCloseWindow_Click(object sender, EventArgs e)
         {
-            FindForm()?.Close();
+            CloseWindow();
         }
 
         private void bntExcluirSelecionado_Click(object sender, EventArgs e)
@@ -290,5 +290,15 @@ namespace NOC_Actions
         }
 
         #endregion
+
+        #region Close Form
+
+        private void CloseWindow()
+        {
+            FindForm()?.Close();
+        }
+
+        #endregion
+
     }
 }
