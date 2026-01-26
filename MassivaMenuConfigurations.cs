@@ -5,134 +5,267 @@ using System.Windows.Forms;
 
 namespace NOC_Actions
 {
-	public partial class UserConfig : Form
-	{
-		// Caminho do arquivo onde as operadoras serão salvas
-		private string caminhoArquivo = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "operadoras.txt");
-		private string caminhoArquivo1 = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "cidades.txt");
-		
-		public string CaminhoArquivo { get { return caminhoArquivo; } }
-		
-		public UserConfig()
-		{
-			InitializeComponent();
-			CarregarOperadoraSalvas(); 
-			CarregarCidadeSalvas();
-		}
-		
-		// Eventos dos botões que chamam os métodos correspondentes
-		
-		void BtnAdicionarOperadoraClick(object sender, EventArgs e)
-		{
-			AdicionarOperadora();
-		}
-		void BtnDeletarOperadoraClick(object sender, EventArgs e)
-		{
-			DeletarOperadoraListada();
-		}
-		void ButtonAdicionarCidadeClick(object sender, EventArgs e)
-		{
-			AdicionarCidade();
-		}
-		void ButtonDeletarCidadeClick(object sender, EventArgs e)
-		{
-			DeletarCidadeAdicionada();
-		}
+    /// <summary>
+    /// Formulário de configuração do usuário.
+    /// Permite adicionar, remover e salvar cidades e operadoras.
+    /// </summary>
+    public partial class UserConfig : Form
+    {
+        #region Campos de Persistência
 
-		//		Adiciona uma nova Cidade à lista
-		private void AdicionarCidade()
-		{
-			string adicionarCidadeEmLista = textBoxAdicionarCidade.Text.Trim();
-			if (!string.IsNullOrWhiteSpace(adicionarCidadeEmLista) && !comboBoxCidadeAdicionada.Items.Contains(adicionarCidadeEmLista)) {
-				comboBoxCidadeAdicionada.Items.Add(adicionarCidadeEmLista);
-				textBoxAdicionarCidade.Clear();
-				SalvarCidadeNoArquivo();
-			} else {
-				MessageBox.Show("Essa Cidade já foi adicionada ou o campo está vazio.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-			}
-		}
-		
-		private void SalvarCidadeNoArquivo()
-		{
-			try {
-				File.WriteAllLines(caminhoArquivo1, comboBoxCidadeAdicionada.Items.Cast<string>());
-			} catch (Exception ex) {
-				MessageBox.Show(string.Format("Erro ao salvar os dados: {0}", ex.Message), "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-			}
-		}
-		
-		private void DeletarCidadeAdicionada()
-		{
-			if (comboBoxCidadeAdicionada.SelectedItem == null) {
-				MessageBox.Show("Por favor, selecione uma operadora para excluir.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-				return;
-			}
-			var resultadoDeConfirmacao = MessageBox.Show("Você tem certeza que deseja excluir esta operadora?",
-			                                             "Confirmar Exclusão", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+        // Caminho do arquivo onde as operadoras serão salvas no AppData do usuário
+        private string caminhoArquivo = Path.Combine(
+            Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+            "operadoras.txt"
+        );
 
-			if (resultadoDeConfirmacao == DialogResult.Yes) {
-				comboBoxCidadeAdicionada.Items.Remove(comboBoxCidadeAdicionada.SelectedItem);
-				SalvarCidadeNoArquivo();
-			}
-		}
-		
-		// Adiciona uma nova operadora à lista, evitando duplicatas
-		private void AdicionarOperadora()
-		{
-			string adicionarOperadoraEmLista = textBoxAdicionarOperadora.Text.Trim();
-			
-			if (!string.IsNullOrWhiteSpace(adicionarOperadoraEmLista) && !comboBoxOperadoraJaAdicionadas.Items.Contains(adicionarOperadoraEmLista)) {
-				comboBoxOperadoraJaAdicionadas.Items.Add(adicionarOperadoraEmLista);
-				textBoxAdicionarOperadora.Clear();
-				SalvarOperadorasNoArquivo(); // Salva a lista atualizada no arquivo
-			} else {
-				MessageBox.Show("Essa operadora já foi adicionada ou o campo está vazio.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-			}
-		}
-		
-		// Salva as operadoras da lista no arquivo
-		private void SalvarOperadorasNoArquivo()
-		{
-			try {
-				File.WriteAllLines(caminhoArquivo, comboBoxOperadoraJaAdicionadas.Items.Cast<string>());
-			} catch (Exception ex) {
-				MessageBox.Show(string.Format("Erro ao salvar os dados: {0}", ex.Message), "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-			}
-		}
-		
-		// Remove a operadora selecionada da lista e atualiza o arquivo
-		private void DeletarOperadoraListada()
-		{
-			if (comboBoxOperadoraJaAdicionadas.SelectedItem == null) {
-				MessageBox.Show("Por favor, selecione uma operadora para excluir.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-				return;
-			}
+        // Caminho do arquivo onde as cidades serão salvas no AppData do usuário
+        private string caminhoArquivo1 = Path.Combine(
+            Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+            "cidades.txt"
+        );
 
-			var resultadoDeConfirmacao = MessageBox.Show("Você tem certeza que deseja excluir esta operadora?",
-			                                             "Confirmar Exclusão", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+        // Propriedade pública para acessar o caminho do arquivo de operadoras
+        public string CaminhoArquivo { get { return caminhoArquivo; } }
 
-			if (resultadoDeConfirmacao == DialogResult.Yes) {
-				comboBoxOperadoraJaAdicionadas.Items.Remove(comboBoxOperadoraJaAdicionadas.SelectedItem);
-				SalvarOperadorasNoArquivo();
-			}
-		}
-		
-		// Carrega as operadoras salvas no arquivo para o ComboBox ao abrir o formulário
-		private void CarregarOperadoraSalvas()
-		{
-			if (File.Exists(caminhoArquivo)) {
-				string[] operadorasSalvas = File.ReadAllLines(caminhoArquivo);
-				comboBoxOperadoraJaAdicionadas.Items.AddRange(operadorasSalvas);
-			}
-		}
-		
-		private void CarregarCidadeSalvas()
-		{
-			if (File.Exists(caminhoArquivo1)) {
-				string[] cidadesSalvas = File.ReadAllLines(caminhoArquivo1);
-				comboBoxCidadeAdicionada.Items.AddRange(cidadesSalvas);
-			}
-			
-		}
-	}
+        #endregion
+
+        #region Construtor
+
+        /// <summary>
+        /// Inicializa o formulário e carrega dados salvos.
+        /// </summary>
+        public UserConfig()
+        {
+            InitializeComponent();
+            CarregarOperadoraSalvas();
+            CarregarCidadeSalvas();
+        }
+
+        #endregion
+
+        #region Eventos de Botões
+
+        /// <summary>
+        /// Adiciona uma nova operadora
+        /// </summary>
+        void BtnAdicionarOperadoraClick(object sender, EventArgs e)
+        {
+            AdicionarOperadora();
+        }
+
+        /// <summary>
+        /// Deleta a operadora selecionada
+        /// </summary>
+        void BtnDeletarOperadoraClick(object sender, EventArgs e)
+        {
+            DeletarOperadoraListada();
+        }
+
+        /// <summary>
+        /// Adiciona uma nova cidade
+        /// </summary>
+        void ButtonAdicionarCidadeClick(object sender, EventArgs e)
+        {
+            AdicionarCidade();
+        }
+
+        /// <summary>
+        /// Deleta a cidade selecionada
+        /// </summary>
+        void ButtonDeletarCidadeClick(object sender, EventArgs e)
+        {
+            DeletarCidadeAdicionada();
+        }
+
+        #endregion
+
+        #region Operações com Cidades
+
+        /// <summary>
+        /// Adiciona uma nova cidade à lista e salva no arquivo.
+        /// </summary>
+        private void AdicionarCidade()
+        {
+            string adicionarCidadeEmLista = textBoxAdicionarCidade.Text.Trim();
+
+            // Evita duplicatas ou campos vazios
+            if (!string.IsNullOrWhiteSpace(adicionarCidadeEmLista) &&
+                !comboBoxCidadeAdicionada.Items.Contains(adicionarCidadeEmLista))
+            {
+                comboBoxCidadeAdicionada.Items.Add(adicionarCidadeEmLista);
+                textBoxAdicionarCidade.Clear();
+                SalvarCidadeNoArquivo();
+            }
+            else
+            {
+                MessageBox.Show(
+                    "Essa Cidade já foi adicionada ou o campo está vazio.",
+                    "Aviso",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+            }
+        }
+
+        /// <summary>
+        /// Salva todas as cidades do ComboBox no arquivo de persistência.
+        /// </summary>
+        private void SalvarCidadeNoArquivo()
+        {
+            try
+            {
+                File.WriteAllLines(caminhoArquivo1, comboBoxCidadeAdicionada.Items.Cast<string>());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    $"Erro ao salvar os dados: {ex.Message}",
+                    "Erro",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+            }
+        }
+
+        /// <summary>
+        /// Remove a cidade selecionada após confirmação e atualiza o arquivo.
+        /// </summary>
+        private void DeletarCidadeAdicionada()
+        {
+            if (comboBoxCidadeAdicionada.SelectedItem == null)
+            {
+                MessageBox.Show(
+                    "Por favor, selecione uma cidade para excluir.",
+                    "Aviso",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+                return;
+            }
+
+            var resultadoDeConfirmacao = MessageBox.Show(
+                "Você tem certeza que deseja excluir esta cidade?",
+                "Confirmar Exclusão",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
+
+            if (resultadoDeConfirmacao == DialogResult.Yes)
+            {
+                comboBoxCidadeAdicionada.Items.Remove(comboBoxCidadeAdicionada.SelectedItem);
+                SalvarCidadeNoArquivo();
+            }
+        }
+
+        #endregion
+
+        #region Operações com Operadoras
+
+        /// <summary>
+        /// Adiciona uma nova operadora à lista evitando duplicatas.
+        /// </summary>
+        private void AdicionarOperadora()
+        {
+            string adicionarOperadoraEmLista = textBoxAdicionarOperadora.Text.Trim();
+
+            if (!string.IsNullOrWhiteSpace(adicionarOperadoraEmLista) &&
+                !comboBoxOperadoraJaAdicionadas.Items.Contains(adicionarOperadoraEmLista))
+            {
+                comboBoxOperadoraJaAdicionadas.Items.Add(adicionarOperadoraEmLista);
+                textBoxAdicionarOperadora.Clear();
+                SalvarOperadorasNoArquivo();
+            }
+            else
+            {
+                MessageBox.Show(
+                    "Essa operadora já foi adicionada ou o campo está vazio.",
+                    "Aviso",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+            }
+        }
+
+        /// <summary>
+        /// Salva todas as operadoras do ComboBox no arquivo de persistência.
+        /// </summary>
+        private void SalvarOperadorasNoArquivo()
+        {
+            try
+            {
+                File.WriteAllLines(caminhoArquivo, comboBoxOperadoraJaAdicionadas.Items.Cast<string>());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    $"Erro ao salvar os dados: {ex.Message}",
+                    "Erro",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+            }
+        }
+
+        /// <summary>
+        /// Remove a operadora selecionada após confirmação e atualiza o arquivo.
+        /// </summary>
+        private void DeletarOperadoraListada()
+        {
+            if (comboBoxOperadoraJaAdicionadas.SelectedItem == null)
+            {
+                MessageBox.Show(
+                    "Por favor, selecione uma operadora para excluir.",
+                    "Aviso",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+                return;
+            }
+
+            var resultadoDeConfirmacao = MessageBox.Show(
+                "Você tem certeza que deseja excluir esta operadora?",
+                "Confirmar Exclusão",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
+
+            if (resultadoDeConfirmacao == DialogResult.Yes)
+            {
+                comboBoxOperadoraJaAdicionadas.Items.Remove(comboBoxOperadoraJaAdicionadas.SelectedItem);
+                SalvarOperadorasNoArquivo();
+            }
+        }
+
+        #endregion
+
+        #region Carregamento Inicial
+
+        /// <summary>
+        /// Carrega operadoras salvas no arquivo para o ComboBox ao abrir o formulário.
+        /// </summary>
+        private void CarregarOperadoraSalvas()
+        {
+            if (File.Exists(caminhoArquivo))
+            {
+                string[] operadorasSalvas = File.ReadAllLines(caminhoArquivo);
+                comboBoxOperadoraJaAdicionadas.Items.AddRange(operadorasSalvas);
+            }
+        }
+
+        /// <summary>
+        /// Carrega cidades salvas no arquivo para o ComboBox ao abrir o formulário.
+        /// </summary>
+        private void CarregarCidadeSalvas()
+        {
+            if (File.Exists(caminhoArquivo1))
+            {
+                string[] cidadesSalvas = File.ReadAllLines(caminhoArquivo1);
+                comboBoxCidadeAdicionada.Items.AddRange(cidadesSalvas);
+            }
+        }
+
+        #endregion
+
+    }
 }

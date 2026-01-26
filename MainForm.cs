@@ -5,10 +5,18 @@ using NOC_Actions.Uc_AvisosSolicitacoesAoCliente;
 
 namespace NOC_Actions
 {
+    /// <summary>
+    /// Form principal do NOC, responsável por gerenciar:
+    /// - A interface principal do usuário
+    /// - Janelas filhas (Avisos, Massiva, WebForm, Informes)
+    /// - Funções de Clipboard rápidas para mensagens padrões
+    /// - Drag da janela sem borda (Win32)
+    /// </summary>
     public partial class MainForm : Form
     {
         #region Win32 - Drag Window
 
+        // Importações do Win32 para permitir mover janela sem borda
         [DllImport("user32.dll")]
         private static extern bool ReleaseCapture();
 
@@ -20,39 +28,60 @@ namespace NOC_Actions
             int lParam
         );
 
+        // Constantes necessárias para o SendMessage
         private const int WM_NCLBUTTONDOWN = 0xA1;
         private const int HTCAPTION = 0x2;
 
         #endregion
 
-        // Janelas controladas
+        #region Janelas Filhas
+
+        // Referências das janelas filhas para controle de instâncias
         private InterfaceClienteInformes informesWindow;
         private AvisosSolicitacoesAoCliente avisosWindow;
         private MassivaForm massivaWindow;
         private WebForm webFormWindow;
 
+        #endregion
+
+        #region Construtor
+
         public MainForm()
         {
             InitializeComponent();
 
+            // Configuração de aparência: sem borda e sempre no topo
             FormBorderStyle = FormBorderStyle.None;
             TopMost = true;
 
+            // Evento de arrastar a janela clicando no painel PointerMouseMove
             PointerMouseMove.MouseDown += PointerMouseMovePaint_MouseDown;
         }
 
+        #endregion
+
+        #region Win32 Drag Handler
+
+        /// <summary>
+        /// Permite arrastar a janela clicando com o botão esquerdo do mouse
+        /// no painel PointerMouseMove.
+        /// </summary>
         private void PointerMouseMovePaint_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
+                // Libera captura do mouse e envia mensagem para mover janela
                 ReleaseCapture();
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HTCAPTION, 0);
             }
         }
 
-        // ===============================
-        // CLIPBOARD
-        // ===============================
+        #endregion
+
+        #region Clipboard - Mensagens Rápidas
+
+        // Funções que copiam textos padrão para o clipboard.
+        // Cada botão tem um texto específico para situações de NOC.
 
         private void SemEnergiaClick(object sender, EventArgs e)
         {
@@ -103,10 +132,13 @@ namespace NOC_Actions
             );
         }
 
-        // ===============================
-        // JANELAS
-        // ===============================
+        #endregion
 
+        #region Janelas - Gerenciamento e Instâncias
+
+        /// <summary>
+        /// Abre ou traz para frente a janela de Massiva.
+        /// </summary>
         private void BtnAberturaDeMassivaClick(object sender, EventArgs e)
         {
             if (massivaWindow == null || massivaWindow.IsDisposed)
@@ -121,6 +153,9 @@ namespace NOC_Actions
             }
         }
 
+        /// <summary>
+        /// Abre ou fecha a janela de Informes de Clientes.
+        /// </summary>
         private void BtnInformesClientesClick(object sender, EventArgs e)
         {
             if (informesWindow != null && !informesWindow.IsDisposed)
@@ -141,6 +176,9 @@ namespace NOC_Actions
             btnInformesClientes.Text = "Fechar";
         }
 
+        /// <summary>
+        /// Abre ou fecha a janela de Avisos e Solicitações ao Cliente.
+        /// </summary>
         private void BtnAvisoSolicitacoesClick(object sender, EventArgs e)
         {
             if (avisosWindow != null && !avisosWindow.IsDisposed)
@@ -161,6 +199,9 @@ namespace NOC_Actions
             btnAvisoSolicitacoes.Text = "Fechar";
         }
 
+        /// <summary>
+        /// Abre ou traz para frente a janela de WebForm.
+        /// </summary>
         private void BtnCentralNoc(object sender, EventArgs e)
         {
             if (webFormWindow == null || webFormWindow.IsDisposed)
@@ -174,5 +215,8 @@ namespace NOC_Actions
                 webFormWindow.BringToFront();
             }
         }
+
+        #endregion
+    
     }
 }

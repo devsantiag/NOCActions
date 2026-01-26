@@ -4,127 +4,202 @@ using System.Windows.Forms;
 
 namespace NOC_Actions
 {
-	public partial class MassivaForm : Form
-	{
-		// Caminhos para os arquivos de operadoras e cidades armazenados no diretório de dados do usuário
-		private string caminhoArquivoOperadoras = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "operadoras.txt");
-		private string caminhoArquivoCidades = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "cidades.txt");
+    /// <summary>
+    /// Formulário para geração de mensagens de possíveis interrupções em massa (massiva),
+    /// com base em cidades e operadoras previamente cadastradas pelo usuário.
+    /// </summary>
+    public partial class MassivaForm : Form
+    {
+        #region Campos de Persistência
 
-		// Construtor do formulário
-		public MassivaForm()
-		{
-			InitializeComponent();
-			CarregarOperadorasSalvasNoForm();
-			CarregarCidadesSalvasNoForm();
-		}
+        // Caminho do arquivo de operadoras no AppData do usuário
+        private string caminhoArquivoOperadoras = Path.Combine(
+            Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+            "operadoras.txt"
+        );
 
-		// Carrega as cidades salvas no arquivo e adiciona à lista no formulário
-		private void CarregarCidadesSalvasNoForm()
-		{
-			if (File.Exists(caminhoArquivoCidades))
-			{
-				string[] cidadesSalvas = File.ReadAllLines(caminhoArquivoCidades);
-				CidadesSalvasPeloUsuario(cidadesSalvas);
-			}
-		}
+        // Caminho do arquivo de cidades no AppData do usuário
+        private string caminhoArquivoCidades = Path.Combine(
+            Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+            "cidades.txt"
+        );
 
-		// Carrega as operadoras salvas no arquivo e adiciona à lista no formulário
-		private void CarregarOperadorasSalvasNoForm()
-		{
-			if (File.Exists(caminhoArquivoOperadoras))
-			{
-				string[] operadorasSalvas = File.ReadAllLines(caminhoArquivoOperadoras);
-				OperadorasSalvasPeloUsuario(operadorasSalvas);
-			}
-		}
+        #endregion
 
-		// Atualiza a lista de cidades no formulário com os valores carregados
-		public void CidadesSalvasPeloUsuario(string[] cidades)
-		{
-			textBoxCidades.Items.Clear();
-			textBoxCidades.Items.AddRange(cidades);
-			if (textBoxCidades.Items.Count > 0)
-			{
-				textBoxCidades.SelectedIndex = 0; // Seleciona a primeira cidade como padrão
-			}
-		}
+        #region Construtor
 
-		// Atualiza a lista de operadoras no formulário com os valores carregados
-		public void OperadorasSalvasPeloUsuario(string[] operadoras)
-		{
-			textBoxOperadora.Items.Clear();
-			textBoxOperadora.Items.AddRange(operadoras);
-			if (textBoxOperadora.Items.Count > 0)
-			{
-				textBoxOperadora.SelectedIndex = 0; // Seleciona a primeira operadora como padrão
-			}
-		}
+        /// <summary>
+        /// Inicializa o formulário e carrega listas de cidades e operadoras salvas.
+        /// </summary>
+        public MassivaForm()
+        {
+            InitializeComponent();
+            CarregarOperadorasSalvasNoForm();
+            CarregarCidadesSalvasNoForm();
+        }
 
-		// Evento acionado ao clicar no botão "Gerar"
-		private void BtnGerarClick(object sender, EventArgs e)
-		{
-			GerarMensagemDeMassiva();
-		}
+        #endregion
 
-		// Gera uma mensagem de possível massiva com base nos valores selecionados
-		private void GerarMensagemDeMassiva()
-		{
-			textBoxExemplo.Clear();
-			string cidadeAfetada = textBoxCidades.Text.Trim();
-			string operadoraAfetada = textBoxOperadora.Text.Trim();
+        #region Carregamento de Dados
 
-			// Verifica se os campos obrigatórios foram preenchidos
-			if (string.IsNullOrWhiteSpace(cidadeAfetada) || string.IsNullOrWhiteSpace(operadoraAfetada))
-			{
-				MessageBox.Show("Por favor, preencha as informações de cidade e operadora antes de gerar a mensagem.",
-				                "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-				return;
-			}
+        /// <summary>
+        /// Carrega as cidades armazenadas no arquivo e atualiza o ComboBox no formulário.
+        /// </summary>
+        private void CarregarCidadesSalvasNoForm()
+        {
+            if (File.Exists(caminhoArquivoCidades))
+            {
+                string[] cidadesSalvas = File.ReadAllLines(caminhoArquivoCidades);
+                CidadesSalvasPeloUsuario(cidadesSalvas);
+            }
+        }
 
-			// Formata a mensagem informando uma possível falha na operadora
-			string mensagemDeMassiva = string.Format("Possível massiva na região de {0} devido a ambos os links da {1} caírem simultaneamente.", cidadeAfetada, operadoraAfetada);
-			textBoxExemplo.Text = mensagemDeMassiva;
-		}
+        /// <summary>
+        /// Carrega as operadoras armazenadas no arquivo e atualiza o ComboBox no formulário.
+        /// </summary>
+        private void CarregarOperadorasSalvasNoForm()
+        {
+            if (File.Exists(caminhoArquivoOperadoras))
+            {
+                string[] operadorasSalvas = File.ReadAllLines(caminhoArquivoOperadoras);
+                OperadorasSalvasPeloUsuario(operadorasSalvas);
+            }
+        }
 
-		// Evento acionado ao clicar no botão "Copiar"
-		private void ButtonCopiarClick(object sender, EventArgs e)
-		{
-			// Copia o conteúdo da mensagem para a área de transferência
-			if (!string.IsNullOrWhiteSpace(textBoxExemplo.Text))
-			{
-				Clipboard.SetText(textBoxExemplo.Text);
-				clearField();
-			}
-		}
+        #endregion
 
-		// Evento acionado ao clicar no botão "Apagar"
-		private void BtnApagarClick(object sender, EventArgs e)
-		{
-			clearField();
-		}
+        #region Atualização de UI
 
-		// Evento acionado ao clicar no botão "Configurações"
-		private void BtnUserInformationsConfigClick(object sender, EventArgs e)
-		{
-			// Abre a janela de configuração para seleção de arquivos
-			using (UserConfig config = new UserConfig())
-			{
-				config.ShowDialog();
-				// Se um novo arquivo válido for selecionado, recarregar as listas de operadoras e cidades
-				if (!string.IsNullOrEmpty(config.CaminhoArquivo) && File.Exists(config.CaminhoArquivo))
-				{
-					CarregarCidadesSalvasNoForm();
-					CarregarOperadorasSalvasNoForm();
-				}
-			}
-		}
+        /// <summary>
+        /// Atualiza a lista de cidades no ComboBox com os valores fornecidos.
+        /// Seleciona a primeira cidade como padrão se houver dados.
+        /// </summary>
+        public void CidadesSalvasPeloUsuario(string[] cidades)
+        {
+            textBoxCidades.Items.Clear();
+            textBoxCidades.Items.AddRange(cidades);
+            if (textBoxCidades.Items.Count > 0)
+            {
+                textBoxCidades.SelectedIndex = 0; // Seleção padrão
+            }
+        }
 
-//		Parametro responsável por apagar os campos
-		void clearField()
-		{
-			textBoxCidades.Text = string.Empty;
-			textBoxOperadora.Text = string.Empty;
-			textBoxExemplo.Clear();
-		}
-	}
+        /// <summary>
+        /// Atualiza a lista de operadoras no ComboBox com os valores fornecidos.
+        /// Seleciona a primeira operadora como padrão se houver dados.
+        /// </summary>
+        public void OperadorasSalvasPeloUsuario(string[] operadoras)
+        {
+            textBoxOperadora.Items.Clear();
+            textBoxOperadora.Items.AddRange(operadoras);
+            if (textBoxOperadora.Items.Count > 0)
+            {
+                textBoxOperadora.SelectedIndex = 0; // Seleção padrão
+            }
+        }
+
+        #endregion
+
+        #region Geração de Mensagem
+
+        /// <summary>
+        /// Evento do botão "Gerar", dispara a criação da mensagem de massiva.
+        /// </summary>
+        private void BtnGerarClick(object sender, EventArgs e)
+        {
+            GerarMensagemDeMassiva();
+        }
+
+        /// <summary>
+        /// Gera uma mensagem informando possível interrupção em massa
+        /// com base na cidade e operadora selecionadas pelo usuário.
+        /// </summary>
+        private void GerarMensagemDeMassiva()
+        {
+            textBoxExemplo.Clear();
+
+            string cidadeAfetada = textBoxCidades.Text.Trim();
+            string operadoraAfetada = textBoxOperadora.Text.Trim();
+
+            // Validação de campos obrigatórios
+            if (string.IsNullOrWhiteSpace(cidadeAfetada) || string.IsNullOrWhiteSpace(operadoraAfetada))
+            {
+                MessageBox.Show(
+                    "Por favor, preencha as informações de cidade e operadora antes de gerar a mensagem.",
+                    "Atenção",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+                return;
+            }
+
+            // Cria mensagem formatada
+            string mensagemDeMassiva = string.Format(
+                "Possível massiva na região de {0} devido a ambos os links da {1} caírem simultaneamente.",
+                cidadeAfetada,
+                operadoraAfetada
+            );
+
+            textBoxExemplo.Text = mensagemDeMassiva;
+        }
+
+        #endregion
+
+        #region Copiar e Apagar Campos
+
+        /// <summary>
+        /// Copia o texto gerado para a área de transferência e limpa os campos.
+        /// </summary>
+        private void ButtonCopiarClick(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(textBoxExemplo.Text))
+            {
+                Clipboard.SetText(textBoxExemplo.Text);
+                clearField();
+            }
+        }
+
+        /// <summary>
+        /// Limpa todos os campos do formulário.
+        /// </summary>
+        private void BtnApagarClick(object sender, EventArgs e)
+        {
+            clearField();
+        }
+
+        /// <summary>
+        /// Limpa ComboBoxes e TextBox de exemplo.
+        /// </summary>
+        private void clearField()
+        {
+            textBoxCidades.Text = string.Empty;
+            textBoxOperadora.Text = string.Empty;
+            textBoxExemplo.Clear();
+        }
+
+        #endregion
+
+        #region Configurações do Usuário
+
+        /// <summary>
+        /// Abre a janela de configuração para seleção de arquivos personalizados.
+        /// Após selecionar arquivos válidos, recarrega listas de cidades e operadoras.
+        /// </summary>
+        private void BtnUserInformationsConfigClick(object sender, EventArgs e)
+        {
+            using (UserConfig config = new UserConfig())
+            {
+                config.ShowDialog();
+
+                if (!string.IsNullOrEmpty(config.CaminhoArquivo) && File.Exists(config.CaminhoArquivo))
+                {
+                    CarregarCidadesSalvasNoForm();
+                    CarregarOperadorasSalvasNoForm();
+                }
+            }
+        }
+
+        #endregion
+
+    }
 }
