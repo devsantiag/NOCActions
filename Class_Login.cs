@@ -4,13 +4,13 @@ using System;
 
 namespace NOC_Actions
 {
-    public class LoginUsuario
+    public class Class_Login
     {
 //    	login padrão de usuário na máquina
         public string UserLogin_Windows { get; set; }
         public string UserLoginPadrao {get; set; }
         
-        public LoginUsuario()
+        public Class_Login()
         {
             UserLogin_Windows = Environment.UserName;
             UserLoginPadrao = "nocadmin";

@@ -87,6 +87,7 @@
     <Compile Include="AvisosSolicitacoesAoCliente.Designer.cs">
       <DependentUpon>AvisosSolicitacoesAoCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="Class_PopUp.cs" />
     <Compile Include="Class_InformacoesContrato_ReincidenciaDeFalha.cs" />
     <Compile Include="FormDetalhesDoContrato.cs">
       <SubType>UserControl</SubType>
@@ -94,7 +95,7 @@
     <Compile Include="FormDetalhesDoContrato.Designer.cs">
       <DependentUpon>FormDetalhesDoContrato.cs</DependentUpon>
     </Compile>
-    <Compile Include="LoginUsuario.cs" />
+    <Compile Include="Class_Login.cs" />
     <Compile Include="UcDetalharFaturaDoCliente.cs">
       <SubType>UserControl</SubType>
     </Compile>

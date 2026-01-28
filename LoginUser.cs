@@ -5,7 +5,8 @@ namespace NOC_Actions
 {
     public partial class LoginUser : Form
     {
-        private readonly LoginUsuario loginInfo = new LoginUsuario();
+        private readonly Class_Login loginInfo = new Class_Login();
+        private readonly Class_PopUp popupAlert = new Class_PopUp();
 
         public LoginUser()
         {
@@ -35,6 +36,7 @@ namespace NOC_Actions
             {
                 MessageBox.Show("Usuário ou senha incorretos!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
         }
         
         private void BtnSairClick(object sender, EventArgs e)
@@ -44,7 +46,19 @@ namespace NOC_Actions
 
         private void btnAjuda_Click(object sender, EventArgs e)
         {
-
+            popupAlert.Mostrar(
+                "Acesse o NOCActions utilizando as credenciais padrão da sua máquina.\n\n" +
+                "Caso necessite de acesso imediato, utilize as credenciais padrão abaixo:\n\n" +
+                "Credenciais padrão:\n" +
+                "Usuário: nocadmin\n" +
+                "Senha: nocadmin\n\n" +
+                "Credenciais da máquina:\n" +
+                "Usuário: " + loginInfo.UserLogin_Windows + "\n" +
+                "Senha: " + loginInfo.UserLogin_Windows + "\n\n" +
+                "Em caso de dúvidas ou problemas de acesso, entre em contato com o suporte técnico.",
+                "Ajuda — Acesso ao NOCActions"
+            );
         }
+
     }
 }
