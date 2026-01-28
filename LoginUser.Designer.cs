@@ -54,6 +54,7 @@ namespace NOC_Actions
             this.btnLogin = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
+            this.btnAjuda = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -147,11 +148,23 @@ namespace NOC_Actions
             this.label4.TabIndex = 7;
             this.label4.Text = "______________________________________________________";
             // 
+            // btnAjuda
+            // 
+            this.btnAjuda.ForeColor = System.Drawing.Color.Black;
+            this.btnAjuda.Location = new System.Drawing.Point(40, 136);
+            this.btnAjuda.Name = "btnAjuda";
+            this.btnAjuda.Size = new System.Drawing.Size(79, 29);
+            this.btnAjuda.TabIndex = 8;
+            this.btnAjuda.Text = "Ajuda";
+            this.btnAjuda.UseVisualStyleBackColor = true;
+            this.btnAjuda.Click += new System.EventHandler(this.btnAjuda_Click);
+            // 
             // LoginUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(390, 174);
+            this.Controls.Add(this.btnAjuda);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnSair);
             this.Controls.Add(this.btnLogin);
@@ -172,5 +185,6 @@ namespace NOC_Actions
 
 		}
 
-	}
+        private System.Windows.Forms.Button btnAjuda;
+    }
 }

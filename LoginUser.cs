@@ -36,10 +36,15 @@ namespace NOC_Actions
                 MessageBox.Show("Usuário ou senha incorretos!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
+        
         private void BtnSairClick(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btnAjuda_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

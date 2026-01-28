@@ -13,7 +13,7 @@ namespace NOC_Actions
         public LoginUsuario()
         {
             UserLogin_Windows = Environment.UserName;
-            UserLoginPadrao = "admin";
+            UserLoginPadrao = "nocadmin";
         }
     }
 }
